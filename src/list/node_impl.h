@@ -42,14 +42,12 @@ Node<T> *Node<T>::getNext()
 }
 
 template<class T>
-void Node<T>::setNext(Node<T> *next)
-{
+void Node<T>::setNext(Node<T> *next) {
     Node::next = next;
 }
 
 template<class T>
-Node<T> *Node<T>::getPrev()
-{
+Node<T> *Node<T>::getPrev() {
     return prev;
 }
 

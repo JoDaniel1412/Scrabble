@@ -23,7 +23,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        samplelib.cpp
+        samplelib.cpp \
+    game/board.cpp \
+    game/tile.cpp
 
 HEADERS += \
         samplelib.h \
@@ -31,7 +33,9 @@ HEADERS += \
     list/node.h \
     list/list.h \
     list/node_impl.h \
-    list/list_impl.h
+    list/list_impl.h \
+    game/board.h \
+    game/tile.h
 
 unix {
     target.path = /usr/lib

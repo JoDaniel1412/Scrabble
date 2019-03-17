@@ -12,7 +12,7 @@ List<T>::List()
 }
 
 template<class T>
-int List<T>::value(int index)
+T List<T>::value(int index)
 {
     if (index > size - 1) throw invalid_argument("Index out of range");
     if (index < 0) throw invalid_argument("Index cannot be less than 0");

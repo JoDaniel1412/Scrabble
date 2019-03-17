@@ -9,7 +9,7 @@ class List
 public:
     List();
 
-    int value(int index);
+    T value(int index);
 
     void printList();
 
