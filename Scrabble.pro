@@ -2,4 +2,5 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     App \
-    src
+    src \
+    Server
