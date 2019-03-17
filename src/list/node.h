@@ -7,16 +7,28 @@ class Node
 public:
     Node();
 
+    Node(T value);
+
+    Node(T value, Node<T> *next, Node<T> *prev);
+
     T getValue();
 
-    Node *getNext();
+    void setValue(T value);
 
-    Node *getPrev();
+    Node<T> *getNext();
+
+    void setNext(Node<T> *next);
+
+    Node<T> *getPrev();
+
+    void setPrev(Node<T> *prev);
 
 private:
     T value;
-    Node *next;
-    Node *prev;
+    Node<T> *next;
+    Node<T> *prev;
 };
+
+#include "node_impl.h"
 
 #endif // NODE_H

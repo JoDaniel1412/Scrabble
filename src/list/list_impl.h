@@ -12,7 +12,8 @@ List<T>::List()
 }
 
 template<class T>
-int List<T>::value(int index) {
+int List<T>::value(int index)
+{
     if (index > size - 1) throw invalid_argument("Index out of range");
     if (index < 0) throw invalid_argument("Index cannot be less than 0");
 
@@ -23,7 +24,8 @@ int List<T>::value(int index) {
 
 
 template<class T>
-void List<T>::pushHead(T value) {
+void List<T>::pushHead(T value)
+{
     auto *node = new Node<T>(value);
 
     if (size == 0) head = tail = node;
@@ -37,7 +39,8 @@ void List<T>::pushHead(T value) {
 }
 
 template<class T>
-void List<T>::pushTail(T value) {
+void List<T>::pushTail(T value)
+{
     auto *node = new Node<T>(value);
 
     if (size == 0) tail = head = node;
@@ -51,7 +54,8 @@ void List<T>::pushTail(T value) {
 }
 
 template<class T>
-void List<T>::printList() {
+void List<T>::printList()
+{
     Node<T> *node = head;
 
     while (node) {
@@ -63,7 +67,8 @@ void List<T>::printList() {
 }
 
 template<class T>
-void List<T>::deleteValue(int index) {
+void List<T>::deleteValue(int index)
+{
     if (index > size - 1) throw invalid_argument("Index out of range");
     if (index < 0) throw invalid_argument("Index cannot be less than 0");
 
@@ -84,21 +89,22 @@ void List<T>::deleteValue(int index) {
 }
 
 template<class T>
-void List<T>::clean() {
+void List<T>::clean()
+{
     Node<T> *node = head;
 
     while (node) {
         Node<T> *tmp = node;
         node = node->getNext();
         delete tmp;
-        size--;
     }
-
+    size = 0;
     head = nullptr;
 }
 
 template<class T>
-Node<T> *List<T>::getNode(int index) {
+Node<T> *List<T>::getNode(int index)
+{
     Node<T> *node;
     if (index < size / 2) { // Search the node from the Head
         node = head;
@@ -115,16 +121,19 @@ Node<T> *List<T>::getNode(int index) {
 }
 
 template<class T>
-int List<T>::getSize() {
-    return 0;
+int List<T>::getSize()
+{
+    return size;
 }
 
 template<class T>
-int List<T>::getHead() {
+Node<T> *List<T>::getHead()
+{
     return head;
 }
 
 template<class T>
-int List<T>::getTail() {
+Node<T> *List<T>::getTail()
+{
     return tail;
 }

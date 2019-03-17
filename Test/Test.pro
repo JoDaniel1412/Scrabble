@@ -8,8 +8,11 @@ CONFIG -= app_bundle
 CONFIG += thread
 CONFIG -= qt
 
+INCLUDEPATH += ../src
+
 HEADERS += \
-    tst_ListTest.h
+    tst_list.h \
+    tst_node.h
 
 SOURCES += \
         main.cpp

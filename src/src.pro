@@ -23,15 +23,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        samplelib.cpp \
-    list/node.cpp \
-    list/list.cpp
+        samplelib.cpp
 
 HEADERS += \
         samplelib.h \
         src_global.h \ 
     list/node.h \
-    list/list.h
+    list/list.h \
+    list/node_impl.h \
+    list/list_impl.h
 
 unix {
     target.path = /usr/lib

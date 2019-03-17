@@ -23,16 +23,18 @@ public:
 
     int getSize();
 
-    int getHead();
+    Node<T> *getHead();
 
-    int getTail();
+    Node<T> *getTail();
 
     Node<T> *getNode(int index);
 
 private:
     int size;
-    Node<T> head;
-    Node<T> tail;
+    Node<T> *head;
+    Node<T> *tail;
 };
+
+#include "list_impl.h"
 
 #endif // LIST_H
