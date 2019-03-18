@@ -23,25 +23,9 @@
       <height>965</height>
      </rect>
     </property>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>50</y>
-       <width>681</width>
-       <height>161</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>aakar</family>
-       <pointsize>96</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>SCRABBLE</string>
-     </property>
-    </widget>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
