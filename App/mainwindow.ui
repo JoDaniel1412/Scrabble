@@ -6,15 +6,77 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1167</width>
-    <height>609</height>
+    <width>1206</width>
+    <height>721</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="menuWidget" native="true">
+   <widget class="QWidget" name="btnsWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>50</y>
+      <width>671</width>
+      <height>401</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <widget class="QPushButton" name="joinBtn">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>70</y>
+       <width>350</width>
+       <height>89</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"> #joinBtn {
+ background-color: transparent; 
+border-image: url(:join.png);
+ background: none; border: none;
+ background-repeat: none; 
+}
+QPushButton:hover#joinBtn
+{
+	border : 5px solid red;
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="hostBtn">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>220</y>
+       <width>350</width>
+       <height>89</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"> #hostBtn {
+border-image: url(:host.png);
+}
+QPushButton:hover
+{
+	border:10px solid red;
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="scrabbleImg">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -23,17 +85,19 @@
       <height>965</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true"/>
+    <property name="text">
+     <string/>
     </property>
    </widget>
+   <zorder>scrabbleImg</zorder>
+   <zorder>btnsWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1167</width>
+     <width>1206</width>
      <height>22</height>
     </rect>
    </property>

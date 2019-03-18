@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QPixmap>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -7,7 +8,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->resize(1900, 965);
-    ui->menuWidget->setStyleSheet("background-color:black;");
+
+    // Sets the menu image on a label.
+    QPixmap pix("/home/jessica/Scrabble/App/Scrabble.png");
+    ui->scrabbleImg->setPixmap(pix);
+
+    // Positions the buttons
+    ui->btnsWidget->setGeometry(ui->scrabbleImg->width()/2 - (ui->btnsWidget->width()/2 + 30), 400, 500, 400);
 }
 
 MainWindow::~MainWindow()
