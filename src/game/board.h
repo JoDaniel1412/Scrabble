@@ -7,13 +7,25 @@
 class Board
 {
 public:
-    Board *getInstance();
+    static Board *getInstance();
 
-    void add(int i, int j);
+    void load();
+
+    void putLetter(int i, int j, char letter);
+
+    char getLetter(int i, int j);
+
+    List<List<Tile*>*> *getMatrix();
+
+    Tile *getTile(int i, int j);
+
+    void clean();
 
 private:
     static Board *instance;
-    List<List<Tile>> matrix;
+    List<List<Tile*>*> *matrix;
+    int rows;
+    int columns;
 
     Board();  // Private Constructor
 };

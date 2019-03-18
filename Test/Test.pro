@@ -8,11 +8,16 @@ CONFIG -= app_bundle
 CONFIG += thread
 CONFIG -= qt
 
-INCLUDEPATH += ../src
+LIBS += -L../src -lsrc
 
 HEADERS += \
-    tst_list.h \
-    tst_node.h
+    list/tst_list.h \
+    list/tst_node.h \
+    game/tst_tile.h \
+    game/tst_board.h
 
 SOURCES += \
         main.cpp
+
+INCLUDEPATH += ../src/
+DEPENDPATH += $${INCLUDEPATH}  # Force rebuild if the headers change

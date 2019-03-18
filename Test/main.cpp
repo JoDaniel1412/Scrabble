@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
-#include "tst_node.h"
-#include "tst_list.h"
+#include "list/tst_list.h"
+#include "list/tst_node.h"
+#include "game/tst_board.h"
+#include "game/tst_tile.h"
 
 int main(int argc, char *argv[])
 {
