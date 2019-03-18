@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>50</y>
+      <y>60</y>
       <width>671</width>
       <height>401</height>
      </rect>
@@ -37,16 +37,11 @@
      </property>
      <property name="styleSheet">
       <string notr="true"> #joinBtn {
- background-color: transparent; 
-border-image: url(:join.png);
- background: none; border: none;
- background-repeat: none; 
+	background-image: url(:/join.png);
 }
-QPushButton:hover#joinBtn
-{
-	border : 5px solid red;
-}
-</string>
+QPushButton:hover:!pressed{
+border: 5px white;
+}</string>
      </property>
      <property name="text">
       <string/>
@@ -63,13 +58,11 @@ QPushButton:hover#joinBtn
      </property>
      <property name="styleSheet">
       <string notr="true"> #hostBtn {
-border-image: url(:host.png);
+	background-image: url(:/host.png);
 }
-QPushButton:hover
-{
-	border:10px solid red;
-}
-</string>
+QPushButton:hover:!pressed{
+border: 5px white;
+}</string>
      </property>
      <property name="text">
       <string/>

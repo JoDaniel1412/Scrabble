@@ -15,9 +15,18 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Positions the buttons
     ui->btnsWidget->setGeometry(ui->scrabbleImg->width()/2 - (ui->btnsWidget->width()/2 + 30), 400, 500, 400);
+
+    ui->line->setVisible(false);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
+void MainWindow::on_joinBtn_pressed()
+{
+    ui->line->setVisible(true);
+}
+
