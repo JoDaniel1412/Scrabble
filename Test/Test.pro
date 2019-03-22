@@ -9,8 +9,10 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES +=  \
-    tst_boardtest.cpp \
-    tst_tiletest.cpp \
-    main.cpp
+    main.cpp \
+    game/tst_boardtest.cpp \
+    game/tst_tiletest.cpp \
+    game/tst_docktest.cpp \
+
 
 LIBS += -L../src -lmyapp

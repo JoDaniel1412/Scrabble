@@ -63,6 +63,4 @@ void BoardTest::test_getTile()
     QCOMPARE(emptyTile->getLetter(), '0');
 }
 
-//QTEST_APPLESS_MAIN(BoardTest)
-
 #include "tst_boardtest.moc"

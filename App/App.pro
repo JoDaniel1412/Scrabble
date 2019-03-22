@@ -7,7 +7,7 @@
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-include(defaults.pri)
+include(../defaults.pri)
 
 TARGET = App
 TEMPLATE = app
