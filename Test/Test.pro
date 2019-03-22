@@ -8,6 +8,8 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES +=  tst_boardtest.cpp
+SOURCES +=  \
+    tst_boardtest.cpp \
+    tst_tiletest.cpp
 
 LIBS += -L../src -lmyapp

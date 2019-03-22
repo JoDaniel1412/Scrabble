@@ -96,7 +96,7 @@ void List<T>::clean() {
 
 template<class T>
 Node<T> *List<T>::getNode(int index) {
-    if (index > size - 1) throw invalid_argument("Index out of range");
+    if (index > size - 1) throw out_of_range("Index out of range");
     if (index < 0) throw invalid_argument("Index cannot be less than 0");
 
     Node<T> *node;
