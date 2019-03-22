@@ -8,9 +8,7 @@ using namespace std;
 class Game
 {
 public:
-    static Game *instance;
-
-    Game *getInstance();
+    static Game *getInstance();
 
     void passTurn();
 
@@ -21,6 +19,7 @@ public:
     void setPlayers(unordered_map<string, int> *value);
 
 private:
+    static Game *instance;
     bool playing;
     unordered_map<string, int> *players;  // Players names and points
 

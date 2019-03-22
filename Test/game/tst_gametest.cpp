@@ -2,7 +2,7 @@
 
 GameTest::GameTest()
 {
-
+    Game::getInstance();
 }
 
 GameTest::~GameTest()
