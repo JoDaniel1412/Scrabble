@@ -1,6 +1,7 @@
-#include "game/tst_boardtest.cpp"
-#include "game/tst_tiletest.cpp"
-#include <game/tst_docktest.cpp>
+#include "game/tst_boardtest.h"
+#include "game/tst_tiletest.h"
+#include "game/tst_docktest.h"
+#include "game/tst_gametest.h"
 
 
 int main(int argc, char** argv)
@@ -17,6 +18,10 @@ int main(int argc, char** argv)
     {
        DockTest tc;
        status |= QTest::qExec(&tc, argc, argv);
+    }
+    {
+        GameTest tc;
+        status |= QTest::qExec(&tc, argc, argv);
     }
     return status;
 }

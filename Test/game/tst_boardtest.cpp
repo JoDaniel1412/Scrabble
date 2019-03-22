@@ -1,23 +1,4 @@
-#include <QtTest>
-
-#include <game/board.h>
-
-// add necessary includes here
-
-class BoardTest : public QObject
-{
-    Q_OBJECT
-
-public:
-    BoardTest();
-    ~BoardTest();
-
-private slots:
-    void test_load();
-    void test_putLetter();
-    void test_getTile();
-
-};
+#include "tst_boardtest.h"
 
 BoardTest::BoardTest()
 {
@@ -62,5 +43,3 @@ void BoardTest::test_getTile()
     QVERIFY(emptyTile->isFree());
     QCOMPARE(emptyTile->getLetter(), '0');
 }
-
-#include "tst_boardtest.moc"

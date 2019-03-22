@@ -1,21 +1,4 @@
-#include <QtTest>
-
-#include <game/tile.h>
-
-// add necessary includes here
-
-class TileTest : public QObject
-{
-    Q_OBJECT
-
-public:
-    TileTest();
-    ~TileTest();
-
-private slots:
-    void test_get_set();
-
-};
+#include "tst_tiletest.h"
 
 TileTest::TileTest()
 {
@@ -47,7 +30,3 @@ void TileTest::test_get_set()
     QVERIFY(!tile.isFree());
     QCOMPARE(tile.getBonus(), 4);
 }
-
-//QTEST_APPLESS_MAIN(TileTest)
-
-#include "tst_tiletest.moc"
