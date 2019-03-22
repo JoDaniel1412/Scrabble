@@ -7,6 +7,7 @@
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+include(defaults.pri)
 
 TARGET = App
 TEMPLATE = app
@@ -33,6 +34,8 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
+
+LIBS += -L../src -lmyapp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
