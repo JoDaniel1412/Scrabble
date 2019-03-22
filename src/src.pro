@@ -14,10 +14,12 @@ HEADERS += \
     list/Node_impl.h \
     game/board.h \
     game/tile.h \
-    game/dock.h
+    game/dock.h \
+    game/game.h
 
 SOURCES += \
         main.cpp \
     game/board.cpp \
     game/tile.cpp \
-    game/dock.cpp
+    game/dock.cpp \
+    game/game.cpp
