@@ -64,6 +64,22 @@ void List<T>::printList() {
 }
 
 template<class T>
+int List<T>::index(T value) {
+    int index = -1;
+    Node<T> *node = head;
+
+    for (int i = 0; i < size; i++) {
+        if(node->getValue() == value) {
+            index = i;
+            break;
+        }
+        node = node->getNext();
+    }
+
+    return index;
+}
+
+template<class T>
 void List<T>::deleteValue(int index) {
     Node<T> *node = getNode(index);  // Gets the node in the index
 

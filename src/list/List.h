@@ -25,6 +25,8 @@ public:
 
     void deleteValue(int index);
 
+    int index(T value);
+
     void clean();
 
     int getSize();

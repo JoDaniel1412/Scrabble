@@ -12,7 +12,7 @@ public:
 
     void passTurn();
 
-    bool getPlaying() const;
+    bool isPlaying() const;
     void setPlaying(bool value);
 
     unordered_map<string, int> *getPlayers() const;

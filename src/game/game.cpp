@@ -19,7 +19,7 @@ void Game::passTurn()
     playing = false;
 }
 
-bool Game::getPlaying() const
+bool Game::isPlaying() const
 {
     return playing;
 }
