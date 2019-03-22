@@ -13,9 +13,11 @@ HEADERS += \
     list/List_impl.h \
     list/Node_impl.h \
     game/board.h \
-    game/tile.h
+    game/tile.h \
+    game/dock.h
 
 SOURCES += \
         main.cpp \
     game/board.cpp \
-    game/tile.cpp
+    game/tile.cpp \
+    game/dock.cpp
