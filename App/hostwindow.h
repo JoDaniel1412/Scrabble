@@ -15,6 +15,9 @@ public:
     explicit HostWindow(QWidget *parent = nullptr);
     ~HostWindow();
 
+private slots:
+    void on_horizontalSlider_sliderMoved(int position);
+
 private:
     Ui::HostWindow *ui;
 };
