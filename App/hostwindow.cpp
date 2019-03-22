@@ -7,11 +7,8 @@ HostWindow::HostWindow(QWidget *parent) :
     ui(new Ui::HostWindow)
 {
     ui->setupUi(this);
-    this->resize(960, 730);
+    this->resize(1024, 768);
 
-    // Sets the menu image on a label.
-    QPixmap pix("/home/jessica/Scrabble/App/background.png");
-    ui->hostBg->setPixmap(pix);
 }
 
 HostWindow::~HostWindow()

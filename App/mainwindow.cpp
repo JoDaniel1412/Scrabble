@@ -8,20 +8,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->resize(900, 800);
-
-    // Sets the menu image on a label.
-    QPixmap pix("/home/jessica/Scrabble/App/Scrabble.png");
-    ui->scrabbleImg->setPixmap(pix);
-
-    // Positions the buttons
-    ui->btnsWidget->setGeometry(ui->scrabbleImg->width()/2 - (ui->btnsWidget->width()/2 + 30), 400, 500, 400);
+    this->resize(1024, 768);
 
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+
 }
 
 //Changes from mainWindow to hostWindow.

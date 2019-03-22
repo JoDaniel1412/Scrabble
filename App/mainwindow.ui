@@ -6,91 +6,86 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1206</width>
-    <height>721</height>
+    <width>1024</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#centralWidget{
+	background-image: url(:/Scrabble.png);
+}</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="btnsWidget" native="true">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>70</y>
-      <width>671</width>
-      <height>401</height>
+      <x>430</x>
+      <y>340</y>
+      <width>201</width>
+      <height>161</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <widget class="QPushButton" name="joinBtn">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>130</y>
-       <width>200</width>
-       <height>52</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"> #joinBtn {
+    <layout class="QVBoxLayout" name="vBox">
+     <item>
+      <widget class="QPushButton" name="joinBtn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>52</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> #joinBtn {
 	background-image: url(:/join.png);
 }
 QPushButton:hover:!pressed{
 border: 5px white;
 }</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="hostBtn">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>230</y>
-       <width>200</width>
-       <height>50</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"> #hostBtn {
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="hostBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>52</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> #hostBtn {
 	background-image: url(:/host.png);
 }
 QPushButton:hover:!pressed{
 border: 5px white;
 }</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QLabel" name="scrabbleImg">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>900</width>
-      <height>800</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <zorder>scrabbleImg</zorder>
-   <zorder>btnsWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1206</width>
+     <width>1024</width>
      <height>22</height>
     </rect>
    </property>

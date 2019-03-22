@@ -6,26 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>960</width>
-    <height>725</height>
+    <width>1024</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="hostBg">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>960</width>
-     <height>730</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
+  <property name="styleSheet">
+   <string notr="true"> #HostWindow{
+	background-image: url(:/background2.jpg);
+}</string>
+  </property>
  </widget>
  <resources/>
  <connections/>
