@@ -10,6 +10,7 @@ TEMPLATE = app
 
 SOURCES +=  \
     tst_boardtest.cpp \
-    tst_tiletest.cpp
+    tst_tiletest.cpp \
+    main.cpp
 
 LIBS += -L../src -lmyapp
