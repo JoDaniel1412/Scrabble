@@ -32,7 +32,6 @@ BoardTest::~BoardTest()
 void BoardTest::test_load()
 {
     Board *board = Board::getInstance();
-    board->load();
     auto matrix = board->getMatrix();
 
     // Checks for the dimension of the matrix
