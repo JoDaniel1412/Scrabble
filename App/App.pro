@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,17 +29,20 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     hostwindow.cpp \
-    joinwindow.cpp
+    joinwindow.cpp \
+    propertieswindow.cpp
 
 HEADERS += \
         mainwindow.h \
     hostwindow.h \
-    joinwindow.h
+    joinwindow.h \
+    propertieswindow.h
 
 FORMS += \
         mainwindow.ui \
     hostwindow.ui \
-    joinwindow.ui
+    joinwindow.ui \
+    propertieswindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

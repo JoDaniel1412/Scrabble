@@ -2,6 +2,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QPixmap>
+#include <QtNetwork/QHostAddress>
+#include <QNetworkInterface>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -32,4 +34,13 @@ void MainWindow::on_joinBtn_clicked()
     this -> hide( );
     joinWindow = new JoinWindow(this);
     joinWindow -> show();
+}
+
+void MainWindow::on_configBtn_clicked()
+{
+    const QHostAddress &localhost = QHostAddress(QHostAddress::LocalHost);
+    foreach (const QHostAddress &address, QNetworkInterface::allAddresses()) {
+        if (address.protocol() == QAbstractSocket::IPv4Protocol && address != localhost)
+             qDebug() << address.toString();
+    }
 }
