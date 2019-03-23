@@ -27,18 +27,15 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    hostwindow.cpp \
-    joinwindow.cpp
+    hostwindow.cpp
 
 HEADERS += \
         mainwindow.h \
-    hostwindow.h \
-    joinwindow.h
+    hostwindow.h
 
 FORMS += \
         mainwindow.ui \
-    hostwindow.ui \
-    joinwindow.ui
+    hostwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
