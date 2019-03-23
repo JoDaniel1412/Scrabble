@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "hostwindow.h"
+#include "joinwindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -14,6 +15,7 @@ class MainWindow : public QMainWindow
 
              private:
                 HostWindow * hostWindow;
+                JoinWindow * joinWindow;
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
@@ -21,6 +23,8 @@ public:
 
 private slots:
     void on_hostBtn_clicked();
+
+    void on_joinBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

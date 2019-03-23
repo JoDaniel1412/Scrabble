@@ -24,7 +24,7 @@
      <x>330</x>
      <y>170</y>
      <width>391</width>
-     <height>321</height>
+     <height>393</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="vBox">
@@ -111,6 +111,25 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="hostGameBtn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#hostGameBtn{
+	background-color: rgb(46, 52, 54);
+	color: rgb(238, 238, 236);
+}</string>
+      </property>
+      <property name="text">
+       <string>HOST GAME!</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QLabel" name="title">
@@ -154,6 +173,25 @@
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="returnBtn">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>630</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#returnBtn{
+	background-color: rgb(46, 52, 54);
+	color: rgb(238, 238, 236);
+}</string>
+   </property>
+   <property name="text">
+    <string>Return</string>
    </property>
   </widget>
  </widget>

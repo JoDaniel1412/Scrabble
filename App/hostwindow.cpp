@@ -27,3 +27,12 @@ void HostWindow::on_horizontalSlider_sliderMoved(int position)
     ui->playersLb->setFont(font);
     ui->playersLb->setAlignment(Qt::AlignCenter);
 }
+
+void HostWindow::on_returnBtn_clicked()
+{
+    this->hide();
+
+    // Show the MainWindow (i.e. the parent window)
+    QWidget *parent = this->parentWidget();
+    parent->show();
+}

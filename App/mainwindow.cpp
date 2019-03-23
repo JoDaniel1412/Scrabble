@@ -22,7 +22,14 @@ MainWindow::~MainWindow()
 void MainWindow::on_hostBtn_clicked()
 {
     this -> hide( );
-    hostWindow = new HostWindow( );
+    hostWindow = new HostWindow(this);
     hostWindow -> show();
 
+}
+
+void MainWindow::on_joinBtn_clicked()
+{
+    this -> hide( );
+    joinWindow = new JoinWindow(this);
+    joinWindow -> show();
 }
