@@ -37,7 +37,7 @@ private slots:
 
     void on_joinBtn_clicked();
 
-    void on_configBtn_clicked();
+    void on_propertiesBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

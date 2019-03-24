@@ -63,7 +63,7 @@ MainWindow::~MainWindow()
 // Changes from mainWindow to hostWindow.
 void MainWindow::on_hostBtn_clicked()
 {
-    this -> hide( );
+    this -> hide();
     hostWindow = new HostWindow(this);
     hostWindow -> show();
 
@@ -78,12 +78,10 @@ void MainWindow::on_joinBtn_clicked()
 }
 
 // Displays properites Window.
-void MainWindow::on_configBtn_clicked()
+void MainWindow::on_propertiesBtn_clicked()
 {
-    this -> hide( );
     propertiesWindow = new PropertiesWindow(this);
     propertiesWindow -> show();
-    getIP();
 }
 
 // Saves settings changes when MainWindow is closed.
