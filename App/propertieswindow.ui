@@ -70,13 +70,7 @@ font: 57 14pt &quot;aakar&quot;;
      </widget>
     </item>
     <item>
-     <widget class="QTextEdit" name="ipEntry">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>40</height>
-       </size>
-      </property>
+     <widget class="QLineEdit" name="ipEntry">
       <property name="styleSheet">
        <string notr="true">#ipEntry{
 	font: 57 18pt &quot;aakar&quot;;
