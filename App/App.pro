@@ -8,6 +8,7 @@ QT       += core gui
 QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+include(../defaults.pri)
 
 TARGET = App
 TEMPLATE = app
@@ -43,6 +44,8 @@ FORMS += \
     hostwindow.ui \
     joinwindow.ui \
     propertieswindow.ui
+
+LIBS += -L../src -lmyapp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

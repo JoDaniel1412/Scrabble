@@ -1,0 +1,24 @@
+#ifndef TST_GAMETEST_H
+#define TST_GAMETEST_H
+
+#include<QTest>
+
+#include<game/game.h>
+
+class GameTest : public QObject
+{
+    Q_OBJECT
+
+public:
+    GameTest();
+    ~GameTest();
+
+private slots:
+    void test_passTurn();
+
+
+};
+
+//#include "tst_gametest.moc"
+
+#endif // TST_GAMETEST_H

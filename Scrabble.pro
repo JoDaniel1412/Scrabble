@@ -2,5 +2,12 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     App \
+    Server \
     src \
-    Server
+    Test
+
+App.depends = src
+Test.depends = src
+
+DISTFILES += \
+    defaults.pri
