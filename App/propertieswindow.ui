@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true"> #PropertiesWindow{
-	background-image: url(:/background2.jpg);
+	background-image: url(:/Img/background2.jpg);
 }</string>
   </property>
   <widget class="QPushButton" name="saveChangesBtn">
@@ -78,6 +78,9 @@ font: 57 14pt &quot;aakar&quot;;
 	color: rgb(238, 238, 236);
 }</string>
       </property>
+      <property name="placeholderText">
+       <string>127.0.0.1</string>
+      </property>
      </widget>
     </item>
    </layout>
@@ -114,19 +117,16 @@ font: 57 14pt &quot;aakar&quot;;
      </widget>
     </item>
     <item>
-     <widget class="QTextEdit" name="portEntry_3">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>40</height>
-       </size>
-      </property>
+     <widget class="QLineEdit" name="portEntry">
       <property name="styleSheet">
-       <string notr="true">#portEntry_3{
+       <string notr="true">#portEntry{
 	font: 57 18pt &quot;aakar&quot;;
 	background-color: rgb(46, 52, 54);
 	color: rgb(238, 238, 236);
 }</string>
+      </property>
+      <property name="placeholderText">
+       <string>1234</string>
       </property>
      </widget>
     </item>
