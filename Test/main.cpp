@@ -2,6 +2,7 @@
 #include "game/tst_tiletest.h"
 #include "game/tst_docktest.h"
 #include "game/tst_gametest.h"
+#include "dict/tst_wordsdicttest.h"
 
 
 int main(int argc, char** argv)
@@ -21,6 +22,10 @@ int main(int argc, char** argv)
     }
     {
         GameTest tc;
+        status |= QTest::qExec(&tc, argc, argv);
+    }
+    {
+        WordsDictTest tc;
         status |= QTest::qExec(&tc, argc, argv);
     }
     return status;
