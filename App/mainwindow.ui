@@ -45,7 +45,7 @@ background-image: url(:/Img/Scrabble.png);
        </property>
        <property name="styleSheet">
         <string notr="true"> #joinBtn {
-	background-image: url(:/join.png);
+	background-image: url(:/Img/join.png);
 }
 QPushButton:hover:!pressed{
 border: 5px white;
@@ -66,7 +66,7 @@ border: 5px white;
        </property>
        <property name="styleSheet">
         <string notr="true"> #hostBtn {
-	background-image: url(:/host.png);
+	background-image: url(:/Img/host.png);
 }
 QPushButton:hover:!pressed{
 border: 5px white;
@@ -90,7 +90,7 @@ border: 5px white;
     </property>
     <property name="styleSheet">
      <string notr="true"> #propertiesBtn {
-	background-image: url(:/configIcon.png);
+	background-image: url(:/Img/configIcon.png);
 }
 QPushButton:hover:!pressed{
 border: 5px white;

@@ -1,6 +1,7 @@
 #include "joinwindow.h"
 #include "ui_joinwindow.h"
 #include "mainwindow.h"
+#include "gamewindow.h"
 
 JoinWindow::JoinWindow(QWidget *parent) :
     QDialog(parent),
@@ -22,4 +23,11 @@ void JoinWindow::on_returnBtn_clicked()
     // Show the MainWindow (i.e. the parent window)
     QWidget *parent = this->parentWidget();
     parent->show();
+}
+
+void JoinWindow::on_joinGameBtn_clicked()
+{
+    this -> hide();
+    gameWindow = new GameWindow(this);
+    gameWindow -> show();
 }
