@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#centralWidget{
-	background-image: url(:/Scrabble.png);
+background-image: url(:/Img/Scrabble.png);
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">

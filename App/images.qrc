@@ -1,10 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file>host.png</file>
-        <file>join.png</file>
-        <file>Scrabble.png</file>
-        <file>background.png</file>
-        <file>configIcon.png</file>
-        <file>background2.jpg</file>
+        <file>Img/background2.jpg</file>
+        <file>Img/host.png</file>
+        <file>Img/join.png</file>
+        <file>Img/Scrabble.png</file>
+        <file>Img/configIcon.png</file>
     </qresource>
 </RCC>
