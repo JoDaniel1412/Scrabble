@@ -3,7 +3,7 @@
 #include <QDir>
 
 QString WordsDict::path = QDir().rootPath() +
-        "usr/share/dict/words";
+        "usr/share/dict/spanish";
 
 bool WordsDict::isWord(QString word)
 {
