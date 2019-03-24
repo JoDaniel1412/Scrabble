@@ -79,7 +79,7 @@ border: 5px white;
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="configBtn">
+   <widget class="QPushButton" name="propertiesBtn">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -89,7 +89,7 @@ border: 5px white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"> #configBtn {
+     <string notr="true"> #propertiesBtn {
 	background-image: url(:/configIcon.png);
 }
 QPushButton:hover:!pressed{
