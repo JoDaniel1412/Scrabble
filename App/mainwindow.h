@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include "hostwindow.h"
 #include "joinwindow.h"
+#include <QVariant>
+#include <QString>
+#include "propertieswindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -16,10 +19,18 @@ class MainWindow : public QMainWindow
              private:
                 HostWindow * hostWindow;
                 JoinWindow * joinWindow;
+                PropertiesWindow * propertiesWindow;
 
 public:
+    QString getIP();
+
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    void closeEvent(QCloseEvent *e);
+
+    QString ip;
+
 
 private slots:
     void on_hostBtn_clicked();
@@ -31,5 +42,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
 };
+
+
+void saveSettings(const QString &key, const QVariant &valor);
+QVariant loadSettings(const QString &llave);
 
 #endif // MAINWINDOW_H
