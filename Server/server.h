@@ -5,19 +5,27 @@
 #include <QDebug>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include <QtCore>
+
 
 class Server : public QObject
 {
     Q_OBJECT
 public:
-    explicit Server(QObject *parent = nullptr);
+    explicit Server(QObject *parent = 0);
 
 signals:
+    void dataReceived(QByteArray);
 
 public slots:
     void newConnection();
+    void disconnected();
+    void readyRead();
+    qint32 ArrayToIint(QByteArray source);
 
 private:
     QTcpServer *server;
+    QHash<QTcpSocket*, QByteArray*> buffers; //We need a buffer to store data until block has completely received
+    QHash<QTcpSocket*, qint32*> sizes; //We need to store the size to verify if a block has received completely
 };
 #endif // SERVER_H
