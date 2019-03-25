@@ -23,3 +23,10 @@ void JoinWindow::on_returnBtn_clicked()
     QWidget *parent = this->parentWidget();
     parent->show();
 }
+
+void JoinWindow::on_joinGameBtn_clicked()
+{
+    Client *client = new Client();
+    client->connectToHost();
+    client->writeData("hey server");
+}

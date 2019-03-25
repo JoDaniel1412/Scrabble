@@ -1,7 +1,7 @@
 #include "server.h"
 
 
-static inline qint32 ArrayToInt(QByteArray source);
+//static inline qint32 ArrayToInt(QByteArray source);
 
 Server::Server(QObject *parent) : QObject(parent)
 {

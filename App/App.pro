@@ -31,13 +31,15 @@ SOURCES += \
         mainwindow.cpp \
     hostwindow.cpp \
     joinwindow.cpp \
-    propertieswindow.cpp
+    propertieswindow.cpp \
+    Client/client.cpp
 
 HEADERS += \
         mainwindow.h \
     hostwindow.h \
     joinwindow.h \
-    propertieswindow.h
+    propertieswindow.h \
+    Client/client.h
 
 FORMS += \
         mainwindow.ui \

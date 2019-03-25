@@ -2,6 +2,7 @@
 #define JOINWINDOW_H
 
 #include <QDialog>
+#include "Client/client.h"
 
 namespace Ui {
 class JoinWindow;
@@ -17,6 +18,8 @@ public:
 
 private slots:
     void on_returnBtn_clicked();
+
+    void on_joinGameBtn_clicked();
 
 private:
     Ui::JoinWindow *ui;
