@@ -24,7 +24,18 @@ GameWindow::~GameWindow()
 void GameWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
     QWidget::mouseDoubleClickEvent(event);
-    moving_label = ui->label;
+        int mouseX = event->x();
+        int mouseY = event->y();
+        int labelX = ui->label->x();
+        int labelY = ui->label->y();
+        int labelWidth = ui->label->width();
+        int labelHeight = ui->label->height();
+
+        // Verifies that the mouse double click is within the label's limits.
+    if (mouseX > labelX and mouseX < labelX + labelWidth and
+            mouseY > labelY and mouseY < labelY + labelHeight){
+        moving_label = ui->label;
+    }
 }
 
 void GameWindow::mouseMoveEvent(QMouseEvent *event)
@@ -41,6 +52,10 @@ void GameWindow::mousePressEvent(QMouseEvent *event)
 {
     QWidget::mousePressEvent(event);
     moving_label = nullptr;
+    QString x = QString::number(event->x());
+    QString y = QString::number(event->y());
+
+    qInfo() << "X: " + x + " " + "Y: " + y;
 
 }
 
@@ -57,7 +72,7 @@ void GameWindow::makeLabelBoard(int size)
 {
     for(int i = 0; i < size; i++){
         for(int j = 0; j < size; j++){
-            ui->label->setParent(ui->frame);
+            ui->label->setGeometry(10, 10, 50,50);
         }
     }
 }

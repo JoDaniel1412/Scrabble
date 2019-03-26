@@ -10,6 +10,9 @@
     <height>800</height>
    </rect>
   </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
@@ -31,20 +34,17 @@ background-image: url(:/Img/configIcon.png);
     <string/>
    </property>
   </widget>
-  <widget class="QFrame" name="frame">
+  <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>150</y>
-     <width>541</width>
-     <height>281</height>
+     <x>70</x>
+     <y>40</y>
+     <width>931</width>
+     <height>431</height>
     </rect>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
+   <property name="mouseTracking">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>
