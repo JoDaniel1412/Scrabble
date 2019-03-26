@@ -4,6 +4,7 @@
 #include <qlabel.h>
 #include <QDebug>
 #include <QMouseEvent>
+#include "list/List.h"
 
 
 GameWindow::GameWindow(QWidget *parent) :
@@ -11,7 +12,7 @@ GameWindow::GameWindow(QWidget *parent) :
     ui(new Ui::GameWindow)
 {
     ui->setupUi(this);
-    fillGrid(15);
+    makeLabelBoard(15);
     QWidget::setMouseTracking(true);
 
 }
@@ -23,9 +24,7 @@ GameWindow::~GameWindow()
 void GameWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
     QWidget::mouseDoubleClickEvent(event);
-    QString x = QString::number(event->x());
-    QString y = QString::number(event->y());
-    qInfo() << "Double Click: " + x + " " + y;
+    moving_label = ui->label;
 }
 
 void GameWindow::mouseMoveEvent(QMouseEvent *event)
@@ -41,24 +40,24 @@ void GameWindow::mouseMoveEvent(QMouseEvent *event)
 void GameWindow::mousePressEvent(QMouseEvent *event)
 {
     QWidget::mousePressEvent(event);
-    moving_label = ui->label;
-    mouseMoveEvent(event);
-    ui->label->move(movingX - 25, movingY - 25);
+    moving_label = nullptr;
 
 }
 
 void GameWindow::mouseReleaseEvent(QMouseEvent *event)
 {
     QWidget::mouseReleaseEvent(event);
-    ui->label->repaint(movingX - 25, movingY - 25, 20, 20);
+    int x = event->x();
+    int y = event->y();
+    ui->label->repaint(x - 25, x - 25, 20, 20);
 }
 
 // Fills the grid(size x size) with labels.
-void GameWindow::fillGrid(int size)
+void GameWindow::makeLabelBoard(int size)
 {
     for(int i = 0; i < size; i++){
         for(int j = 0; j < size; j++){
-            ui->boardGrid->addWidget(new QLabel("B"), i,j);
+            ui->label->setParent(ui->frame);
         }
     }
 }

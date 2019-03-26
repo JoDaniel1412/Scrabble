@@ -35,7 +35,7 @@ private slots:
 private:
 
     Ui::GameWindow *ui;
-    void fillGrid(int size);
+    void makeLabelBoard(int size);
 };
 
 #endif // GAMEWINDOW_H
