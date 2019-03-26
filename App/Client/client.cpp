@@ -31,3 +31,15 @@ QByteArray IntToArray(qint32 source)
     data << source;
     return temp;
 }
+
+void Client::setServerKey(int Key)
+{
+    this->serverKey = Key;
+}
+
+int Client::getServerKey()
+{
+    return this->serverKey;
+}
+
+
