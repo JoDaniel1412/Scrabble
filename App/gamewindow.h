@@ -3,6 +3,7 @@
 #include <QDialog>
 #include <QMouseEvent>
 #include <QLabel>
+#include "labelwrapper.h"
 
 namespace Ui {
 class GameWindow;
@@ -27,15 +28,11 @@ protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
 
-private slots:
-    void on_pushButton_pressed();
-
-    void on_pushButton_released();
-
 private:
 
     Ui::GameWindow *ui;
     void makeLabelBoard(int size);
+    void collision(LabelWrapper lb1, QLabel lb2);
 };
 
 #endif // GAMEWINDOW_H

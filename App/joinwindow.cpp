@@ -29,5 +29,6 @@ void JoinWindow::on_joinGameBtn_clicked()
 {
     this -> hide();
     gameWindow = new GameWindow(this);
+    gameWindow->showFullScreen();
     gameWindow -> show();
 }

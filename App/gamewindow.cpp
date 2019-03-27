@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QMouseEvent>
 #include "list/List.h"
+#include "labelwrapper.h"
 
 
 GameWindow::GameWindow(QWidget *parent) :
@@ -64,16 +65,37 @@ void GameWindow::mouseReleaseEvent(QMouseEvent *event)
     QWidget::mouseReleaseEvent(event);
     int x = event->x();
     int y = event->y();
-    ui->label->repaint(x - 25, x - 25, 20, 20);
+    ui->label->repaint(x - 25, y - 25, 20, 20);
 }
 
 // Fills the grid(size x size) with labels.
 void GameWindow::makeLabelBoard(int size)
 {
     for(int i = 0; i < size; i++){
+
         for(int j = 0; j < size; j++){
-            ui->label->setGeometry(10, 10, 50,50);
+
+            LabelWrapper *label = new LabelWrapper();
+            label->makeLabel();
+            label->setCoords(i, j);
+
+            label->qLabel->setText(QString::number(label->get_i()) + " " + QString::number(label->get_j()));
+
+            ui->boardGrid->setParent(ui->boardWidget);
+            ui->boardGrid->addWidget(label->qLabel, i,j);
+
+            // Enables getting mouse positions.
+            ui->gridLayoutWidget->setMouseTracking(true);
+            ui->boardWidget->setMouseTracking(true);
         }
     }
 }
+
+void GameWindow::collision(LabelWrapper lb1, QLabel lb2)
+{
+
+}
+
+
+
 

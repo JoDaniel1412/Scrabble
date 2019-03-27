@@ -32,14 +32,16 @@ SOURCES += \
     hostwindow.cpp \
     joinwindow.cpp \
     propertieswindow.cpp \
-    gamewindow.cpp
+    gamewindow.cpp \
+    labelwrapper.cpp
 
 HEADERS += \
         mainwindow.h \
     hostwindow.h \
     joinwindow.h \
     propertieswindow.h \
-    gamewindow.h
+    gamewindow.h \
+    labelwrapper.h
 
 FORMS += \
         mainwindow.ui \
