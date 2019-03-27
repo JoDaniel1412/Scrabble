@@ -53,10 +53,6 @@ void GameWindow::mousePressEvent(QMouseEvent *event)
 {
     QWidget::mousePressEvent(event);
     moving_label = nullptr;
-    QString x = QString::number(event->x());
-    QString y = QString::number(event->y());
-
-    qInfo() << "X: " + x + " " + "Y: " + y;
 
 }
 
@@ -75,7 +71,7 @@ void GameWindow::makeLabelBoard(int size)
 
         for(int j = 0; j < size; j++){
 
-            LabelWrapper *label = new LabelWrapper();
+            label = new LabelWrapper();
             label->makeLabel();
             label->setCoords(i, j);
 
@@ -87,13 +83,20 @@ void GameWindow::makeLabelBoard(int size)
             // Enables getting mouse positions.
             ui->gridLayoutWidget->setMouseTracking(true);
             ui->boardWidget->setMouseTracking(true);
+
+            // Adds labels to a list.
+            labelList->pushTail(label);
         }
     }
 }
 
-void GameWindow::collision(LabelWrapper lb1, QLabel lb2)
+bool GameWindow::collision(QLabel *lb1, QLabel *lb2)
 {
-
+    bool result = false;
+    if (lb1->x() > lb2->x() and lb1->x() < lb2->x() + lb2->width() and lb1->y() > lb2->y() and lb1->y() < lb2->y() + lb2->height()){
+        qInfo() << "Collision";
+        result = true;
+    }
 }
 
 

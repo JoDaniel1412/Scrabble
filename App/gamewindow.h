@@ -4,6 +4,7 @@
 #include <QMouseEvent>
 #include <QLabel>
 #include "labelwrapper.h"
+#include "list/List.h"
 
 namespace Ui {
 class GameWindow;
@@ -21,6 +22,10 @@ public:
 
     QLabel * moving_label = nullptr;
 
+    LabelWrapper *label = nullptr;
+
+    List<LabelWrapper*> * labelList = new List<LabelWrapper*>();
+
 protected:
 
     void mouseDoubleClickEvent(QMouseEvent *event) override;
@@ -32,7 +37,7 @@ private:
 
     Ui::GameWindow *ui;
     void makeLabelBoard(int size);
-    void collision(LabelWrapper lb1, QLabel lb2);
+    bool collision(QLabel * lb1, QLabel * lb2);
 };
 
 #endif // GAMEWINDOW_H
