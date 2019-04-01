@@ -1,13 +1,13 @@
 #include <QCoreApplication>
 #include <iostream>
-#include "server.h"
+#include "serverConnection.h"
 
 using namespace std;
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    Server mServer;
+    serverConnection mServer;
 
     return a.exec();
 }
