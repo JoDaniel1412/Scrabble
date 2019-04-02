@@ -1,7 +1,7 @@
 #include "joinwindow.h"
 #include "ui_joinwindow.h"
 #include "mainwindow.h"
-#include "gamewindow.h"
+#include <QJsonObject>
 
 JoinWindow::JoinWindow(QWidget *parent) :
     QDialog(parent),
@@ -27,14 +27,15 @@ void JoinWindow::on_returnBtn_clicked()
 
 void JoinWindow::on_joinGameBtn_clicked()
 {
-
     Client *client = new Client();
     client->connectToHost();
-    client->writeData("hey server");
 
-    this -> hide();
-    gameWindow = new GameWindow(this);
-    //gameWindow->showFullScreen();
-    gameWindow -> show();
+    QString code = ui->codeEntry->text();
+    QByteArray codeData = code.toUtf8();
 
+    QString name = ui->nameEntry->text();
+    QByteArray nameCode = name.toUtf8();
+
+    client->writeData(codeData);
+    client->writeData(nameCode);
 }

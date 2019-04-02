@@ -1,8 +1,7 @@
 #include "serverConnection.h"
 #include <iostream>
 using namespace std;
-//static inline qint32 ArrayToInt(QByteArray source);
-
+#include "server.h"
 serverConnection::serverConnection(QObject *parent) : QObject(parent)
 {
     server = new QTcpServer(this);
@@ -40,13 +39,14 @@ void serverConnection::disconnected()
 void serverConnection::readyRead()
 {
     QTcpSocket *socket = static_cast<QTcpSocket*>(sender());
-    //QByteArray *buffer = buffers.value(socket);
-    //qint32 *s = sizes.value(socket);
     qint64 size = socket->bytesAvailable();
     QByteArray byteArray = socket->read(size);
     qDebug() << byteArray;
     QString data = QString::fromStdString(byteArray.toStdString());
     qDebug() << data;
+
+
+
 }
 
 

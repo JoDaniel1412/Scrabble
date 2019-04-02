@@ -9,12 +9,14 @@
 class Server
 {
 public:
-    Server();
+    static Server* getInstance();
     int getServerKey();
     void setServerKey(int key);
 
 private:
+    static Server* instance;
     int serverKey;
+    Server();  // Private Constructor
 
 
 
