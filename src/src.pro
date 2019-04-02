@@ -1,6 +1,5 @@
 include(../defaults.pri)
 
-CONFIG -= qt
 CONFIG += console
 CONFIG -= app_bundle
 
@@ -15,11 +14,13 @@ HEADERS += \
     game/board.h \
     game/tile.h \
     game/dock.h \
-    game/game.h
+    game/game.h \
+    dict/wordsdict.h
 
 SOURCES += \
         main.cpp \
     game/board.cpp \
     game/tile.cpp \
     game/dock.cpp \
-    game/game.cpp
+    game/game.cpp \
+    dict/wordsdict.cpp
