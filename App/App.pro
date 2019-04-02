@@ -32,6 +32,8 @@ SOURCES += \
     hostwindow.cpp \
     joinwindow.cpp \
     propertieswindow.cpp \
+    gamewindow.cpp \
+    labelwrapper.cpp \
     Client/client.cpp
 
 HEADERS += \
@@ -39,12 +41,15 @@ HEADERS += \
     hostwindow.h \
     joinwindow.h \
     propertieswindow.h \
+    gamewindow.h \
+    labelwrapper.h \
     Client/client.h
 
 FORMS += \
         mainwindow.ui \
     hostwindow.ui \
     joinwindow.ui \
+    gamewindow.ui \
     propertieswindow.ui
 
 LIBS += -L../src -lmyapp

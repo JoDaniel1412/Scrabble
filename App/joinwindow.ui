@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true"> #JoinWindow{
-	background-image: url(:/background2.jpg);
+	background-image: url(:/Img/background2.jpg);
 }</string>
   </property>
   <widget class="QWidget" name="verticalLayoutWidget">
@@ -48,27 +48,10 @@
      </widget>
     </item>
     <item>
-     <widget class="QTextEdit" name="codeEntry_2">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>50</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>aakar</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
+     <widget class="QLineEdit" name="nameEntry">
       <property name="styleSheet">
        <string notr="true">#nameEntry{
+	
 	background-color: rgb(46, 52, 54);
 	color: rgb(238, 238, 236);
 	font: 57 20pt &quot;aakar&quot;;
@@ -99,31 +82,17 @@
      </widget>
     </item>
     <item>
-     <widget class="QTextEdit" name="codeEntry">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>50</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>aakar</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
+     <widget class="QLineEdit" name="codeEntry">
       <property name="styleSheet">
        <string notr="true">#codeEntry{
+	
 	background-color: rgb(46, 52, 54);
 	color: rgb(238, 238, 236);
 	font: 57 20pt &quot;aakar&quot;;
 }</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
       <property name="placeholderText">
        <string>123456</string>
