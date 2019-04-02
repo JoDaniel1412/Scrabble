@@ -13,6 +13,7 @@ GameWindow::GameWindow(QWidget *parent) :
     ui(new Ui::GameWindow)
 {
     ui->setupUi(this);
+    ui->boardWidget->resize(ui->label->width()*15, ui->label->height()*15);
     makeLabelBoard(15);
     QWidget::setMouseTracking(true);
 
@@ -21,6 +22,7 @@ GameWindow::~GameWindow()
 {
     delete ui;
 }
+
 
 void GameWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
@@ -52,6 +54,9 @@ void GameWindow::mouseMoveEvent(QMouseEvent *event)
 void GameWindow::mousePressEvent(QMouseEvent *event)
 {
     QWidget::mousePressEvent(event);
+    if(moving_label != nullptr){
+        setLabelOnBoard();
+    }
     moving_label = nullptr;
 
 }
@@ -93,9 +98,25 @@ void GameWindow::makeLabelBoard(int size)
 bool GameWindow::collision(QLabel *lb1, QLabel *lb2)
 {
     bool result = false;
-    if (lb1->x() > lb2->x() and lb1->x() < lb2->x() + lb2->width() and lb1->y() > lb2->y() and lb1->y() < lb2->y() + lb2->height()){
+    if (lb1->x() > lb2->x() and lb1->x() < lb2->x() + lb2->width()
+            and lb1->y() > lb2->y()
+            and lb1->y() < lb2->y() + lb2->height()){
+
         qInfo() << "Collision";
         result = true;
+    }
+    return result;
+}
+
+void GameWindow::setLabelOnBoard()
+{
+
+    LabelWrapper * label2 = labelList->getNode(0)->getValue();
+    if(collision(moving_label, label2)){
+        qInfo() << labelList->getNode(0)->getValue();
+        moving_label->setParent(labelList->getNode(0)->getValue());
+        ui->boardGrid->addWidget(moving_label, label2->get_i(), label2->get_j());
+        moving_label->setGeometry(label2->x(), label2->y(), moving_label->width(), moving_label->height());
     }
 }
 

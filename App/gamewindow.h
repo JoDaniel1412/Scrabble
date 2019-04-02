@@ -26,6 +26,8 @@ public:
 
     List<LabelWrapper*> * labelList = new List<LabelWrapper*>();
 
+    void setLabelOnBoard();
+
 protected:
 
     void mouseDoubleClickEvent(QMouseEvent *event) override;
