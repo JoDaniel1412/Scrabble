@@ -15,12 +15,12 @@ serverData* serverData::getInstance()
 serverData::serverData()
 {}
 
-int serverData::getKey()
+QString serverData::getKey()
 {
     return key;
 }
 
-void serverData::setKey(int nkey)
+void serverData::setKey(QString key)
 {
-    serverData::key = nkey;
+    serverData::key = key;
 }

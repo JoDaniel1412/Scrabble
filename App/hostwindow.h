@@ -2,6 +2,8 @@
 #define HOSTWINDOW_H
 
 #include <QDialog>
+#include <random>
+#include "stringtojson.h"
 
 namespace Ui {
 class HostWindow;
@@ -19,6 +21,8 @@ private slots:
     void on_horizontalSlider_sliderMoved(int position);
 
     void on_returnBtn_clicked();
+
+    void on_hostGameBtn_clicked();
 
 private:
     Ui::HostWindow *ui;

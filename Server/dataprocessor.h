@@ -3,12 +3,14 @@
 #include <QJsonObject>
 #include <QString>
 #include <QJsonDocument>
+#include <serverdata.h>
 
 class dataProcessor
 {
     private:
         dataProcessor();
         static QJsonObject StringToJson(const QString& data);
+        static void setMatchKey(QString key);
 
 
     public:

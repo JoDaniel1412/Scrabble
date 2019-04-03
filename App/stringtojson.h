@@ -9,6 +9,7 @@ class StringToJson
 {
 public:
     static QByteArray joinWindowObject(QString key, QString name);
+    static QByteArray hostWindowObject(QString setKey, QString name, QString players);
 private:
     StringToJson();
 };

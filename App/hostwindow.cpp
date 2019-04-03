@@ -36,3 +36,17 @@ void HostWindow::on_returnBtn_clicked()
     QWidget *parent = this->parentWidget();
     parent->show();
 }
+
+void HostWindow::on_hostGameBtn_clicked()
+{
+    Client *client = new Client();
+    client->connectToHost();
+
+    QString name = ui->nameEntry->text();
+    QString players = QString::number(ui->horizontalSlider->value());
+    QString key = QString::number((10000 + rand()%(99999-10000)));
+
+    QByteArray data = StringToJson::hostWindowObject(key, name, players);
+
+    client->writeData(data);
+}

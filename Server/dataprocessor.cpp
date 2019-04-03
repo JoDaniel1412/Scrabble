@@ -9,9 +9,13 @@ dataProcessor::dataProcessor()
 void dataProcessor::receiver(QString data)
 {
     QJsonObject obj = dataProcessor::StringToJson(data);
-    qDebug()<<obj;
-    QString key = obj.value("keyi").toString();
-    qDebug()<<key;
+    QJsonValue MatchKey = obj.value("setKey");
+    if (MatchKey != "")
+    {
+        QString key = MatchKey.toString();
+        dataProcessor::setMatchKey(key);
+    }
+
 }
 
 QJsonObject dataProcessor::StringToJson(const QString& data)
@@ -37,4 +41,12 @@ QJsonObject dataProcessor::StringToJson(const QString& data)
         }
 
         return obj;
+}
+
+
+void dataProcessor::setMatchKey(QString key)
+{
+    serverData::getInstance()->setKey(key);
+    qDebug()<<"Match key set as "<<key<<endl;
+
 }

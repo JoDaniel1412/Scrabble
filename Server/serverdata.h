@@ -1,6 +1,8 @@
 #ifndef SERVERDATA_H
 #define SERVERDATA_H
 
+#include <QString>
+
 
 class serverData
 {
@@ -11,13 +13,13 @@ class serverData
         /* Private constructor to prevent instancing. */
         serverData();
 
-        int key;
+        QString key;
 
     public:
         /* Static access method. */
         static serverData* getInstance();
-        int getKey();
-        void setKey(int nkey);
+        QString getKey();
+        void setKey(QString key);
 };
 
 #endif // SERVERDATA_H
