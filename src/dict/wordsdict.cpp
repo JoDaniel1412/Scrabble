@@ -11,6 +11,7 @@ bool WordsDict::isWord(QString word)
     QString line;
     QFile file(path);
 
+    // Opens and read the file
     if(file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         QTextStream in (&file);

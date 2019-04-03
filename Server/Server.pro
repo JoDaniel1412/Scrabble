@@ -1,3 +1,5 @@
+include(../defaults.pri)
+
 QT -= gui
 QT += network
 QT += core
@@ -20,10 +22,14 @@ SOURCES += main.cpp \
     sms/sms.cpp \
     serverConnection.cpp \
     serverdata.cpp \
-    dataprocessor.cpp
+    dataprocessor.cpp \
+    game/gameinterface.cpp
 
 HEADERS += \
     sms/sms.h \
     serverConnection.h \
     serverdata.h \
-    dataprocessor.h
+    dataprocessor.h \
+    game/gameinterface.h
+
+LIBS += -L../src -lmyapp
