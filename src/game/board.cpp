@@ -7,7 +7,7 @@ Board::Board() {
     rows = 15;
     columns = 15;
     load();
-};
+}
 
 Board *Board::getInstance()
 {
