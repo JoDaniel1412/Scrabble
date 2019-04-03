@@ -21,6 +21,9 @@ public:
 
 private:
     static QString path;
+    static QHash<char, pair<int, int>> lettersValues;  // [Letter, [points, amount]]
+
+    static QHash<char, pair<int, int>> loadLettersValues();
 };
 
 #endif // WORDSDICT_H
