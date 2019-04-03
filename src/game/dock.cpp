@@ -22,3 +22,8 @@ void Dock::remove(int index)
 {
     letters->deleteValue(index);
 }
+
+List<char> *Dock::getLetters()
+{
+    return letters;
+}

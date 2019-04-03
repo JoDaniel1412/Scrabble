@@ -13,6 +13,8 @@ public:
 
     void remove(int index);
 
+    List<char> *getLetters();
+
 private:
     Dock();
 
