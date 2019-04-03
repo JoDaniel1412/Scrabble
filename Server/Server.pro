@@ -19,9 +19,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     sms/sms.cpp \
     serverConnection.cpp \
-    server.cpp
+    serverdata.cpp \
+    dataprocessor.cpp
 
 HEADERS += \
     sms/sms.h \
     serverConnection.h \
-    server.h
+    serverdata.h \
+    dataprocessor.h

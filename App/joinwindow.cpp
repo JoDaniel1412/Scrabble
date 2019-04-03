@@ -2,6 +2,7 @@
 #include "ui_joinwindow.h"
 #include "mainwindow.h"
 #include <QJsonObject>
+#include "stringtojson.h"
 
 JoinWindow::JoinWindow(QWidget *parent) :
     QDialog(parent),
@@ -31,11 +32,11 @@ void JoinWindow::on_joinGameBtn_clicked()
     client->connectToHost();
 
     QString code = ui->codeEntry->text();
-    QByteArray codeData = code.toUtf8();
-
     QString name = ui->nameEntry->text();
-    QByteArray nameCode = name.toUtf8();
 
-    client->writeData(codeData);
-    client->writeData(nameCode);
+
+    QByteArray data = StringToJson::joinWindowObject(code, name);
+
+
+    client->writeData(data);
 }
