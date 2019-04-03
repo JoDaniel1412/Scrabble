@@ -84,6 +84,8 @@ void GameWindow::makeLabelBoard(int size)
 
             ui->boardGrid->setParent(ui->boardWidget);
             ui->boardGrid->addWidget(label->qLabel, i,j);
+            label->setGeometry(ui->boardWidget->x() + i*50, ui->boardWidget->y() + j*50, 50, 50);
+            label->qLabel->setStyleSheet("QLabel { background-color : red; color : QString::number(#123456); }");
 
             // Enables getting mouse positions.
             ui->gridLayoutWidget->setMouseTracking(true);
@@ -97,26 +99,51 @@ void GameWindow::makeLabelBoard(int size)
 
 bool GameWindow::collision(QLabel *lb1, QLabel *lb2)
 {
-    bool result = false;
-    if (lb1->x() > lb2->x() and lb1->x() < lb2->x() + lb2->width()
-            and lb1->y() > lb2->y()
-            and lb1->y() < lb2->y() + lb2->height()){
+    bool xlimits = false;
+    bool ylimits = false;
+    if ((lb1->x() >= lb2->x() and lb1->x() < lb2->x() + 50) or (lb1->x() <= lb2->x() and  lb1->x() > lb2->x() - lb2->width()))
+            {
 
-        qInfo() << "Collision";
-        result = true;
+        xlimits = true;
+        qInfo() << "Collisionx";
+
+
+        qInfo() << "lb1 x: " + QString::number(lb1->x());
+        qInfo() << "Lb2 x: " + QString::number(lb2->x());
+        qInfo() << "lb1 y: " + QString::number(lb1->y());
+        qInfo() << "Lb2 y: " + QString::number(lb2->y());
     }
-    return result;
+
+    if ((lb1->y() >= lb2->y() and lb1->y() < lb2->y() + 50) or (lb1->y() <= lb2->y() and  lb1->y() > lb2->y() - lb2->height()))
+            {
+
+        ylimits = true;
+        qInfo() << "Collisiony";
+
+
+        qInfo() << "lb1 x: " + QString::number(lb1->x());
+        qInfo() << "Lb2 x: " + QString::number(lb2->x());
+        qInfo() << "lb1 y: " + QString::number(lb1->y());
+        qInfo() << "Lb2 y: " + QString::number(lb2->y());
+    }
+
+    qInfo() << "Collision: " + QString::number(xlimits == true && ylimits == true);
+    return xlimits == true && ylimits == true;
 }
+
 
 void GameWindow::setLabelOnBoard()
 {
 
     LabelWrapper * label2 = labelList->getNode(0)->getValue();
+
+
     if(collision(moving_label, label2)){
-        qInfo() << labelList->getNode(0)->getValue();
-        moving_label->setParent(labelList->getNode(0)->getValue());
-        ui->boardGrid->addWidget(moving_label, label2->get_i(), label2->get_j());
-        moving_label->setGeometry(label2->x(), label2->y(), moving_label->width(), moving_label->height());
+        qInfo() << label2->get_i();
+        qInfo() << label2->get_j();
+
+        moving_label->setGeometry(label2->x(), label2->y(), 50, 50);
+        label2->qLabel = moving_label;
     }
 }
 

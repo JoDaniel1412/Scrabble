@@ -55,41 +55,16 @@ background-image: url(:/Img/configIcon.png);
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>490</y>
-      <width>160</width>
-      <height>80</height>
+      <x>-150</x>
+      <y>260</y>
+      <width>511</width>
+      <height>351</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="boardGrid"/>
    </widget>
   </widget>
-  <widget class="QLabel" name="label2">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>770</y>
-     <width>51</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>ArrowCursor</cursorShape>
-   </property>
-   <property name="mouseTracking">
-    <bool>true</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#label2{
-background-image: url(:/Img/configIcon.png);
-}</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <zorder>boardWidget</zorder>
-  <zorder>label2</zorder>
   <zorder>label</zorder>
  </widget>
  <resources/>
