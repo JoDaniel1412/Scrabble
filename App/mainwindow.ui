@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#centralWidget{
-	background-image: url(:/Scrabble.png);
+background-image: url(:/Img/Scrabble.png);
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -45,7 +45,7 @@
        </property>
        <property name="styleSheet">
         <string notr="true"> #joinBtn {
-	background-image: url(:/join.png);
+	background-image: url(:/Img/join.png);
 }
 QPushButton:hover:!pressed{
 border: 5px white;
@@ -66,7 +66,7 @@ border: 5px white;
        </property>
        <property name="styleSheet">
         <string notr="true"> #hostBtn {
-	background-image: url(:/host.png);
+	background-image: url(:/Img/host.png);
 }
 QPushButton:hover:!pressed{
 border: 5px white;
@@ -79,7 +79,7 @@ border: 5px white;
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="configBtn">
+   <widget class="QPushButton" name="propertiesBtn">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -89,8 +89,8 @@ border: 5px white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"> #configBtn {
-	background-image: url(:/configIcon.png);
+     <string notr="true"> #propertiesBtn {
+	background-image: url(:/Img/configIcon.png);
 }
 QPushButton:hover:!pressed{
 border: 5px white;

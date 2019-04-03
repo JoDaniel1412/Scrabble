@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "Client/client.h"
+#include "gamewindow.h"
 
 namespace Ui {
 class JoinWindow;
@@ -11,6 +12,8 @@ class JoinWindow;
 class JoinWindow : public QDialog
 {
     Q_OBJECT
+
+            GameWindow * gameWindow;
 
 public:
     explicit JoinWindow(QWidget *parent = nullptr);

@@ -32,19 +32,26 @@ SOURCES += \
     hostwindow.cpp \
     joinwindow.cpp \
     propertieswindow.cpp \
-    Client/client.cpp
+    gamewindow.cpp \
+    labelwrapper.cpp \
+    Client/client.cpp \
+    stringtojson.cpp
 
 HEADERS += \
         mainwindow.h \
     hostwindow.h \
     joinwindow.h \
     propertieswindow.h \
-    Client/client.h
+    gamewindow.h \
+    labelwrapper.h \
+    Client/client.h \
+    stringtojson.h
 
 FORMS += \
         mainwindow.ui \
     hostwindow.ui \
     joinwindow.ui \
+    gamewindow.ui \
     propertieswindow.ui
 
 LIBS += -L../src -lmyapp
