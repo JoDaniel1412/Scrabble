@@ -21,6 +21,8 @@ public:
      */
     static bool isWord(QString word);
 
+    static int wordPoints(QString word);
+
     /**
      * @brief getLettersValues are the point and amount of each letter
      * @return a QHash with key as the letter and a pair of point and amount as the value

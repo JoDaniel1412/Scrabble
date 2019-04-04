@@ -36,6 +36,19 @@ bool WordsDict::isWord(QString word)
     return isWord;
 }
 
+int WordsDict::wordPoints(QString word)
+{
+    int result = 0;
+    for (int i = 0; i < word.size(); i++)
+    {
+         char letter = word[i].toUpper().toLatin1();
+         pair<int, int> values = lettersValues.value(letter);
+         result += values.first;
+    }
+
+    return result;
+}
+
 QHash<char, pair<int, int> > WordsDict::getLettersValues()
 {
     return lettersValues;
