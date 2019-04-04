@@ -39,4 +39,8 @@ void JoinWindow::on_joinGameBtn_clicked()
 
 
     client->writeData(data);
+
+    this -> hide();
+    gameWindow = new GameWindow(this);
+    gameWindow -> show();
 }
