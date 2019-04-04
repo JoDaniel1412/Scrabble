@@ -24,8 +24,9 @@ void TileWrapper::setCoords(int i, int j)
 
 void TileWrapper::setImage(QString url)
 {
-    QPixmap mypix (url);
-    this->qLabel->setPixmap(mypix);
+    this->url = url;
+    QPixmap mypicture (url);
+    this->qLabel->setPixmap(mypicture);
 }
 
 int TileWrapper::get_i()

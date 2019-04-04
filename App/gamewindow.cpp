@@ -31,7 +31,6 @@ GameWindow::~GameWindow()
 
 }
 
-// Fills the grid(size x size) with labels.
 void GameWindow::makeLabelBoard(int size)
 {
     for(int i = 0; i < size; i++){
@@ -60,10 +59,10 @@ void GameWindow::mouseDoubleClickEvent(QMouseEvent *event)
     QWidget::mouseDoubleClickEvent(event);
         int mouseX = event->x();
         int mouseY = event->y();
-        int labelX = tileWrapper->qLabel->x();
-        int labelY = tileWrapper->qLabel->y();
-        int labelWidth = tileWrapper->qLabel->width();
-        int labelHeight = tileWrapper->qLabel->height();
+        int labelX = tileWrapper->x();
+        int labelY = tileWrapper->y();
+        int labelWidth = tileWrapper->width();
+        int labelHeight = tileWrapper->height();
 
         // Verifies that the mouse double click is within the label's limits.
     if (mouseX > labelX and mouseX < labelX + labelWidth and
@@ -79,7 +78,7 @@ void GameWindow::mouseMoveEvent(QMouseEvent *event)
     movingX = event->x();
     movingY = event->y();
     if (moving_label != nullptr){
-        tileWrapper->qLabel->move(movingX - 25, movingY - 25);
+        tileWrapper->move(movingX - labelwidth/2, movingY - labelheight/2);
     }
 }
 
@@ -98,21 +97,21 @@ void GameWindow::mouseReleaseEvent(QMouseEvent *event)
     QWidget::mouseReleaseEvent(event);
     int x = event->x();
     int y = event->y();
-    tileWrapper->qLabel->repaint(x - 25, y - 25, 20, 20);
+    tileWrapper->repaint(x - labelwidth/2, y - labelheight/2, labelwidth, labelheight);
 }
 
 
 
-bool GameWindow::collision(QWidget *lb1, QWidget *lb2)
+bool GameWindow::collision(QWidget *lb1, int x, int y)
 {
     bool xlimits = false;
     bool ylimits = false;
-    if ((lb1->x() >= lb2->x() and lb1->x() < lb2->x() + labelwidth) or (lb1->x() <= lb2->x() and  lb1->x() > lb2->x() - lb2->width())){
+    if ((lb1->x() >= x and lb1->x() < x + labelwidth) or (lb1->x() <= x and  lb1->x() > x - labelwidth)){
 
         xlimits = true;
     }
 
-    if ((lb1->y() >= lb2->y() and lb1->y() < lb2->y() + labelheight) or (lb1->y() <= lb2->y() and  lb1->y() > lb2->y() - lb2->height())){
+    if ((lb1->y() >= y and lb1->y() < y + labelheight) or (lb1->y() <= y and  lb1->y() > y - labelheight)){
 
         ylimits = true;
     }
@@ -125,14 +124,23 @@ bool GameWindow::collision(QWidget *lb1, QWidget *lb2)
 void GameWindow::setLabelOnBoard()
 {
 
-    LabelWrapper * label2 = labelList->getNode(0)->getValue();
+    for(int i = 0; i < labelList->getSize(); i++){
 
+        LabelWrapper * labelwrapper = labelList->getNode(i)->getValue();
 
-    if(collision(tileWrapper, label2)){
+        if(collision(labelwrapper, movingX, movingY)){
 
-        tileWrapper->setGeometry(label2->x(), label2->y(), labelwidth, labelheight);
+            tileWrapper->setGeometry(labelwrapper->x(), labelwrapper->y(), labelwidth, labelheight);
+            tileWrapper->setCoords(labelwrapper->get_i(), labelwrapper->get_j());
+
+            qInfo() << "movingX " << movingX << " movingY " << movingY;
+
+            break;
+
+        }
 
     }
+
 }
 
 

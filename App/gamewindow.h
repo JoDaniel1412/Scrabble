@@ -34,8 +34,8 @@ public:
     void setLabelOnBoard();
 
 
-    int labelwidth = 50;
-    int labelheight = 50;
+    int labelwidth = 65;
+    int labelheight = 65;
 
 protected:
 
@@ -48,7 +48,7 @@ private:
 
     Ui::GameWindow *ui;
     void makeLabelBoard(int size);
-    bool collision(QWidget * lb1, QWidget * lb2);
+    bool collision(QWidget * lb1, int x, int y);
 };
 
 #endif // GAMEWINDOW_H

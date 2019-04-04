@@ -23,6 +23,8 @@ public:
 
     void setImage(QString url);
 
+    QString url;
+
     int get_i();
 
     int get_j();
