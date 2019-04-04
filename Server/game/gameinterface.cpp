@@ -2,6 +2,7 @@
 
 List<QString> GameInterface::playersID = List<QString>();
 int GameInterface::currentPlayer = 0;
+Board *GameInterface::board = Board::getInstance();
 
 bool GameInterface::isWord(QString word)
 {

@@ -2,6 +2,7 @@
 #define GAMEINTERFACE_H
 
 #include <QString>
+#include <game/board.h>
 #include <list/List.h>
 #include "dict/wordsdict.h"
 
@@ -26,6 +27,7 @@ public:
 private:
     static List<QString> playersID;
     static int currentPlayer;
+    static Board *board;
 };
 
 #endif // GAMEINTERFACE_H
