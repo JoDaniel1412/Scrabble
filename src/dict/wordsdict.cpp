@@ -36,6 +36,11 @@ bool WordsDict::isWord(QString word)
     return isWord;
 }
 
+QHash<char, pair<int, int> > WordsDict::getLettersValues()
+{
+    return lettersValues;
+}
+
 QHash<char, pair<int, int>> WordsDict::loadLettersValues()
 {
     // [Letter, [points, amount]]

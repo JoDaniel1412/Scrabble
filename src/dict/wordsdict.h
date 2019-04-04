@@ -19,6 +19,12 @@ public:
      */
     static bool isWord(QString word);
 
+    /**
+     * @brief getLettersValues are the point and amount of each letter
+     * @return a QHash with key as the letter and a pair of point and amount as the value
+     */
+    static QHash<char, pair<int, int> > getLettersValues();
+
 private:
     static QString path;
     static QHash<char, pair<int, int>> lettersValues;  // [Letter, [points, amount]]
