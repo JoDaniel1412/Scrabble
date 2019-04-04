@@ -27,8 +27,17 @@ public:
      */
     static QHash<char, pair<int, int> > getLettersValues();
 
+    /**
+     * @brief popRandomLetter gets a letter from the list and removes on amount of it
+     * @return a char
+     */
     static char popRandomLetter();
 
+    /**
+     * @brief popRandomLettersList gets a list of random letters and removes on amount of each of them
+     * @param size lenght of the list
+     * @return a list of char
+     */
     static List<char> popRandomLettersList(int size);
 
 private:

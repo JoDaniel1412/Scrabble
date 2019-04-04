@@ -21,6 +21,18 @@ void GameInterface::passTurn()
     if (currentPlayer > playersID.getSize()) currentPlayer = 0;
 }
 
+char GameInterface::popRandomLetter()
+{
+    char letter = WordsDict::popRandomLetter();
+    return letter;
+}
+
+List<char> GameInterface::popRandomLettersList(int size)
+{
+    List<char> letters = WordsDict::popRandomLettersList(size);
+    return letters;
+}
+
 List<QString> GameInterface::getPlayersID()
 {
     return playersID;
