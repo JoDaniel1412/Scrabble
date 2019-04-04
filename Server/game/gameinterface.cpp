@@ -43,3 +43,8 @@ void GameInterface::setPlayersID(const List<QString> &value)
 {
     playersID = value;
 }
+
+Board *GameInterface::getBoard()
+{
+    return board;
+}

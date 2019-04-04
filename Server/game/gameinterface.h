@@ -24,6 +24,8 @@ public:
     static List<QString> getPlayersID();
     static void setPlayersID(const List<QString> &value);
 
+    static Board *getBoard();
+
 private:
     static List<QString> playersID;
     static int currentPlayer;
