@@ -14,9 +14,9 @@ public:
 
     static void passTurn();
 
-    static char randomLetter();
+    static char popRandomLetter();
 
-    static List<char> randomLetterList(int size);
+    static List<char> popRandomLettersList(int size);
 
     static int wordPoints(QString word);
 

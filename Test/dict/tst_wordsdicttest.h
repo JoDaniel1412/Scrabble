@@ -16,6 +16,8 @@ public:
 private slots:
     void test_isWord();
     void test_lettersValues();
+    void test_popRandomLetter();
+    void test_popRandomLettersList();
 };
 
 #endif // TST_WORDSDICTTEST_H

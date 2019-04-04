@@ -41,6 +41,29 @@ QHash<char, pair<int, int> > WordsDict::getLettersValues()
     return lettersValues;
 }
 
+char WordsDict::popRandomLetter()
+{
+    QList<char> letters = lettersValues.keys();
+    int index = rand() % letters.size();
+
+    char letter = letters.at(index);
+    pair<int, int> pair = lettersValues.value(letter);
+    pair.second -= 1;
+
+    return letter;
+}
+
+List<char> WordsDict::popRandomLettersList(int size)
+{
+    List<char> letters;
+    for (int i = 0; i < size; i++)
+    {
+        letters.pushTail(popRandomLetter());
+    }
+
+    return letters;
+}
+
 QHash<char, pair<int, int>> WordsDict::loadLettersValues()
 {
     // [Letter, [points, amount]]

@@ -27,3 +27,19 @@ void WordsDictTest::test_lettersValues()
     QCOMPARE(letters.value('S').first, 1);
     QCOMPARE(letters.value('S').second, 6);
 }
+
+void WordsDictTest::test_popRandomLetter()
+{
+    QHash<char, pair<int, int>> letters = WordsDict::getLettersValues();
+
+    WordsDict::popRandomLetter();
+    WordsDict::popRandomLetter();
+    WordsDict::popRandomLetter();
+}
+
+void WordsDictTest::test_popRandomLettersList()
+{
+    List<char> letters = WordsDict::popRandomLettersList(4);
+
+    QCOMPARE(letters.getSize(), 4);
+}

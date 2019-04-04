@@ -5,6 +5,8 @@
 #include <iostream>
 #include <QFile>
 #include <QTextStream>
+#include <cstdlib>
+#include <list/List.h>
 
 using namespace std;
 
@@ -24,6 +26,10 @@ public:
      * @return a QHash with key as the letter and a pair of point and amount as the value
      */
     static QHash<char, pair<int, int> > getLettersValues();
+
+    static char popRandomLetter();
+
+    static List<char> popRandomLettersList(int size);
 
 private:
     static QString path;
