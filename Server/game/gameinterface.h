@@ -21,13 +21,23 @@ public:
 
     static int wordPoints(QString word);
 
-    static List<QString> getPlayersID();
-    static void setPlayersID(const List<QString> &value);
+    static void addPlayerID(QString &playerID);
+
+    static int getPlayerPoints(QString playerID);
+
+    static void sumPlayerPoints(QString playerID, int points);
 
     static Board *getBoard();
 
+    static List<QString> getPlayersID();
+    static void setPlayersID(const List<QString> &value);
+
+    static QHash<QString, int> getPlayersPoints();
+    static void setPlayersPoints(const QHash<QString, int> &value);
+
 private:
     static List<QString> playersID;
+    static QHash<QString, int> playersPoints;
     static int currentPlayer;
     static Board *board;
 };
