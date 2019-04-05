@@ -19,7 +19,7 @@ bool WordsDict::isWord(QString word)
         QTextStream in (&file);
 
         do {
-            line = in.readLine();
+            line = unaccent(in.readLine());
             if (!QString::compare(word, line, Qt::CaseInsensitive)) {
                 isWord = true;
             }
@@ -75,6 +75,12 @@ List<char> WordsDict::popRandomLettersList(int size)
     }
 
     return letters;
+}
+
+QString WordsDict::unaccent(QString word)
+{
+    QString output(word.normalized(QString::NormalizationForm_D));
+    return output.replace(QRegExp("[^a-zA-Z\\s]"), "");
 }
 
 QHash<char, pair<int, int>> WordsDict::loadLettersValues()

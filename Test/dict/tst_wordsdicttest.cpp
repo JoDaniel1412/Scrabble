@@ -14,7 +14,7 @@ void WordsDictTest::test_isWord()
 {
     QVERIFY(!WordsDict::isWord("dick"));
     QVERIFY(!WordsDict::isWord("DaRknEss"));
-    QVERIFY(WordsDict::isWord("árbol"));
+	QVERIFY(WordsDict::isWord("arbol"));
     QVERIFY(WordsDict::wordPoints("perro"));
     QVERIFY(WordsDict::wordPoints("casa"));
 }
@@ -48,6 +48,6 @@ void WordsDictTest::test_popRandomLettersList()
 
 void WordsDictTest::test_wordPoint()
 {
-    int points = WordsDict::wordPoints("árbol");
+	int points = WordsDict::wordPoints("arbol");
     QCOMPARE(points, 7);
 }

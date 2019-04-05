@@ -21,6 +21,11 @@ public:
      */
     static bool isWord(QString word);
 
+    /**
+     * @brief wordPoints usus the Scrabble point system to give an number base in the word
+     * @param word is the string to calculate pointages
+     * @return an int with the result
+     */
     static int wordPoints(QString word);
 
     /**
@@ -41,6 +46,13 @@ public:
      * @return a list of char
      */
     static List<char> popRandomLettersList(int size);
+
+    /**
+     * @brief unaccent removes the accents in the given word
+     * @param word is a QString
+     * @return QString of the word with no accent
+     */
+    static QString unaccent(QString word);
 
 private:
     static QString path;
