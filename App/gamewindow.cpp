@@ -77,8 +77,8 @@ void GameWindow::createGraphicDock()
         tileWrapper->makeTile();
         tileWrapper->setLetter(dock->getLetters()->getNode(i)->getValue());
         tileWrapper->setImage(":/Img/background2.jpg");
-        tileWrapper->setInitialX(20);
-        tileWrapper->setInitialY(65*i);
+        tileWrapper->setInitialX(30);
+        tileWrapper->setInitialY(65*(1+i));
         tileWrapper->setGeometry(tileWrapper->getInitialX(), tileWrapper->getInitialY(), labelwidth, labelheight);
         tileWrapper->setMouseTracking(true);
 
