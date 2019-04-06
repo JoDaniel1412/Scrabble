@@ -1,4 +1,6 @@
 #include "tilewrapper.h"
+#include <QMouseEvent>
+#include <QDebug>
 
 TileWrapper::TileWrapper()
 {
@@ -26,7 +28,7 @@ void TileWrapper::setImage(QString url)
 {
     this->url = url;
     QPixmap mypicture (url);
-    this->qLabel->setPixmap(mypicture);
+    this->setPixmap(mypicture);
 }
 
 int TileWrapper::get_i()
@@ -38,6 +40,7 @@ int TileWrapper::get_j()
 {
     return this->j;
 }
+
 
 TileWrapper::~TileWrapper()
 {

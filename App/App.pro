@@ -36,7 +36,8 @@ SOURCES += \
     labelwrapper.cpp \
     Client/client.cpp \
     stringtojson.cpp \
-    tilewrapper.cpp
+    tilewrapper.cpp \
+    mockdock.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -47,7 +48,8 @@ HEADERS += \
     labelwrapper.h \
     Client/client.h \
     stringtojson.h \
-    tilewrapper.h
+    tilewrapper.h \
+    mockdock.h
 
 FORMS += \
         mainwindow.ui \

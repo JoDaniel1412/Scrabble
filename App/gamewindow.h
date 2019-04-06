@@ -6,6 +6,8 @@
 #include "labelwrapper.h"
 #include "list/List.h"
 #include "tilewrapper.h"
+#include "game/dock.h"
+#include "mockdock.h"
 
 namespace Ui {
 class GameWindow;
@@ -21,9 +23,10 @@ public:
 
     int movingX, movingY;
 
-    TileWrapper * tileWrapper = nullptr;
 
     TileWrapper * moving_label = nullptr;
+
+    List<TileWrapper*> * tileList = new List<TileWrapper*>();
 
     LabelWrapper * label = nullptr;
 
@@ -31,7 +34,13 @@ public:
 
     List<LabelWrapper*> * labelList = new List<LabelWrapper*>();
 
+    Dock * dock = Dock::getInstance();
+
     void setLabelOnBoard();
+
+    void createGraphicDock();
+
+    void hover();
 
 
     int labelwidth = 65;
@@ -47,8 +56,11 @@ protected:
 private:
 
     Ui::GameWindow *ui;
-    void makeLabelBoard(int size);
+    List<List<LabelWrapper*>*> * labelmatrix = new List<List<LabelWrapper*>*>();
+    void makeLabelBoard(int rows, int columns);
     bool collision(QWidget * lb1, int x, int y);
+    bool collision(int x, int y, int x2, int y2);
+
 };
 
 #endif // GAMEWINDOW_H

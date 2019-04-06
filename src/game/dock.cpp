@@ -7,6 +7,16 @@ Dock::Dock()
     letters = new List<char>();
 }
 
+List<char> *Dock::getLetters() const
+{
+    return letters;
+}
+
+void Dock::setLetters(List<char> *value)
+{
+    letters = value;
+}
+
 Dock *Dock::getInstance()
 {
     if (instance == nullptr) instance = new Dock();

@@ -30,6 +30,8 @@ public:
     int get_j();
 
     char letter;
+
+
 };
 
 #endif // TILEWRAPPER_H
