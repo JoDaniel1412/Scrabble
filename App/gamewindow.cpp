@@ -7,6 +7,7 @@
 #include "list/List.h"
 #include "labelwrapper.h"
 #include "mockdock.h"
+#include <QPainter>
 
 
 GameWindow::GameWindow(QWidget *parent) :
@@ -14,12 +15,17 @@ GameWindow::GameWindow(QWidget *parent) :
     ui(new Ui::GameWindow)
 {
     ui->setupUi(this);
-    ui->boardWidget->resize(labelwidth*15, labelheight*15);
+
+    int boardX = this->x() + ui->boardWidget->width()/2;
+    int boardY = this->y() + this->height()/2 - ui->boardWidget->height()/2 - 50;
+
+    ui->boardWidget->setGeometry(boardX, boardY, labelwidth*15, labelheight*15);
     ui->boardGrid->setParent(ui->boardWidget);
+
     makeLabelBoard(15, 15);
     createGraphicDock();
-    QWidget::setMouseTracking(true);
 
+    QWidget::setMouseTracking(true);
 
 
 }
@@ -69,8 +75,8 @@ void GameWindow::createGraphicDock()
         TileWrapper * tileWrapper = new TileWrapper;
         tileWrapper->setParent(this);
         tileWrapper->makeTile();
-        tileWrapper->setImage(":/Img/configIcon.png");
         tileWrapper->setLetter(dock->getLetters()->getNode(i)->getValue());
+        tileWrapper->setImage(":/Img/background2.jpg");
         tileWrapper->setInitialX(20);
         tileWrapper->setInitialY(65*i);
         tileWrapper->setGeometry(tileWrapper->getInitialX(), tileWrapper->getInitialY(), labelwidth, labelheight);
@@ -107,6 +113,8 @@ void GameWindow::mouseMoveEvent(QMouseEvent *event)
     QWidget::mouseMoveEvent(event);
     movingX = event->x();
     movingY = event->y();
+    gridLabelX = event->x() - ui->boardWidget->x();
+    gridLabelY = event->y() - ui->boardWidget->y();
 
 
     if (moving_label != nullptr){
@@ -119,18 +127,14 @@ void GameWindow::mousePressEvent(QMouseEvent *event)
 {
     QWidget::mousePressEvent(event);
 
-    gridLabelX = event->x() - ui->boardWidget->x();
-    gridLabelY = event->y() - ui->boardWidget->y();
 
     if (moving_label != nullptr){
         if (collision(ui->boardWidget, movingX, movingY)){
 
             setLabelOnBoard();
-            qInfo() << "Label on board";
 
         } else{
             moving_label->setGeometry(moving_label->getInitialX(), moving_label->getInitialY(), labelwidth, labelheight);
-            qInfo() << "Label not on board";
         }
 
     }

@@ -1,6 +1,8 @@
 #include "tilewrapper.h"
 #include <QMouseEvent>
 #include <QDebug>
+#include <QPainter>
+
 
 TileWrapper::TileWrapper()
 {
@@ -28,7 +30,19 @@ void TileWrapper::setImage(QString url)
 {
     this->url = url;
     QPixmap mypicture (url);
-    this->setPixmap(mypicture);
+
+    //QImage image(url);
+
+    // tell the painter to draw on the QImage
+    QPainter* painter = new QPainter(&mypicture); // sorry i forgot the "&"
+    painter->setPen(Qt::black);
+    painter->setFont(QFont("Arial", 30));
+    // you probably want the to draw the text to the rect of the image
+    QString letterOnImage = QChar(this->letter).toUpper();
+    painter->drawText(mypicture.rect(), Qt::AlignCenter, letterOnImage);
+
+    this->setPixmap(QPixmap(mypicture));
+    this->setAlignment(Qt::AlignCenter);
 }
 
 int TileWrapper::get_i()
