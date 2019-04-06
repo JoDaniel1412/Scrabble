@@ -41,6 +41,36 @@ int TileWrapper::get_j()
     return this->j;
 }
 
+char TileWrapper::getLetter() const
+{
+    return letter;
+}
+
+void TileWrapper::setLetter(char value)
+{
+    letter = value;
+}
+
+int TileWrapper::getInitialY() const
+{
+    return initialY;
+}
+
+void TileWrapper::setInitialY(int value)
+{
+    initialY = value;
+}
+
+int TileWrapper::getInitialX() const
+{
+    return initialX;
+}
+
+void TileWrapper::setInitialX(int value)
+{
+    initialX = value;
+}
+
 
 TileWrapper::~TileWrapper()
 {

@@ -29,9 +29,22 @@ public:
 
     int get_j();
 
+
+    char getLetter() const;
+    void setLetter(char value);
+
+    int getInitialX() const;
+    void setInitialX(int value);
+
+    int getInitialY() const;
+    void setInitialY(int value);
+
+
+private:
+
     char letter;
 
-
+    int initialX, initialY;
 };
 
 #endif // TILEWRAPPER_H

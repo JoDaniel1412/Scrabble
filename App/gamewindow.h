@@ -22,7 +22,7 @@ public:
     ~GameWindow() override;
 
     int movingX, movingY;
-
+    int gridLabelX, gridLabelY;
 
     TileWrapper * moving_label = nullptr;
 
@@ -31,8 +31,6 @@ public:
     LabelWrapper * label = nullptr;
 
     QLabel * qlabel1 = nullptr;
-
-    List<LabelWrapper*> * labelList = new List<LabelWrapper*>();
 
     Dock * dock = Dock::getInstance();
 
@@ -43,8 +41,8 @@ public:
     void hover();
 
 
-    int labelwidth = 65;
-    int labelheight = 65;
+    int labelwidth = 55;
+    int labelheight =55;
 
 protected:
 
