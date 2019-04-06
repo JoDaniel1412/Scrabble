@@ -35,6 +35,9 @@ protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
 
+private slots:
+    void on_closeButton_clicked();
+
 private:
 
     Ui::GameWindow *ui;

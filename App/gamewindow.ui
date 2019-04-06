@@ -64,8 +64,22 @@ background-image: url(:/Img/configIcon.png);
     <layout class="QGridLayout" name="boardGrid"/>
    </widget>
   </widget>
+  <widget class="QPushButton" name="closeButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>870</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </widget>
   <zorder>boardWidget</zorder>
   <zorder>label</zorder>
+  <zorder>closeButton</zorder>
  </widget>
  <resources/>
  <connections/>

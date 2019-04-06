@@ -1,3 +1,4 @@
+#include "endwindow.h"
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
 #include <QPushButton>
@@ -147,6 +148,9 @@ void GameWindow::setLabelOnBoard()
     }
 }
 
-
-
-
+void GameWindow::on_closeButton_clicked()
+{
+    this -> hide();
+    EndWindow *endwindow = new EndWindow(this);
+    endwindow -> show();
+}

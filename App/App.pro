@@ -35,7 +35,8 @@ SOURCES += \
     gamewindow.cpp \
     labelwrapper.cpp \
     Client/client.cpp \
-    stringtojson.cpp
+    stringtojson.cpp \
+    endwindow.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -45,14 +46,16 @@ HEADERS += \
     gamewindow.h \
     labelwrapper.h \
     Client/client.h \
-    stringtojson.h
+    stringtojson.h \
+    endwindow.h
 
 FORMS += \
         mainwindow.ui \
     hostwindow.ui \
     joinwindow.ui \
     gamewindow.ui \
-    propertieswindow.ui
+    propertieswindow.ui \
+    endwindow.ui
 
 LIBS += -L../src -lmyapp
 

@@ -37,6 +37,9 @@ void JoinWindow::on_joinGameBtn_clicked()
 
     QByteArray data = StringToJson::joinWindowObject(code, name);
 
-
     client->writeData(data);
+
+    this -> hide();
+    gameWindow = new GameWindow(this);
+    gameWindow -> show();
 }
