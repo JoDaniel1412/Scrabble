@@ -7,14 +7,12 @@
 
 LabelWrapper::LabelWrapper()
 {
-
 }
 
 
 void LabelWrapper::makeLabel()
 {
     QLabel *qlabel = new QLabel();
-
     qlabel->setMouseTracking(true);
 
     this->qLabel = qlabel;

@@ -16,6 +16,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="boardWidget" native="true">
    <property name="geometry">
     <rect>
@@ -28,13 +31,19 @@
    <property name="mouseTracking">
     <bool>true</bool>
    </property>
+   <property name="styleSheet">
+    <string notr="true">#boardWidget{
+background-color: rgb(244, 244, 237);
+	border-color: rgb(46, 52, 54);
+}</string>
+   </property>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>260</y>
-      <width>511</width>
-      <height>351</height>
+      <x>0</x>
+      <y>10</y>
+      <width>21</width>
+      <height>21</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="boardGrid"/>

@@ -12,9 +12,7 @@ TileWrapper::TileWrapper()
 void TileWrapper::makeTile()
 {
     QLabel *qlabel = new QLabel();
-
     qlabel->setParent(this);
-
     qlabel->setMouseTracking(true);
 
     this->qLabel = qlabel;

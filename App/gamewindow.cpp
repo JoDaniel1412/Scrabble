@@ -43,15 +43,19 @@ void GameWindow::makeLabelBoard(int rows, int columns)
         labelmatrix->pushTail(row);
 
         for(int j = 0; j < columns; j++){
-            QString color = "white";
-            if (board->getTile(i, j)->getBonus() == 2) color = "blue";
-            if (board->getTile(i, j)->getBonus() == 4) color = "red";
+
+            QString color = "#b2967d";
+            if (board->getTile(i, j)->getBonus() == 2) color = "#92d5e6";
+            if (board->getTile(i, j)->getBonus() == 4) color = "#c78283";
+            // verde 9ad5ca
+
 
             LabelWrapper * label = new LabelWrapper();
             label->makeLabel();
             label->setCoords(i, j);
             label->setAlignment(Qt::AlignCenter);
             label->setStyleSheet("QLabel { background-color : " + color + "; }");
+
 
             ui->boardGrid->addWidget(label, i,j);
 
@@ -88,11 +92,13 @@ void GameWindow::createGraphicDock()
 
 void GameWindow::deleteFromDock(TileWrapper * tilewrapper)
 {
-    for(int i = 0; i < tileList->getSize(); i++){
+    for(int i = 0; i < dock->getLetters()->getSize(); i++){
         if (tilewrapper == tileList->getNode(i)->getValue()){
             dock->remove(i);
             delete moving_label;
-            moving_label = nullptr;
+            int index = tileList->index(tilewrapper);
+            tileList->deleteValue(index);
+            break;
         }
     }
 }
@@ -101,21 +107,17 @@ void GameWindow::deleteFromDock(TileWrapper * tilewrapper)
 void GameWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
     QWidget::mouseDoubleClickEvent(event);
-        int mouseX = event->x();
-        int mouseY = event->y();
+    int mouseX = event->x();
+    int mouseY = event->y();
 
-        // Verifies that the mouse double click is within the label's limits.
-        for(int i = 0; i < tileList->getSize(); i++){
+    for(int i = 0; i < tileList->getSize(); i++){
+        TileWrapper * tile  = tileList->getNode(i)->getValue();
 
-            TileWrapper * tile  = tileList->getNode(i)->getValue();
-
-            if (collision(tile, mouseX, mouseY)){
-                moving_label = tile;
-                break;
-            }
-
+        if (collision(tile, mouseX, mouseY)){
+            moving_label = tile;
+            break;
         }
-
+    }
 }
 
 void GameWindow::mouseMoveEvent(QMouseEvent *event)
@@ -127,8 +129,6 @@ void GameWindow::mouseMoveEvent(QMouseEvent *event)
     gridLabelX = event->x() - ui->boardWidget->x();
     gridLabelY = event->y() - ui->boardWidget->y();
 
-    //hover();
-
     if (moving_label != nullptr){
         moving_label->move(movingX - 25, movingY - 25);
 
@@ -139,27 +139,17 @@ void GameWindow::mousePressEvent(QMouseEvent *event)
 {
     QWidget::mousePressEvent(event);
 
-
     if (moving_label != nullptr){
         if (collision(ui->boardWidget, movingX, movingY)){
-
             setLabelOnBoard();
 
         } else{
-            moving_label->setGeometry(moving_label->getInitialX(), moving_label->getInitialY(), labelwidth, labelheight);
+            moving_label->move(moving_label->getInitialX(), moving_label->getInitialY());
+            moving_label = nullptr;
         }
-
     }
-    moving_label = nullptr;
-
 }
 
-void GameWindow::mouseReleaseEvent(QMouseEvent *event)
-{
-    QWidget::mouseReleaseEvent(event);
-
-
-}
 
 bool GameWindow::collision(QWidget *lb1, int x, int y)
 {
@@ -187,55 +177,21 @@ bool GameWindow::collision(int x, int y, int x2, int y2)
 
 void GameWindow::setLabelOnBoard()
 {
-    try {
-        QWidget * widgetChild = ui->boardWidget->childAt(gridLabelX, gridLabelY);
+    QWidget * widgetChild = ui->boardWidget->childAt(gridLabelX, gridLabelY);
 
-        if(widgetChild != ui->gridLayoutWidget){
+    if(widgetChild != ui->gridLayoutWidget){
 
-            LabelWrapper *labelwrapper = (LabelWrapper*) widgetChild;
-            moving_label->setCoords(labelwrapper->get_i(), labelwrapper->get_j());
+        LabelWrapper *labelwrapper = (LabelWrapper*) widgetChild;
+        moving_label->setCoords(labelwrapper->get_i(), labelwrapper->get_j());
 
-            if(board->putLetter(moving_label->get_i(), moving_label->get_j(), moving_label->getLetter())){
-                labelwrapper->setImage(":/Img/background2.jpg", moving_label->getLetter());
-                deleteFromDock(moving_label);
+        if(board->putLetter(moving_label->get_i(), moving_label->get_j(), moving_label->getLetter())){
+            labelwrapper->setImage(":/Img/background2.jpg", moving_label->getLetter());
+            deleteFromDock(moving_label);
+            moving_label = nullptr;
 
-            } else {
-                moving_label->move(moving_label->getInitialX(), moving_label->getInitialY());
-            }
+        } else {
+            moving_label->move(moving_label->getInitialX(), moving_label->getInitialY());
         }
-
-    } catch (std::exception & e) {
-        qInfo() << e.what();
     }
-
 }
-
-
-
-
-void GameWindow::hover()
-{
-    try {
-        QWidget * widgetChild = ui->boardWidget->childAt(gridLabelX, gridLabelY);
-
-        if(widgetChild != ui->gridLayoutWidget){
-
-            LabelWrapper *labelwrapper = (LabelWrapper*) widgetChild;
-            if(collision(labelwrapper->x(), labelwrapper->y(), gridLabelX, gridLabelY)){
-
-                label->setStyleSheet("QLabel { background-color : #e1c699; }");
-
-            } else {
-                label->setStyleSheet("QLabel { background-color : white; }");
-            }
-        }
-
-    } catch (std::exception & e) {
-        qInfo() << e.what();
-    }
-
-}
-
-
-
 
