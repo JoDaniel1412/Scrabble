@@ -12,18 +12,19 @@ public:
     ~LabelWrapper();
 
 
-    int i, j;
-
 public:
 
     QLabel * qLabel = nullptr;
 
     void makeLabel();
 
+    int i, j;
+
     void setCoords(int i, int j);
 
     int get_i();
 
     int get_j();
+
 };
 #endif // LABELWRAPPER_H

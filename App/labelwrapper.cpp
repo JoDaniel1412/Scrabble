@@ -1,5 +1,7 @@
 #include "labelwrapper.h"
 #include <QLabel>
+#include <QDebug>
+#include <QMouseEvent>
 
 
 LabelWrapper::LabelWrapper()
@@ -32,6 +34,7 @@ int LabelWrapper::get_j()
 {
     return this->j;
 }
+
 
 LabelWrapper::~LabelWrapper()
 {

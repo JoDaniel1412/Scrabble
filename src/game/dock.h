@@ -7,13 +7,14 @@
 class Dock
 {
 public:
-    Dock *getInstance();
+    static Dock *getInstance();
 
     void add(char letter);
 
     void remove(int index);
 
-    List<char> *getLetters();
+    List<char> *getLetters() const;
+    void setLetters(List<char> *value);
 
 private:
     Dock();

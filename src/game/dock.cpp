@@ -7,6 +7,16 @@ Dock::Dock()
     letters = new List<char>();
 }
 
+List<char> *Dock::getLetters() const
+{
+    return letters;
+}
+
+void Dock::setLetters(List<char> *value)
+{
+    letters = value;
+}
+
 Dock *Dock::getInstance()
 {
     if (instance == nullptr) instance = new Dock();
@@ -21,9 +31,4 @@ void Dock::add(char letter)
 void Dock::remove(int index)
 {
     letters->deleteValue(index);
-}
-
-List<char> *Dock::getLetters()
-{
-    return letters;
 }

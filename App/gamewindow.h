@@ -5,6 +5,9 @@
 #include <QLabel>
 #include "labelwrapper.h"
 #include "list/List.h"
+#include "tilewrapper.h"
+#include "game/dock.h"
+#include "mockdock.h"
 
 namespace Ui {
 class GameWindow;
@@ -16,17 +19,30 @@ class GameWindow : public QDialog
 public:
 
     explicit GameWindow(QWidget *parent = nullptr);
-    ~GameWindow();
+    ~GameWindow() override;
 
     int movingX, movingY;
+    int gridLabelX, gridLabelY;
 
-    QLabel * moving_label = nullptr;
+    TileWrapper * moving_label = nullptr;
 
-    LabelWrapper *label = nullptr;
+    List<TileWrapper*> * tileList = new List<TileWrapper*>();
 
-    List<LabelWrapper*> * labelList = new List<LabelWrapper*>();
+    LabelWrapper * label = nullptr;
+
+    QLabel * qlabel1 = nullptr;
+
+    Dock * dock = Dock::getInstance();
 
     void setLabelOnBoard();
+
+    void createGraphicDock();
+
+    void hover();
+
+
+    int labelwidth = 55;
+    int labelheight =55;
 
 protected:
 
@@ -41,8 +57,11 @@ private slots:
 private:
 
     Ui::GameWindow *ui;
-    void makeLabelBoard(int size);
-    bool collision(QLabel * lb1, QLabel * lb2);
+    List<List<LabelWrapper*>*> * labelmatrix = new List<List<LabelWrapper*>*>();
+    void makeLabelBoard(int rows, int columns);
+    bool collision(QWidget * lb1, int x, int y);
+    bool collision(int x, int y, int x2, int y2);
+
 };
 
 #endif // GAMEWINDOW_H
