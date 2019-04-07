@@ -24,7 +24,6 @@ public slots:
     void newConnection();
     void disconnected();
     void readyRead();
-    qint32 ArrayToIint(QByteArray source);
 
 private:
     QTcpServer *server;
