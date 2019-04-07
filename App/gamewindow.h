@@ -7,7 +7,7 @@
 #include "list/List.h"
 #include "tilewrapper.h"
 #include "game/dock.h"
-#include "mockdock.h"
+#include "game/board.h"
 
 namespace Ui {
 class GameWindow;
@@ -33,6 +33,8 @@ public:
     QLabel * qlabel1 = nullptr;
 
     Dock * dock = Dock::getInstance();
+
+    Board * board = Board::getInstance();
 
     void setLabelOnBoard();
 

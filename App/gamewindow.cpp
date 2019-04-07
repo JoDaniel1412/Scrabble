@@ -113,9 +113,11 @@ void GameWindow::mouseMoveEvent(QMouseEvent *event)
     QWidget::mouseMoveEvent(event);
     movingX = event->x();
     movingY = event->y();
+
     gridLabelX = event->x() - ui->boardWidget->x();
     gridLabelY = event->y() - ui->boardWidget->y();
 
+    //hover();
 
     if (moving_label != nullptr){
         moving_label->move(movingX - 25, movingY - 25);
@@ -185,12 +187,14 @@ void GameWindow::setLabelOnBoard()
         if(widgetChild != ui->gridLayoutWidget){
 
             LabelWrapper *labelwrapper = (LabelWrapper*) widgetChild;
-
-            moving_label->move(labelwrapper->x() + ui->boardWidget->x(), labelwrapper->y() + ui->boardWidget->y());
             moving_label->setCoords(labelwrapper->get_i(), labelwrapper->get_j());
 
-        } else {
-            moving_label->move(moving_label->getInitialX(), moving_label->getInitialY());
+            if(board->putLetter(moving_label->get_i(), moving_label->get_j(), moving_label->getLetter())){
+                moving_label->move(labelwrapper->x() + ui->boardWidget->x(), labelwrapper->y() + ui->boardWidget->y());
+
+            } else {
+                moving_label->move(moving_label->getInitialX(), moving_label->getInitialY());
+            }
         }
 
     } catch (std::exception & e) {
@@ -204,9 +208,24 @@ void GameWindow::setLabelOnBoard()
 
 void GameWindow::hover()
 {
-    LabelWrapper *test = (LabelWrapper*) ui->boardWidget->childAt(gridLabelX, gridLabelY);
+    try {
+        QWidget * widgetChild = ui->boardWidget->childAt(gridLabelX, gridLabelY);
 
-    test->setStyleSheet("QLabel { background-color : #e1c699; }");
+        if(widgetChild != ui->gridLayoutWidget){
+
+            LabelWrapper *labelwrapper = (LabelWrapper*) widgetChild;
+            if(collision(labelwrapper->x(), labelwrapper->y(), gridLabelX, gridLabelY)){
+
+                label->setStyleSheet("QLabel { background-color : #e1c699; }");
+
+            } else {
+                label->setStyleSheet("QLabel { background-color : white; }");
+            }
+        }
+
+    } catch (std::exception & e) {
+        qInfo() << e.what();
+    }
 
 }
 

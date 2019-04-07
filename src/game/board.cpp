@@ -28,10 +28,18 @@ void Board::load()
     }
 }
 
-void Board::putLetter(int i, int j, char letter)
+bool Board::putLetter(int i, int j, char letter)
 {
     Tile *tile = getTile(i, j);
-    tile->setLetter(letter);
+    bool occupied = false;
+
+    if (tile->isFree()){
+
+        tile->setLetter(letter);
+        tile->setFree(false);
+        occupied = true;
+    }
+    return occupied;
 }
 
 char Board::getLetter(int i, int j)
