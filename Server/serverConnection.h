@@ -6,6 +6,7 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QtCore>
+#include <datasender.h>
 class Server;
 
 class serverConnection : public QObject

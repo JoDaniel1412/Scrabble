@@ -4,6 +4,7 @@
 #include <QString>
 #include <QJsonDocument>
 #include <serverdata.h>
+#include <datasender.h>
 
 class dataProcessor
 {

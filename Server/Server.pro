@@ -20,10 +20,12 @@ SOURCES += main.cpp \
     sms/sms.cpp \
     serverConnection.cpp \
     serverdata.cpp \
-    dataprocessor.cpp
+    dataprocessor.cpp \
+    datasender.cpp
 
 HEADERS += \
     sms/sms.h \
     serverConnection.h \
     serverdata.h \
-    dataprocessor.h
+    dataprocessor.h \
+    datasender.h

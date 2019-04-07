@@ -17,7 +17,7 @@ void dataProcessor::receiver(QString data)
     }
     if (obj.value("key").toString() == serverData::getInstance()->getKey())
     {
-        qDebug() << "You can join";
+        dataSender::setInfoToSend("canJoin");
     }
 
 }

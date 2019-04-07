@@ -42,5 +42,10 @@ void JoinWindow::on_joinGameBtn_clicked()
 
     client->writeData(data);
     QByteArray response = client->getSocket()->readAll();
-    cout <<response.toStdString()<<endl;
+    if(response=="canJoin")
+    {
+        this->hide();
+        gameWindow = new GameWindow();
+        gameWindow->show();
+    }
 }
