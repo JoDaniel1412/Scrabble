@@ -44,7 +44,7 @@ void serverConnection::readyRead()
     QByteArray byteArray = socket->read(size);
     QString data = QString::fromStdString(byteArray.toStdString());
     dataProcessor::receiver(data);
-
+    socket->write("hey");
 }
 
 

@@ -34,4 +34,8 @@ int Client::getServerKey()
     return this->serverKey;
 }
 
+QTcpSocket* Client::getSocket()
+{
+    return this->socket;
+}
 

@@ -3,6 +3,8 @@
 #include "mainwindow.h"
 #include <QJsonObject>
 #include "stringtojson.h"
+using namespace std;
+#include <iostream>
 
 JoinWindow::JoinWindow(QWidget *parent) :
     QDialog(parent),
@@ -39,4 +41,6 @@ void JoinWindow::on_joinGameBtn_clicked()
 
 
     client->writeData(data);
+    QByteArray response = client->getSocket()->readAll();
+    cout <<response.toStdString()<<endl;
 }

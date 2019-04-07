@@ -17,6 +17,7 @@ public slots:
     bool writeData(QByteArray data);
     void setServerKey(int serverKey);
     int getServerKey();
+    QTcpSocket* getSocket();
 
 private:
    QTcpSocket *socket;
