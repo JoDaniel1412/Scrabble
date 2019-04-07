@@ -3,11 +3,14 @@
 #include <QDialog>
 #include <QMouseEvent>
 #include <QLabel>
-#include "labelwrapper.h"
+#include "wrappers/labelwrapper.h"
 #include "list/List.h"
-#include "tilewrapper.h"
+#include "wrappers/tilewrapper.h"
 #include "game/dock.h"
 #include "game/board.h"
+#include "mocks/mockdock.h"
+#include "game/game.h"
+#include "mocks/mockgame.h"
 
 namespace Ui {
 class GameWindow;
@@ -29,10 +32,9 @@ public:
     LabelWrapper * label = nullptr;
     Dock * dock = Dock::getInstance();
     Board * board = Board::getInstance();
-
+    Game * game = Game::getInstance();
 
     void hover();
-
 
     int labelwidth = 55;
     int labelheight =55;
@@ -53,6 +55,7 @@ private:
     bool collision(int x, int y, int x2, int y2);
     void setLabelOnBoard();
     void deleteFromDock(TileWrapper * tilewrapper);
+    void loadPlayers();
 
 };
 

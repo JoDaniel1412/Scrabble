@@ -5,8 +5,6 @@
 #include <QDebug>
 #include <QMouseEvent>
 #include "list/List.h"
-#include "labelwrapper.h"
-#include "mockdock.h"
 #include <QPainter>
 
 
@@ -26,6 +24,9 @@ GameWindow::GameWindow(QWidget *parent) :
     createGraphicDock();
 
     QWidget::setMouseTracking(true);
+
+
+    loadPlayers();
 
 }
 
@@ -47,8 +48,6 @@ void GameWindow::makeLabelBoard(int rows, int columns)
             QString color = "#b2967d";
             if (board->getTile(i, j)->getBonus() == 2) color = "#92d5e6";
             if (board->getTile(i, j)->getBonus() == 4) color = "#c78283";
-            // verde 9ad5ca
-
 
             LabelWrapper * label = new LabelWrapper();
             label->makeLabel();
@@ -101,6 +100,34 @@ void GameWindow::deleteFromDock(TileWrapper * tilewrapper)
             break;
         }
     }
+}
+
+void GameWindow::loadPlayers()
+{
+    MockGame::makePlayers();
+    unordered_map<string, int> * map = game->getPlayers();
+
+    ui->tableWidget->setRowCount(map->size());
+    ui->tableWidget->setColumnCount(2);
+    ui->tableWidget->verticalHeader()->setVisible(false);
+    QStringList header;
+    header<<"name " << "points";
+    ui->tableWidget->setHorizontalHeaderLabels(header);
+    ui->tableWidget->horizontalHeader()->setStyleSheet("::section { background-color: #b2967d; }" );
+    int i = 0;
+
+    for (pair<string, int> entry : *map) {
+        QString name = QString::fromStdString(entry.first).toLower();
+        QString points = QString::number(entry.second);
+
+        ui->tableWidget->setItem(i, 0, new QTableWidgetItem(name));
+        ui->tableWidget->setItem(i, 1, new QTableWidgetItem(points));
+
+        i++;
+    }
+
+    ui->tableWidget->resizeRowsToContents();
+    ui->tableWidget->resizeColumnsToContents();
 }
 
 
@@ -177,21 +204,25 @@ bool GameWindow::collision(int x, int y, int x2, int y2)
 
 void GameWindow::setLabelOnBoard()
 {
-    QWidget * widgetChild = ui->boardWidget->childAt(gridLabelX, gridLabelY);
+    try {
+        QWidget * widgetChild = ui->boardWidget->childAt(gridLabelX, gridLabelY);
 
-    if(widgetChild != ui->gridLayoutWidget){
+        if(widgetChild != ui->gridLayoutWidget){
 
-        LabelWrapper *labelwrapper = (LabelWrapper*) widgetChild;
-        moving_label->setCoords(labelwrapper->get_i(), labelwrapper->get_j());
+            LabelWrapper *labelwrapper = (LabelWrapper*) widgetChild;
+            moving_label->setCoords(labelwrapper->get_i(), labelwrapper->get_j());
 
-        if(board->putLetter(moving_label->get_i(), moving_label->get_j(), moving_label->getLetter())){
-            labelwrapper->setImage(":/Img/background2.jpg", moving_label->getLetter());
-            deleteFromDock(moving_label);
-            moving_label = nullptr;
+            if(board->putLetter(moving_label->get_i(), moving_label->get_j(), moving_label->getLetter())){
+                labelwrapper->setImage(":/Img/background2.jpg", moving_label->getLetter());
+                deleteFromDock(moving_label);
+                moving_label = nullptr;
 
-        } else {
-            moving_label->move(moving_label->getInitialX(), moving_label->getInitialY());
+            } else moving_label->move(moving_label->getInitialX(), moving_label->getInitialY());
         }
+
+    } catch (std::exception & e) {
+    qInfo() << e.what();
     }
+
 }
 
