@@ -23,14 +23,6 @@ bool Client::writeData(QByteArray data)
         return false;
 }
 
-QByteArray IntToArray(qint32 source)
-{
-    //Avoid use of cast, this is the QT way to serialize objects
-    QByteArray temp;
-    QDataStream data(&temp, QIODevice::ReadWrite);
-    data << source;
-    return temp;
-}
 
 void Client::setServerKey(int Key)
 {
