@@ -12,7 +12,7 @@ public:
 
     void load();
 
-    void putLetter(int i, int j, char letter);
+    bool putLetter(int i, int j, char letter);
 
     char getLetter(int i, int j);
 

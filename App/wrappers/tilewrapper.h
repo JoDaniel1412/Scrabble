@@ -29,6 +29,7 @@ public:
 
     int get_j();
 
+    void deleteTile();
 
     char getLetter() const;
     void setLetter(char value);

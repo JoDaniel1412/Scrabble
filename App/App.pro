@@ -28,17 +28,18 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
+    mainwindow.cpp \
     hostwindow.cpp \
     joinwindow.cpp \
     propertieswindow.cpp \
     gamewindow.cpp \
-    labelwrapper.cpp \
-    Client/client.cpp \
     stringtojson.cpp \
     endwindow.cpp \
-    tilewrapper.cpp \
-    mockdock.cpp
+    Client/client.cpp \
+    wrappers/labelwrapper.cpp \
+    wrappers/tilewrapper.cpp \
+    mocks/mockgame.cpp \
+    mocks/mockdock.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -46,12 +47,13 @@ HEADERS += \
     joinwindow.h \
     propertieswindow.h \
     gamewindow.h \
-    labelwrapper.h \
-    Client/client.h \
     stringtojson.h \
     endwindow.h \
-    tilewrapper.h \
-    mockdock.h
+    Client/client.h \
+    wrappers/labelwrapper.h \
+    wrappers/tilewrapper.h \
+    mocks/mockgame.h \
+    mocks/mockdock.h
 
 FORMS += \
         mainwindow.ui \

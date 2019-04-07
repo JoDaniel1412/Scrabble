@@ -5,5 +5,7 @@
         <file>Img/join.png</file>
         <file>Img/Scrabble.png</file>
         <file>Img/configIcon.png</file>
+        <file>Img/tile.png</file>
+        <file>Img/tile_center.png</file>
     </qresource>
 </RCC>

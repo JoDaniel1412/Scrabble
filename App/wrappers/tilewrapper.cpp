@@ -12,9 +12,7 @@ TileWrapper::TileWrapper()
 void TileWrapper::makeTile()
 {
     QLabel *qlabel = new QLabel();
-
     qlabel->setParent(this);
-
     qlabel->setMouseTracking(true);
 
     this->qLabel = qlabel;
@@ -31,13 +29,10 @@ void TileWrapper::setImage(QString url)
     this->url = url;
     QPixmap mypicture (url);
 
-    //QImage image(url);
-
     // tell the painter to draw on the QImage
-    QPainter* painter = new QPainter(&mypicture); // sorry i forgot the "&"
+    QPainter* painter = new QPainter(&mypicture);
     painter->setPen(Qt::black);
     painter->setFont(QFont("ScrambleMixed", 40));
-    // you probably want the to draw the text to the rect of the image
     QString letterOnImage = QChar(this->letter).toUpper();
     painter->drawText(mypicture.rect(), Qt::AlignCenter, letterOnImage);
 
@@ -55,6 +50,11 @@ int TileWrapper::get_i()
 int TileWrapper::get_j()
 {
     return this->j;
+}
+
+void TileWrapper::deleteTile()
+{
+    delete this;
 }
 
 char TileWrapper::getLetter() const

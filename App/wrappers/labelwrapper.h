@@ -1,6 +1,7 @@
 #ifndef LABELWRAPPER_H
 #define LABELWRAPPER_H
 #include <QLabel>
+#include "game/board.h"
 
 
 class LabelWrapper : public QLabel
@@ -25,6 +26,10 @@ public:
     int get_i();
 
     int get_j();
+
+    void setImage(QString url, QChar letter);
+
+    Board * board = Board::getInstance();
 
 };
 #endif // LABELWRAPPER_H
