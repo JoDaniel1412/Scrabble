@@ -17,6 +17,7 @@ Board *Board::getInstance()
 
 void Board::load()
 {
+    int k = 14;
     for (int i = 0; i < rows; i++) {  // Loads the rows into the matrix
         List<Tile*> *row = new List<Tile*>();
         matrix->pushTail(row);
@@ -24,6 +25,14 @@ void Board::load()
         for (int j = 0; j < columns; j++) {  // Loads the columns into the matrix
             Tile *tile = new Tile();
             row->pushTail(tile);
+
+            // Extra points
+            if (i == j) tile->setBonus(2);
+            if (i + k == j) {
+                tile->setBonus(2);
+                k -= 2;
+            }
+            if (i == 7 and j == 7) tile->setBonus(4);
         }
     }
 }

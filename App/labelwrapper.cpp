@@ -2,6 +2,7 @@
 #include <QLabel>
 #include <QDebug>
 #include <QMouseEvent>
+#include <QPainter>
 
 
 LabelWrapper::LabelWrapper()
@@ -33,6 +34,23 @@ int LabelWrapper::get_i()
 int LabelWrapper::get_j()
 {
     return this->j;
+}
+
+void LabelWrapper::setImage(QString url, QChar letter)
+{
+    QPixmap mypicture (url);
+
+    // tell the painter to draw on the QImage
+    QPainter* painter = new QPainter(&mypicture);
+    painter->setPen(Qt::black);
+    painter->setFont(QFont("ScrambleMixed", 40));
+    QString letterOnImage = QChar(letter).toUpper();
+    painter->drawText(mypicture.rect(), Qt::AlignCenter, letterOnImage);
+
+    this->setPixmap(QPixmap(mypicture));
+    this->setAlignment(Qt::AlignCenter);
+
+    painter->end();
 }
 
 

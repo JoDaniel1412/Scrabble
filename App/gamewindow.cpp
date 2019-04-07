@@ -27,8 +27,8 @@ GameWindow::GameWindow(QWidget *parent) :
 
     QWidget::setMouseTracking(true);
 
-
 }
+
 GameWindow::~GameWindow()
 {
     delete ui;
@@ -39,20 +39,19 @@ void GameWindow::makeLabelBoard(int rows, int columns)
 {
 
     for(int i = 0; i < rows; i++){
-
         List<LabelWrapper*> *row = new List<LabelWrapper*>();
-
         labelmatrix->pushTail(row);
 
         for(int j = 0; j < columns; j++){
+            QString color = "white";
+            if (board->getTile(i, j)->getBonus() == 2) color = "blue";
+            if (board->getTile(i, j)->getBonus() == 4) color = "red";
 
             LabelWrapper * label = new LabelWrapper();
             label->makeLabel();
             label->setCoords(i, j);
-
-            label->setText(QString::number(label->get_i()) + " " + QString::number(label->get_j()));
             label->setAlignment(Qt::AlignCenter);
-            label->setStyleSheet("QLabel { background-color : white; }");
+            label->setStyleSheet("QLabel { background-color : " + color + "; }");
 
             ui->boardGrid->addWidget(label, i,j);
 
@@ -84,6 +83,17 @@ void GameWindow::createGraphicDock()
 
         tileList->pushTail(tileWrapper);
 
+    }
+}
+
+void GameWindow::deleteFromDock(TileWrapper * tilewrapper)
+{
+    for(int i = 0; i < tileList->getSize(); i++){
+        if (tilewrapper == tileList->getNode(i)->getValue()){
+            dock->remove(i);
+            delete moving_label;
+            moving_label = nullptr;
+        }
     }
 }
 
@@ -140,7 +150,6 @@ void GameWindow::mousePressEvent(QMouseEvent *event)
         }
 
     }
-
     moving_label = nullptr;
 
 }
@@ -149,9 +158,8 @@ void GameWindow::mouseReleaseEvent(QMouseEvent *event)
 {
     QWidget::mouseReleaseEvent(event);
 
+
 }
-
-
 
 bool GameWindow::collision(QWidget *lb1, int x, int y)
 {
@@ -160,8 +168,6 @@ bool GameWindow::collision(QWidget *lb1, int x, int y)
     {
         limits = true;
     }
-
-    //qInfo() << "Collision: " + QString::number(limits == true);
     return limits == true;
 }
 
@@ -190,7 +196,8 @@ void GameWindow::setLabelOnBoard()
             moving_label->setCoords(labelwrapper->get_i(), labelwrapper->get_j());
 
             if(board->putLetter(moving_label->get_i(), moving_label->get_j(), moving_label->getLetter())){
-                moving_label->move(labelwrapper->x() + ui->boardWidget->x(), labelwrapper->y() + ui->boardWidget->y());
+                labelwrapper->setImage(":/Img/background2.jpg", moving_label->getLetter());
+                deleteFromDock(moving_label);
 
             } else {
                 moving_label->move(moving_label->getInitialX(), moving_label->getInitialY());

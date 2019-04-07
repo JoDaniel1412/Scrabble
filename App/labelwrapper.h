@@ -26,5 +26,7 @@ public:
 
     int get_j();
 
+    void setImage(QString url, QChar letter);
+
 };
 #endif // LABELWRAPPER_H

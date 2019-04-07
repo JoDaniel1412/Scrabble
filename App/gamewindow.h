@@ -25,20 +25,11 @@ public:
     int gridLabelX, gridLabelY;
 
     TileWrapper * moving_label = nullptr;
-
     List<TileWrapper*> * tileList = new List<TileWrapper*>();
-
     LabelWrapper * label = nullptr;
-
-    QLabel * qlabel1 = nullptr;
-
     Dock * dock = Dock::getInstance();
-
     Board * board = Board::getInstance();
 
-    void setLabelOnBoard();
-
-    void createGraphicDock();
 
     void hover();
 
@@ -58,8 +49,11 @@ private:
     Ui::GameWindow *ui;
     List<List<LabelWrapper*>*> * labelmatrix = new List<List<LabelWrapper*>*>();
     void makeLabelBoard(int rows, int columns);
+    void createGraphicDock();
     bool collision(QWidget * lb1, int x, int y);
     bool collision(int x, int y, int x2, int y2);
+    void setLabelOnBoard();
+    void deleteFromDock(TileWrapper * tilewrapper);
 
 };
 
