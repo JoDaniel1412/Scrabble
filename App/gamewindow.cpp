@@ -18,13 +18,13 @@ GameWindow::GameWindow(QWidget *parent) :
     int boardY = this->y() + this->height()/2 - ui->boardWidget->height()/2 - 50;
 
     ui->boardWidget->setGeometry(boardX, boardY, labelwidth*15, labelheight*15);
+    ui->boardBackground->setGeometry(boardX - 3, boardY - 3, labelwidth*15 + 6, labelheight*15 + 6);
     ui->boardGrid->setParent(ui->boardWidget);
 
     makeLabelBoard(15, 15);
     createGraphicDock();
 
     QWidget::setMouseTracking(true);
-
 
     loadPlayers();
 

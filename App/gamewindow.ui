@@ -93,7 +93,23 @@ font: 40pt &quot;ScrambleMixed&quot;;</string>
     <bool>false</bool>
    </attribute>
   </widget>
+  <widget class="QWidget" name="boardBackground" native="true">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>340</y>
+     <width>120</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#boardBackground{
+background-color: rgb(0, 0, 0);
+}</string>
+   </property>
+  </widget>
   <zorder>tableWidget</zorder>
+  <zorder>boardBackground</zorder>
   <zorder>boardWidget</zorder>
  </widget>
  <resources/>
