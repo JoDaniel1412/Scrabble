@@ -6,6 +6,7 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QtCore>
+#include <datasender.h>
 class Server;
 
 class serverConnection : public QObject
@@ -23,7 +24,6 @@ public slots:
     void newConnection();
     void disconnected();
     void readyRead();
-    qint32 ArrayToIint(QByteArray source);
 
 private:
     QTcpServer *server;

@@ -23,13 +23,15 @@ SOURCES += main.cpp \
     serverConnection.cpp \
     serverdata.cpp \
     dataprocessor.cpp \
-    game/gameinterface.cpp
+    game/gameinterface.cpp \
+    datasender.cpp
 
 HEADERS += \
     sms/sms.h \
     serverConnection.h \
     serverdata.h \
     dataprocessor.h \
-    game/gameinterface.h
+    game/gameinterface.h \
+    datasender.h
 
 LIBS += -L../src -lmyapp

@@ -16,12 +16,9 @@ void serverConnection::newConnection()
     {
         QTcpSocket *socket = server->nextPendingConnection();
         connect(socket, SIGNAL(readyRead()), SLOT(readyRead()));
+        QString response = dataSender::getInfoToSend();
+        socket->write(response.toUtf8());
         connect(socket, SIGNAL(disconnected()), SLOT(disconnected()));
-        QByteArray *buffer = new QByteArray();
-        qint32 *s = new qint32(0);
-        buffers.insert(socket, buffer);
-        sizes.insert(socket, s);
-
 
     }
 }
@@ -44,7 +41,6 @@ void serverConnection::readyRead()
     QByteArray byteArray = socket->read(size);
     QString data = QString::fromStdString(byteArray.toStdString());
     dataProcessor::receiver(data);
-
 }
 
 

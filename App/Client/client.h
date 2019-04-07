@@ -15,9 +15,9 @@ public:
 public slots:
     bool connectToHost();
     bool writeData(QByteArray data);
-    QByteArray IntToArray(qint32 source);
     void setServerKey(int serverKey);
     int getServerKey();
+    QTcpSocket* getSocket();
 
 private:
    QTcpSocket *socket;

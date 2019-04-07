@@ -10,10 +10,14 @@ void dataProcessor::receiver(QString data)
 {
     QJsonObject obj = dataProcessor::StringToJson(data);
     QJsonValue MatchKey = obj.value("setKey");
-    if (MatchKey != "")
+    if (MatchKey.toString() != "")
     {
         QString key = MatchKey.toString();
         dataProcessor::setMatchKey(key);
+    }
+    if (obj.value("key").toString() == serverData::getInstance()->getKey())
+    {
+        dataSender::setInfoToSend("canJoin");
     }
 
 }
