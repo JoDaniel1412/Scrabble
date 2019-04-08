@@ -32,7 +32,7 @@ void JoinWindow::on_joinGameBtn_clicked()
 {
     if(ui->nameEntry->text().isEmpty() or ui->codeEntry->text().isEmpty()){
         QMessageBox::StandardButton reply;
-        reply = QMessageBox::warning(this, "Warning", "You must fill in the blanks", QMessageBox::Ok);
+        reply = QMessageBox::information(this, "Warning", "You must fill in the blanks", QMessageBox::Ok);
 
     } else{
         Client *client = new Client();
@@ -40,7 +40,6 @@ void JoinWindow::on_joinGameBtn_clicked()
 
         QString code = ui->codeEntry->text();
         QString name = ui->nameEntry->text();
-
 
         QByteArray data = StringToJson::joinWindowObject(code, name);
 

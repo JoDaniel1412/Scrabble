@@ -44,7 +44,7 @@ void HostWindow::on_hostGameBtn_clicked()
 
     if(ui->nameEntry->text().isEmpty()){
         QMessageBox::StandardButton reply;
-        reply = QMessageBox::warning(this, "Warning", "You must fill in the blanks", QMessageBox::Ok);
+        reply = QMessageBox::information(this, "Warning", "You must fill in the blanks", QMessageBox::Ok);
 
     } else{
 
