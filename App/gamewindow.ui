@@ -17,7 +17,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-color: rgb(84, 106, 118);</string>
   </property>
   <widget class="QWidget" name="boardWidget" native="true">
    <property name="geometry">
@@ -79,7 +79,8 @@ background-color: rgb(244, 244, 237);
    </property>
    <property name="styleSheet">
     <string notr="true">background-image: url(:/Img/background2.jpg);
-font: 40pt &quot;ScrambleMixed&quot;;</string>
+font: 40pt &quot;ScrambleMixed&quot;;
+border: 1px solid black;</string>
    </property>
    <property name="selectionMode">
     <enum>QAbstractItemView::NoSelection</enum>
@@ -117,10 +118,11 @@ font: 40pt &quot;ScrambleMixed&quot;;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">#boardBackground{
-background-color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
 }</string>
    </property>
   </widget>
+  <zorder>closeButton</zorder>
   <zorder>tableWidget</zorder>
   <zorder>boardBackground</zorder>
   <zorder>boardWidget</zorder>
