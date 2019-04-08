@@ -1,8 +1,8 @@
 #include "clientinterface.h"
 
-static Game *game = Game::getInstance();
-static Board *board = Board::getInstance();
-static Dock *dock = Dock::getInstance();
+Game *ClientInterface::game = Game::getInstance();
+Board *ClientInterface::board = Board::getInstance();
+Dock *ClientInterface::dock = Dock::getInstance();
 
 void ClientInterface::updateGame(string json)
 {
@@ -22,6 +22,21 @@ void ClientInterface::letterPlacedAt(char letter, int i, int j)
 }
 
 void ClientInterface::sendSMS(string word)
+{
+
+}
+
+unordered_map<string, int> *ClientInterface::fromJSONtoPlayers(string json)
+{
+
+}
+
+List<char> *ClientInterface::fromJSONtoLetters(string json)
+{
+
+}
+
+List<List<Tile *> *> *ClientInterface::fromJSONtoMatrix(string json)
 {
 
 }
