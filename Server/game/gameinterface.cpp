@@ -81,3 +81,13 @@ void GameInterface::setPlayersPoints(const QHash<QString, int> &value)
 {
     playersPoints = value;
 }
+
+int GameInterface::getMaxPlayers()
+{
+    return maxPlayers;
+}
+
+void GameInterface::setMaxPlayers(int value)
+{
+    maxPlayers = value;
+}
