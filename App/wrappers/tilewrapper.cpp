@@ -11,11 +11,8 @@ TileWrapper::TileWrapper()
 
 void TileWrapper::makeTile()
 {
-    QLabel *qlabel = new QLabel();
-    qlabel->setParent(this);
-    qlabel->setMouseTracking(true);
-
-    this->qLabel = qlabel;
+    this->setMouseTracking(true);
+    this->setStyleSheet("QLabel { border: 1px solid black; }");
 }
 
 void TileWrapper::setCoords(int i, int j)
