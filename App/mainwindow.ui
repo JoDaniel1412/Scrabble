@@ -83,7 +83,7 @@ border: 5px white;
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>600</y>
+      <y>550</y>
       <width>50</width>
       <height>50</height>
      </rect>
@@ -98,6 +98,24 @@ border: 5px white;
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exitBtn">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>620</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Img/background2.jpg);
+font: 20pt &quot;ScrambleMixed&quot;;
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>EXIT</string>
     </property>
    </widget>
   </widget>

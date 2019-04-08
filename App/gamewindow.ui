@@ -70,8 +70,8 @@ background-color: rgb(244, 244, 237);
     <rect>
      <x>1240</x>
      <y>120</y>
-     <width>341</width>
-     <height>311</height>
+     <width>340</width>
+     <height>310</height>
     </rect>
    </property>
    <property name="focusPolicy">

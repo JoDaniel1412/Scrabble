@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "mainwindow.h"
+#include "gamewindow.h"
 
 namespace Ui {
 class EndWindow;

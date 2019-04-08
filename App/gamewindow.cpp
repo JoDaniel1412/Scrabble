@@ -27,7 +27,7 @@ GameWindow::GameWindow(QWidget *parent) :
 
     QWidget::setMouseTracking(true);
 
-    loadPlayers();
+    loadPlayers(this->ui->tableWidget);
 
 }
 
@@ -103,32 +103,33 @@ void GameWindow::deleteFromDock(TileWrapper * tilewrapper)
     }
 }
 
-void GameWindow::loadPlayers()
+void GameWindow::loadPlayers(QTableWidget *table)
 {
     MockGame::makePlayers();
     unordered_map<string, int> * map = game->getPlayers();
 
-    ui->tableWidget->setRowCount(map->size());
-    ui->tableWidget->setColumnCount(2);
-    ui->tableWidget->verticalHeader()->setVisible(false);
+    table->setRowCount(map->size());
+    table->setColumnCount(2);
+    table->verticalHeader()->setVisible(false);
+    table->resize(340, 310);
     QStringList header;
     header<<"name " << "points";
-    ui->tableWidget->setHorizontalHeaderLabels(header);
-    ui->tableWidget->horizontalHeader()->setStyleSheet("::section { background-color: #b2967d; }" );
+    table->setHorizontalHeaderLabels(header);
+    table->horizontalHeader()->setStyleSheet("::section { background-color: #b2967d; }" );
     int i = 0;
 
     for (pair<string, int> entry : *map) {
         QString name = QString::fromStdString(entry.first).toLower();
         QString points = QString::number(entry.second);
 
-        ui->tableWidget->setItem(i, 0, new QTableWidgetItem(name));
-        ui->tableWidget->setItem(i, 1, new QTableWidgetItem(points));
+        table->setItem(i, 0, new QTableWidgetItem(name));
+        table->setItem(i, 1, new QTableWidgetItem(points));
 
         i++;
     }
 
-    ui->tableWidget->resizeRowsToContents();
-    ui->tableWidget->resizeColumnsToContents();
+    table->resizeRowsToContents();
+    table->resizeColumnsToContents();
 }
 
 

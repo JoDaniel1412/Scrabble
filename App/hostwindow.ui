@@ -73,6 +73,9 @@ background-image: url(:/Img/background2.jpg);
     </item>
     <item>
      <widget class="QSlider" name="horizontalSlider">
+      <property name="cursor">
+       <cursorShape>OpenHandCursor</cursorShape>
+      </property>
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
@@ -82,11 +85,17 @@ background-image: url(:/Img/background2.jpg);
 	background-color: rgb(46, 52, 54);
 }</string>
       </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
       <property name="maximum">
        <number>4</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="invertedControls">
+       <bool>false</bool>
       </property>
      </widget>
     </item>

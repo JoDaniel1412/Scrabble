@@ -11,6 +11,7 @@
 #include "mocks/mockdock.h"
 #include "game/game.h"
 #include "mocks/mockgame.h"
+#include "QTableWidget"
 
 namespace Ui {
 class GameWindow;
@@ -35,6 +36,7 @@ public:
     Game * game = Game::getInstance();
 
     void hover();
+    void loadPlayers(QTableWidget * table);
 
     int labelwidth = 55;
     int labelheight =55;
@@ -59,7 +61,6 @@ private:
     bool collision(int x, int y, int x2, int y2);
     void setLabelOnBoard();
     void deleteFromDock(TileWrapper * tilewrapper);
-    void loadPlayers();
 
 };
 
