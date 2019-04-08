@@ -15,7 +15,8 @@ HEADERS += \
     game/tile.h \
     game/dock.h \
     game/game.h \
-    dict/wordsdict.h
+    dict/wordsdict.h \
+    json/stringtojson.h
 
 SOURCES += \
         main.cpp \
@@ -23,4 +24,5 @@ SOURCES += \
     game/tile.cpp \
     game/dock.cpp \
     game/game.cpp \
-    dict/wordsdict.cpp
+    dict/wordsdict.cpp \
+    json/stringtojson.cpp

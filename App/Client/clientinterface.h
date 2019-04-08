@@ -5,7 +5,7 @@
 #include "game/dock.h"
 #include "game/game.h"
 #include "client.h"
-#include <stringtojson.h>
+#include <json/stringtojson.h>
 
 
 class ClientInterface

@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include <random>
-#include "stringtojson.h"
+#include "json/stringtojson.h"
 
 namespace Ui {
 class HostWindow;

@@ -33,7 +33,6 @@ SOURCES += \
     joinwindow.cpp \
     propertieswindow.cpp \
     gamewindow.cpp \
-    stringtojson.cpp \
     endwindow.cpp \
     Client/client.cpp \
     wrappers/labelwrapper.cpp \
@@ -48,7 +47,6 @@ HEADERS += \
     joinwindow.h \
     propertieswindow.h \
     gamewindow.h \
-    stringtojson.h \
     endwindow.h \
     Client/client.h \
     wrappers/labelwrapper.h \

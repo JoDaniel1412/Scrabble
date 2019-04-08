@@ -2,7 +2,7 @@
 #include "ui_joinwindow.h"
 #include "mainwindow.h"
 #include <QJsonObject>
-#include "stringtojson.h"
+#include "json/stringtojson.h"
 using namespace std;
 #include <iostream>
 
