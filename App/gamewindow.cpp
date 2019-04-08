@@ -135,17 +135,7 @@ void GameWindow::loadPlayers()
 void GameWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
     QWidget::mouseDoubleClickEvent(event);
-    int mouseX = event->x();
-    int mouseY = event->y();
 
-    for(int i = 0; i < tileList->getSize(); i++){
-        TileWrapper * tile  = tileList->getNode(i)->getValue();
-
-        if (collision(tile, mouseX, mouseY)){
-            moving_label = tile;
-            break;
-        }
-    }
 }
 
 void GameWindow::mouseMoveEvent(QMouseEvent *event)
@@ -166,6 +156,24 @@ void GameWindow::mouseMoveEvent(QMouseEvent *event)
 void GameWindow::mousePressEvent(QMouseEvent *event)
 {
     QWidget::mousePressEvent(event);
+
+    int mouseX = event->x();
+    int mouseY = event->y();
+
+    for(int i = 0; i < tileList->getSize(); i++){
+        TileWrapper * tile  = tileList->getNode(i)->getValue();
+
+        if (collision(tile, mouseX, mouseY)){
+            moving_label = tile;
+            break;
+        }
+    }
+
+}
+
+void GameWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    QWidget::mouseReleaseEvent(event);
 
     if (moving_label != nullptr){
         if (collision(ui->boardWidget, movingX, movingY)){
