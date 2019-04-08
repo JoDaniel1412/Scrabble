@@ -95,5 +95,5 @@ void MainWindow::closeEvent(QCloseEvent *e){
 
 void MainWindow::on_exitBtn_clicked()
 {
-    this->close();
+    QApplication::quit();
 }

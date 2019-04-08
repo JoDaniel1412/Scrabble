@@ -30,26 +30,33 @@ void JoinWindow::on_returnBtn_clicked()
 
 void JoinWindow::on_joinGameBtn_clicked()
 {
-    Client *client = new Client();
-    client->connectToHost();
+    if(ui->nameEntry->text().isEmpty() or ui->codeEntry->text().isEmpty()){
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, "Warning", "You must fill in the blanks", QMessageBox::Ok);
 
-    QString code = ui->codeEntry->text();
-    QString name = ui->nameEntry->text();
+    } else{
+        Client *client = new Client();
+        client->connectToHost();
+
+        QString code = ui->codeEntry->text();
+        QString name = ui->nameEntry->text();
 
 
-    QByteArray data = StringToJson::joinWindowObject(code, name);
+        QByteArray data = StringToJson::joinWindowObject(code, name);
 
-    client->writeData(data);
+        client->writeData(data);
 
-    this -> hide();
-    gameWindow = new GameWindow(this);
-    gameWindow -> show();
-    QByteArray response = client->getSocket()->readAll();
+        this -> hide();
+        gameWindow = new GameWindow(this);
+        gameWindow -> show();
+        QByteArray response = client->getSocket()->readAll();
 
-    if(response=="canJoin")
-    {
-        this->hide();
-        gameWindow = new GameWindow();
-        gameWindow->show();
+        if(response=="canJoin")
+        {
+            this->hide();
+            gameWindow = new GameWindow();
+            gameWindow->show();
+        }
     }
+
 }
