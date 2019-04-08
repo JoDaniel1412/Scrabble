@@ -7,7 +7,10 @@ Client::Client(QObject *parent) : QObject(parent)
 
 bool Client::connectToHost()
 {
-    socket->connectToHost("127.0.0.1", 12345);
+    QString ip = "127.0.0.1";
+    quint16 port = 12345;
+    socket->connectToHost(ip, port);
+    qInfo() << "Client conecting to: " << ip << ":"<< port;
     return socket->waitForConnected();
 }
 
@@ -15,8 +18,9 @@ bool Client::writeData(QByteArray data)
 {
     if(socket->state() == QAbstractSocket::ConnectedState)
     {
-        //socket->write(IntToArray(data); //write size of data
-        socket->write(data);                    //write the data itself
+        //socket->write(IntToArray(data);  //write size of data
+        socket->write(data);  //write the data itself
+        qInfo() << "Client sending: " << data;
         return socket->waitForBytesWritten();
     }
     else

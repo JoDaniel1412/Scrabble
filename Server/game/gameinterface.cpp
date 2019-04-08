@@ -4,6 +4,7 @@ List<QString> GameInterface::playersID = List<QString>();
 QHash<QString, int> GameInterface::playersPoints = QHash<QString, int>();
 int GameInterface::currentPlayer = 0;
 Board *GameInterface::board = Board::getInstance();
+int GameInterface::maxPlayers = 0;
 
 bool GameInterface::isWord(QString word)
 {

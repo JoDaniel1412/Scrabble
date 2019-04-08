@@ -4,6 +4,8 @@
 #include "game/board.h"
 #include "game/dock.h"
 #include "game/game.h"
+#include "client.h"
+#include <stringtojson.h>
 
 
 class ClientInterface
@@ -11,7 +13,7 @@ class ClientInterface
 public:
     static void updateGame(string json);
 
-    static void letterPlacedAt(char letter, int i, int j);
+    static void sendLetterAt(char letter, int i, int j);
 
     static void sendSMS(string word);
 
@@ -20,11 +22,7 @@ private:
     static Board *board;
     static Dock *dock;
 
-    static unordered_map<string, int> *fromJSONtoPlayers(string json);
-
-    static List<char> *fromJSONtoLetters(string json);
-
-    static List<List<Tile *>*> *fromJSONtoMatrix(string json);
+    static void send(QByteArray data);
 };
 
 #endif // CLIENTINTERFACE_H

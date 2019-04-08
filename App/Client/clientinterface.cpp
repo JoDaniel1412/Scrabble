@@ -6,37 +6,33 @@ Dock *ClientInterface::dock = Dock::getInstance();
 
 void ClientInterface::updateGame(string json)
 {
-    unordered_map<string, int> *players = fromJSONtoPlayers("");
+    unordered_map<string, int> *players;
     game->setPlayers(players);
 
-    List<char> *letters = fromJSONtoLetters("");
+    List<char> *letters;
     dock->setLetters(letters);
 
-    List<List<Tile *>*> *matrix = fromJSONtoMatrix("");
+    List<List<Tile *>*> *matrix;
     board->setMatrix(matrix);
 }
 
-void ClientInterface::letterPlacedAt(char letter, int i, int j)
+void ClientInterface::sendLetterAt(char letter, int i, int j)
 {
-
+    QByteArray data = StringToJson::tileObject(letter, i, j);
+    send(data);
 }
 
 void ClientInterface::sendSMS(string word)
 {
-
+    QString qword = QString::fromStdString(word);
+    QByteArray data = StringToJson::smsObject(qword);
+    send(data);
 }
 
-unordered_map<string, int> *ClientInterface::fromJSONtoPlayers(string json)
+void ClientInterface::send(QByteArray data)
 {
-
-}
-
-List<char> *ClientInterface::fromJSONtoLetters(string json)
-{
-
-}
-
-List<List<Tile *> *> *ClientInterface::fromJSONtoMatrix(string json)
-{
-
+    Client client;
+    client.connectToHost();
+    client.writeData(data);
+    QByteArray response = client.getSocket()->readAll();
 }
