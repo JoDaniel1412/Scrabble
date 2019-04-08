@@ -62,6 +62,11 @@ List<List<Tile*>*> *Board::getMatrix()
     return matrix;
 }
 
+void Board::setMatrix(List<List<Tile *> *> *value)
+{
+    matrix = value;
+}
+
 Tile *Board::getTile(int i, int j)  // Searchs the Tile inthe matrix
 {
     List<Tile*> *row = matrix->value(i);

@@ -39,7 +39,8 @@ SOURCES += \
     wrappers/labelwrapper.cpp \
     wrappers/tilewrapper.cpp \
     mocks/mockgame.cpp \
-    mocks/mockdock.cpp
+    mocks/mockdock.cpp \
+    Client/clientinterface.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -53,7 +54,8 @@ HEADERS += \
     wrappers/labelwrapper.h \
     wrappers/tilewrapper.h \
     mocks/mockgame.h \
-    mocks/mockdock.h
+    mocks/mockdock.h \
+    Client/clientinterface.h
 
 FORMS += \
         mainwindow.ui \

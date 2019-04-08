@@ -17,6 +17,7 @@ public:
     char getLetter(int i, int j);
 
     List<List<Tile*>*> *getMatrix();
+    void setMatrix(List<List<Tile*>*> * value);
 
     Tile *getTile(int i, int j);
 
