@@ -239,11 +239,9 @@ void GameWindow::setLabelOnBoard()
 
 void GameWindow::on_closeButton_clicked()
 {
-    /*
     this -> hide();
     EndWindow *endwindow = new EndWindow(this);
     endwindow -> show();
-    */
 
     updateGame();
 }

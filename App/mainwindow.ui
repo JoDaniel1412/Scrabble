@@ -82,8 +82,8 @@ border: 5px white;
    <widget class="QPushButton" name="propertiesBtn">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>550</y>
+      <x>40</x>
+      <y>620</y>
       <width>50</width>
       <height>50</height>
      </rect>
@@ -103,8 +103,8 @@ border: 5px white;
    <widget class="QPushButton" name="exitBtn">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>620</y>
+      <x>490</x>
+      <y>550</y>
       <width>91</width>
       <height>41</height>
      </rect>

@@ -26,7 +26,7 @@
   <widget class="QPushButton" name="BackMenuBtn">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>430</x>
      <y>690</y>
      <width>151</width>
      <height>31</height>
@@ -40,12 +40,13 @@
    </property>
    <property name="styleSheet">
     <string notr="true">#BackMenuBtn{
-	background-color: rgb(46, 52, 54);
-	color: rgb(238, 238, 236);
+	background-image: url(:/Img/background2.jpg);
+	font: 15pt &quot;ScrambleMixed&quot;,;
+	color: rgb(0, 0, 0);
 }</string>
    </property>
    <property name="text">
-    <string>Back to Menu</string>
+    <string>BACK TO MENU</string>
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget">
@@ -67,6 +68,12 @@ border: 1px solid black;</string>
    </property>
    <property name="selectionMode">
     <enum>QAbstractItemView::NoSelection</enum>
+   </property>
+   <property name="showGrid">
+    <bool>false</bool>
+   </property>
+   <property name="gridStyle">
+    <enum>Qt::NoPen</enum>
    </property>
    <attribute name="horizontalHeaderHighlightSections">
     <bool>false</bool>
