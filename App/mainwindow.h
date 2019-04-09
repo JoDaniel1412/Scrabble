@@ -19,6 +19,7 @@ class MainWindow : public QMainWindow
              private:
                 HostWindow * hostWindow;
                 JoinWindow * joinWindow;
+                GameWindow * gameWindow;
                 PropertiesWindow * propertiesWindow;
 
 public:
@@ -40,6 +41,8 @@ private slots:
     void on_propertiesBtn_clicked();
 
     void on_exitBtn_clicked();
+
+    void on_testBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

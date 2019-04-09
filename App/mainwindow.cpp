@@ -97,3 +97,13 @@ void MainWindow::on_exitBtn_clicked()
 {
     QApplication::quit();
 }
+
+void MainWindow::on_testBtn_clicked()
+{
+    MockDock::makeLetters();
+    MockGame::makePlayers();
+
+    this->hide();
+    gameWindow = new GameWindow();
+    gameWindow->show();
+}

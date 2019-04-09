@@ -21,13 +21,11 @@ GameWindow::GameWindow(QWidget *parent) :
     ui->boardTable->setGeometry(boardX, boardY, labelwidth*15 + 32, labelheight*15 + 2);
 
     makeLabelBoard(15, 15);
-    MockDock::makeLetters();
     createGraphicDock();
 
     QWidget::setMouseTracking(true);
     ui->boardTable->setMouseTracking(true);
 
-    MockGame::makePlayers();
     loadPlayers(this->ui->tableWidget);
 
 }
@@ -261,19 +259,15 @@ void GameWindow::updateDock()
 
     delete tileList;
     tileList = new List<TileWrapper*>();
-    MockDock::updateLetters();
     createGraphicDock();
 }
 
 void GameWindow::updateBoard()
 {
-    MockDock::makeNewBoard();
-
     makeLabelBoard(15, 15);
 }
 
 void GameWindow::updateTable()
 {
-    MockGame::updatePlayers();
     loadPlayers(ui->tableWidget);
 }

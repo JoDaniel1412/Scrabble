@@ -83,7 +83,7 @@ border: 5px white;
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>620</y>
+      <y>590</y>
       <width>50</width>
       <height>50</height>
      </rect>
@@ -116,6 +116,29 @@ color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
      <string>EXIT</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="testBtn">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>660</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"> #testBtn {
+	background-image: url(:/Img/background2.jpg);
+	font: 15pt &quot;ScrambleMixed&quot;;
+	color: rgb(0, 0, 0);
+}
+QPushButton:hover:!pressed{
+border: 5px white;
+}</string>
+    </property>
+    <property name="text">
+     <string>TEST</string>
     </property>
    </widget>
   </widget>
