@@ -12,6 +12,7 @@
 #include "game/game.h"
 #include "mocks/mockgame.h"
 #include "QTableWidget"
+#include <QList>
 
 namespace Ui {
 class GameWindow;
@@ -35,8 +36,10 @@ public:
     Board * board = Board::getInstance();
     Game * game = Game::getInstance();
 
-    void hover();
     void loadPlayers(QTableWidget * table);
+    void updateDock();
+    void updateBoard();
+    void updateTable();
 
     int labelwidth = 55;
     int labelheight =55;
@@ -52,12 +55,12 @@ private slots:
     void on_closeButton_clicked();
 
 public slots:
-    void updateDock();
+    void updateGame();
 
 private:
 
     Ui::GameWindow *ui;
-    List<List<LabelWrapper*>*> * labelmatrix = new List<List<LabelWrapper*>*>();
+    List<LabelWrapper*> * labelvector = new List<LabelWrapper*>();
     void makeLabelBoard(int rows, int columns);
     void createGraphicDock();
     bool collision(QWidget * lb1, int x, int y);

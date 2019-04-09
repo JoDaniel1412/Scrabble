@@ -12,10 +12,7 @@ LabelWrapper::LabelWrapper()
 
 void LabelWrapper::makeLabel()
 {
-    QLabel *qlabel = new QLabel();
-    qlabel->setMouseTracking(true);
-
-    this->qLabel = qlabel;
+    this->setMouseTracking(true);
 }
 
 void LabelWrapper::setCoords(int i, int j)
@@ -51,6 +48,10 @@ void LabelWrapper::setImage(QString url, QChar letter)
     painter->end();
 }
 
+void LabelWrapper::deleteLabel()
+{
+    delete this;
+}
 
 LabelWrapper::~LabelWrapper()
 {

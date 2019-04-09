@@ -15,19 +15,19 @@ GameWindow::GameWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    int boardX = this->x() + ui->boardWidget->width()/2;
-    int boardY = this->y() + this->height()/2 - ui->boardWidget->height()/2 - 50;
+    int boardX = this->x() + ui->boardTable->width()/2;
+    int boardY = this->y() + this->height()/2 - ui->boardTable->height()/2 - 100;
 
-    ui->boardWidget->setGeometry(boardX, boardY, labelwidth*15, labelheight*15);
-    ui->boardBackground->setGeometry(boardX - 3, boardY - 3, labelwidth*15 + 6, labelheight*15 + 6);
-    ui->boardGrid->setParent(ui->boardWidget);
+    ui->boardTable->setGeometry(boardX, boardY, labelwidth*15 + 32, labelheight*15 + 2);
 
     makeLabelBoard(15, 15);
     MockDock::makeLetters();
     createGraphicDock();
 
     QWidget::setMouseTracking(true);
+    ui->boardTable->setMouseTracking(true);
 
+    MockGame::makePlayers();
     loadPlayers(this->ui->tableWidget);
 
 }
@@ -40,9 +40,12 @@ GameWindow::~GameWindow()
 
 void GameWindow::makeLabelBoard(int rows, int columns)
 {
+    ui->boardTable->setRowCount(rows);
+    ui->boardTable->setColumnCount(columns);
+    ui->boardTable->verticalHeader()->setVisible(false);
+    ui->boardTable->horizontalHeader()->setVisible(false);
+
     for(int i = 0; i < rows; i++){
-        List<LabelWrapper*> *row = new List<LabelWrapper*>();
-        labelmatrix->pushTail(row);
 
         for(int j = 0; j < columns; j++){
 
@@ -50,22 +53,24 @@ void GameWindow::makeLabelBoard(int rows, int columns)
             if (board->getTile(i, j)->getBonus() == 2) color = "#92d5e6";
             if (board->getTile(i, j)->getBonus() == 4) color = "#c78283";
 
-            LabelWrapper * label = new LabelWrapper();
-            label->makeLabel();
-            label->setCoords(i, j);
-            label->setAlignment(Qt::AlignCenter);
-            label->setStyleSheet("QLabel { background-color : " + color + "; }");
+            LabelWrapper * labelWrapper = new LabelWrapper();
+            labelWrapper->makeLabel();
+            labelWrapper->setCoords(i, j);
+            labelWrapper->setAlignment(Qt::AlignCenter);
+            labelWrapper->setStyleSheet("QLabel { background-color : " + color + "; }");
+
             QChar letter = board->getLetter(i, j);
-            if (letter != '0'){
-                label->setImage(":/Img/background2.jpg", letter);
-            }
+            if(letter != '0') labelWrapper->setImage(":/Img/background2.jpg", letter);
 
-            ui->boardGrid->addWidget(label, i,j);
+            ui->boardTable->setColumnWidth(j, labelwidth);
+            ui->boardTable->setRowHeight(i, labelheight);
+            ui->boardTable->setCellWidget(i, j, labelWrapper);
 
-            label->setMouseTracking(true);
-            ui->gridLayoutWidget->setMouseTracking(true);
-            ui->boardWidget->setMouseTracking(true);
-            row->pushTail(label);
+            labelWrapper->show();
+            labelWrapper->update();
+
+
+            labelvector->pushTail(labelWrapper);
         }
     }
 }
@@ -105,13 +110,12 @@ void GameWindow::deleteFromDock(TileWrapper * tilewrapper)
 
 void GameWindow::loadPlayers(QTableWidget *table)
 {
-    MockGame::makePlayers();
     unordered_map<string, int> * map = game->getPlayers();
 
     table->setRowCount(map->size());
     table->setColumnCount(2);
     table->verticalHeader()->setVisible(false);
-    table->resize(340, 310);
+    table->resize(370, 310);
     QStringList header;
     header<<"name " << "points";
     table->setHorizontalHeaderLabels(header);
@@ -129,7 +133,8 @@ void GameWindow::loadPlayers(QTableWidget *table)
     }
 
     table->resizeRowsToContents();
-    table->resizeColumnsToContents();
+    table->setColumnWidth(0, 180);
+    table->setColumnWidth(1, 180);
 }
 
 void GameWindow::mouseDoubleClickEvent(QMouseEvent *event)
@@ -144,8 +149,8 @@ void GameWindow::mouseMoveEvent(QMouseEvent *event)
     movingX = event->x();
     movingY = event->y();
 
-    gridLabelX = event->x() - ui->boardWidget->x();
-    gridLabelY = event->y() - ui->boardWidget->y();
+    gridLabelX = event->x() - ui->boardTable->x();
+    gridLabelY = event->y() - ui->boardTable->y();
 
     if (moving_label != nullptr){
         moving_label->move(movingX - 25, movingY - 25);
@@ -176,7 +181,7 @@ void GameWindow::mouseReleaseEvent(QMouseEvent *event)
     QWidget::mouseReleaseEvent(event);
 
     if (moving_label != nullptr){
-        if (collision(ui->boardWidget, movingX, movingY)){
+        if (collision(ui->boardTable, movingX, movingY)){
             setLabelOnBoard();
 
         } else{
@@ -212,20 +217,18 @@ bool GameWindow::collision(int x, int y, int x2, int y2)
 void GameWindow::setLabelOnBoard()
 {
     try {
-        QWidget * widgetChild = ui->boardWidget->childAt(gridLabelX, gridLabelY);
+        QWidget * widgetChild = ui->boardTable->childAt(gridLabelX, gridLabelY);
 
-        if(widgetChild != ui->gridLayoutWidget){
+        LabelWrapper *labelwrapper = (LabelWrapper*) widgetChild;
+        moving_label->setCoords(labelwrapper->get_i(), labelwrapper->get_j());
 
-            LabelWrapper *labelwrapper = (LabelWrapper*) widgetChild;
-            moving_label->setCoords(labelwrapper->get_i(), labelwrapper->get_j());
+        if(board->putLetter(moving_label->get_i(), moving_label->get_j(), moving_label->getLetter())){
+            labelwrapper->setImage(":/Img/background2.jpg", moving_label->getLetter());
+            deleteFromDock(moving_label);
+            moving_label = nullptr;
 
-            if(board->putLetter(moving_label->get_i(), moving_label->get_j(), moving_label->getLetter())){
-                labelwrapper->setImage(":/Img/background2.jpg", moving_label->getLetter());
-                deleteFromDock(moving_label);
-                moving_label = nullptr;
+        } else moving_label->move(moving_label->getInitialX(), moving_label->getInitialY());
 
-            } else moving_label->move(moving_label->getInitialX(), moving_label->getInitialY());
-        }
 
     } catch (std::exception & e) {
     qInfo() << e.what();
@@ -240,7 +243,15 @@ void GameWindow::on_closeButton_clicked()
     EndWindow *endwindow = new EndWindow(this);
     endwindow -> show();
     */
+
+    updateGame();
+}
+
+void GameWindow::updateGame()
+{
     updateDock();
+    updateTable();
+    updateBoard();
 }
 
 void GameWindow::updateDock()
@@ -253,4 +264,17 @@ void GameWindow::updateDock()
     tileList = new List<TileWrapper*>();
     MockDock::updateLetters();
     createGraphicDock();
+}
+
+void GameWindow::updateBoard()
+{
+    MockDock::makeNewBoard();
+
+    makeLabelBoard(15, 15);
+}
+
+void GameWindow::updateTable()
+{
+    MockGame::updatePlayers();
+    loadPlayers(ui->tableWidget);
 }

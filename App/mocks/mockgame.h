@@ -9,6 +9,7 @@ public:
     MockGame();
 
     static void makePlayers();
+    static void updatePlayers();
 
 };
 

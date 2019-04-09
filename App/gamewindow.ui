@@ -19,36 +19,6 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(84, 106, 118);</string>
   </property>
-  <widget class="QWidget" name="boardWidget" native="true">
-   <property name="geometry">
-    <rect>
-     <x>500</x>
-     <y>20</y>
-     <width>750</width>
-     <height>750</height>
-    </rect>
-   </property>
-   <property name="mouseTracking">
-    <bool>true</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#boardWidget{
-background-color: rgb(244, 244, 237);
-	border-color: rgb(46, 52, 54);
-}</string>
-   </property>
-   <widget class="QWidget" name="gridLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>10</y>
-      <width>21</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="boardGrid"/>
-   </widget>
-  </widget>
   <widget class="QPushButton" name="closeButton">
    <property name="geometry">
     <rect>
@@ -68,9 +38,9 @@ background-color: rgb(244, 244, 237);
    </property>
    <property name="geometry">
     <rect>
-     <x>1240</x>
+     <x>1220</x>
      <y>120</y>
-     <width>340</width>
+     <width>350</width>
      <height>310</height>
     </rect>
    </property>
@@ -107,25 +77,31 @@ border: 1px solid black;</string>
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QWidget" name="boardBackground" native="true">
+  <widget class="QTableWidget" name="boardTable">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>340</y>
-     <width>120</width>
-     <height>80</height>
+     <x>540</x>
+     <y>80</y>
+     <width>701</width>
+     <height>631</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">#boardBackground{
-background-color: rgb(255, 255, 255);
-}</string>
+   <property name="mouseTracking">
+    <bool>true</bool>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(238, 238, 236);</string>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
   </widget>
-  <zorder>closeButton</zorder>
-  <zorder>tableWidget</zorder>
-  <zorder>boardBackground</zorder>
-  <zorder>boardWidget</zorder>
  </widget>
  <resources/>
  <connections/>

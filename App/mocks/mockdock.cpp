@@ -29,3 +29,13 @@ void MockDock::updateLetters()
 
     dock->setLetters(newDock);
 }
+
+void MockDock::makeNewBoard()
+{
+    Board * board = Board::getInstance();
+
+    board->putLetter(3, 4, 'z');
+    board->putLetter(12, 4, 'a');
+    board->putLetter(3, 9, 's');
+
+}
