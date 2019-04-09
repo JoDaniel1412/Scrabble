@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <random>
 #include "json/stringtojson.h"
+#include <QMessageBox>
 
 namespace Ui {
 class HostWindow;

@@ -31,5 +31,7 @@ public:
 
     Board * board = Board::getInstance();
 
+    void deleteLabel();
+
 };
 #endif // LABELWRAPPER_H

@@ -7,6 +7,15 @@ EndWindow::EndWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->resize(1024, 768);
+
+    GameWindow gamewindow;
+    gamewindow.loadPlayers(this->ui->tableWidget);
+
+    int windowX = this->x() + this->width()/2 - ui->tableWidget->width()/2;
+    int windowY = this->y() + ui->tableWidget->height();
+
+    ui->tableWidget->move(windowX, windowY);
+
 }
 
 EndWindow::~EndWindow()

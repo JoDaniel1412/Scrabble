@@ -92,3 +92,8 @@ void MainWindow::closeEvent(QCloseEvent *e){
 
     QWidget::closeEvent(e);
 }
+
+void MainWindow::on_exitBtn_clicked()
+{
+    QApplication::quit();
+}

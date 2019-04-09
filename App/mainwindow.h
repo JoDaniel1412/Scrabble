@@ -39,6 +39,8 @@ private slots:
 
     void on_propertiesBtn_clicked();
 
+    void on_exitBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

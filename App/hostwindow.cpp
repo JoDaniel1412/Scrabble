@@ -34,10 +34,20 @@ void HostWindow::on_returnBtn_clicked()
     // Show the MainWindow (i.e. the parent window)
     QWidget *parent = this->parentWidget();
     parent->show();
+
+
+
 }
 
 void HostWindow::on_hostGameBtn_clicked()
 {
+
+    if(ui->nameEntry->text().isEmpty()){
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::information(this, "Warning", "You must fill in the blanks", QMessageBox::Ok);
+
+    } else{
+
     Client *client = new Client();
     client->connectToHost();
 
@@ -48,4 +58,5 @@ void HostWindow::on_hostGameBtn_clicked()
     QByteArray data = StringToJson::hostWindowObject(key, name, players);
 
     client->writeData(data);
+    }
 }
