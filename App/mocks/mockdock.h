@@ -9,6 +9,7 @@ class MockDock
 public:
 
     static void makeLetters();
+    static void updateLetters();
 
 private:
 

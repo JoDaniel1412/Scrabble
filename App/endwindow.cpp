@@ -16,7 +16,6 @@ EndWindow::EndWindow(QWidget *parent) :
 
     ui->tableWidget->move(windowX, windowY);
 
-
 }
 
 EndWindow::~EndWindow()

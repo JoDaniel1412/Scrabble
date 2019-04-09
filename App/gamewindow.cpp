@@ -23,6 +23,7 @@ GameWindow::GameWindow(QWidget *parent) :
     ui->boardGrid->setParent(ui->boardWidget);
 
     makeLabelBoard(15, 15);
+    MockDock::makeLetters();
     createGraphicDock();
 
     QWidget::setMouseTracking(true);
@@ -39,7 +40,6 @@ GameWindow::~GameWindow()
 
 void GameWindow::makeLabelBoard(int rows, int columns)
 {
-
     for(int i = 0; i < rows; i++){
         List<LabelWrapper*> *row = new List<LabelWrapper*>();
         labelmatrix->pushTail(row);
@@ -55,7 +55,10 @@ void GameWindow::makeLabelBoard(int rows, int columns)
             label->setCoords(i, j);
             label->setAlignment(Qt::AlignCenter);
             label->setStyleSheet("QLabel { background-color : " + color + "; }");
-
+            QChar letter = board->getLetter(i, j);
+            if (letter != '0'){
+                label->setImage(":/Img/background2.jpg", letter);
+            }
 
             ui->boardGrid->addWidget(label, i,j);
 
@@ -70,9 +73,6 @@ void GameWindow::makeLabelBoard(int rows, int columns)
 
 void GameWindow::createGraphicDock()
 {
-
-    MockDock::makeLetters();
-
     for (int i = 0; i < dock->getLetters()->getSize(); i++){
 
         TileWrapper * tileWrapper = new TileWrapper;
@@ -84,9 +84,9 @@ void GameWindow::createGraphicDock()
         tileWrapper->setInitialY(65*(1+i));
         tileWrapper->setGeometry(tileWrapper->getInitialX(), tileWrapper->getInitialY(), labelwidth, labelheight);
         tileWrapper->setMouseTracking(true);
+        tileWrapper->show();
 
         tileList->pushTail(tileWrapper);
-
     }
 }
 
@@ -131,7 +131,6 @@ void GameWindow::loadPlayers(QTableWidget *table)
     table->resizeRowsToContents();
     table->resizeColumnsToContents();
 }
-
 
 void GameWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
@@ -187,17 +186,16 @@ void GameWindow::mouseReleaseEvent(QMouseEvent *event)
     }
 }
 
-
 bool GameWindow::collision(QWidget *lb1, int x, int y)
 {
     bool limits = false;
-    if (((x > lb1->x() and x < lb1->x() + lb1->width())) and (y > lb1->y() and y < lb1->y() + lb1->height()))
+    if (((x > lb1->x() and x < lb1->x() + lb1->width()))
+            and (y > lb1->y() and y < lb1->y() + lb1->height()))
     {
         limits = true;
     }
     return limits == true;
 }
-
 
 bool GameWindow::collision(int x, int y, int x2, int y2)
 {
@@ -210,7 +208,6 @@ bool GameWindow::collision(int x, int y, int x2, int y2)
     return limits == true;
 
 }
-
 
 void GameWindow::setLabelOnBoard()
 {
@@ -238,7 +235,22 @@ void GameWindow::setLabelOnBoard()
 
 void GameWindow::on_closeButton_clicked()
 {
+    /*
     this -> hide();
     EndWindow *endwindow = new EndWindow(this);
     endwindow -> show();
+    */
+    updateDock();
+}
+
+void GameWindow::updateDock()
+{
+    for(int i = 0; i < tileList->getSize(); i++){
+        tileList->getNode(i)->getValue()->deleteTile();
+    }
+
+    delete tileList;
+    tileList = new List<TileWrapper*>();
+    MockDock::updateLetters();
+    createGraphicDock();
 }

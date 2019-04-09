@@ -17,7 +17,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(146, 172, 134);</string>
+   <string notr="true">background-color: rgb(84, 106, 118);</string>
   </property>
   <widget class="QWidget" name="boardWidget" native="true">
    <property name="geometry">

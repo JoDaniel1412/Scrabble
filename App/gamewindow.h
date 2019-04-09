@@ -51,6 +51,9 @@ protected:
 private slots:
     void on_closeButton_clicked();
 
+public slots:
+    void updateDock();
+
 private:
 
     Ui::GameWindow *ui;
