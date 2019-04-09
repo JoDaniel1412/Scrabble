@@ -93,7 +93,14 @@ border: 1px solid black;</string>
     <enum>Qt::NoFocus</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(238, 238, 236);</string>
+    <string notr="true">background-color: rgb(238, 238, 236);
+border-bottom: 2px solid #fffff8;
+border-right: 2px solid #fffff8;
+border-top: 2px solid #fffff8;
+border-left: 2px solid #fffff8;</string>
+   </property>
+   <property name="gridStyle">
+    <enum>Qt::NoPen</enum>
    </property>
    <attribute name="horizontalHeaderVisible">
     <bool>false</bool>

@@ -65,6 +65,7 @@ void GameWindow::makeLabelBoard(int rows, int columns)
             ui->boardTable->setColumnWidth(j, labelwidth);
             ui->boardTable->setRowHeight(i, labelheight);
             ui->boardTable->setCellWidget(i, j, labelWrapper);
+            ui->boardTable->resize(labelwidth * 15 + 34, labelheight * 15 + 4);
 
             labelWrapper->show();
             labelWrapper->update();
