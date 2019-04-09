@@ -2,10 +2,11 @@
 #define BOARD_H
 
 #include "tile.h"
-
 #include <list/List.h>
+#include <QJsonArray>
+#include "json/jsonserializer.h"
 
-class Board
+class Board : public JsonSerializable
 {
 public:
     static Board *getInstance();
@@ -17,10 +18,19 @@ public:
     char getLetter(int i, int j);
 
     List<List<Tile*>*> *getMatrix();
+    void setMatrix(List<List<Tile*>*> * value);
 
-    Tile *getTile(int i, int j);
+    Tile *getTile(int i, int j) const;
+    void setTile(Tile &tile, int i, int j);
 
     void clean();
+
+    int getRows() const;
+
+    int getColumns() const;
+
+    void write(QJsonObject &jsonObj) const;
+    void read(const QJsonObject &jsonObj);
 
 private:
     static Board *instance;

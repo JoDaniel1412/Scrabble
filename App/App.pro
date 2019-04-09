@@ -33,13 +33,13 @@ SOURCES += \
     joinwindow.cpp \
     propertieswindow.cpp \
     gamewindow.cpp \
-    stringtojson.cpp \
     endwindow.cpp \
     Client/client.cpp \
     wrappers/labelwrapper.cpp \
     wrappers/tilewrapper.cpp \
     mocks/mockgame.cpp \
-    mocks/mockdock.cpp
+    mocks/mockdock.cpp \
+    Client/clientinterface.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -47,13 +47,13 @@ HEADERS += \
     joinwindow.h \
     propertieswindow.h \
     gamewindow.h \
-    stringtojson.h \
     endwindow.h \
     Client/client.h \
     wrappers/labelwrapper.h \
     wrappers/tilewrapper.h \
     mocks/mockgame.h \
-    mocks/mockdock.h
+    mocks/mockdock.h \
+    Client/clientinterface.h
 
 FORMS += \
         mainwindow.ui \

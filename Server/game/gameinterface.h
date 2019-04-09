@@ -35,11 +35,15 @@ public:
     static QHash<QString, int> getPlayersPoints();
     static void setPlayersPoints(const QHash<QString, int> &value);
 
+    static int getMaxPlayers();
+    static void setMaxPlayers(int value);
+
 private:
     static List<QString> playersID;
     static QHash<QString, int> playersPoints;
     static int currentPlayer;
     static Board *board;
+    static int maxPlayers;
 };
 
 #endif // GAMEINTERFACE_H

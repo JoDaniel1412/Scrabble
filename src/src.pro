@@ -9,13 +9,16 @@ TEMPLATE = lib
 HEADERS += \
     list/List.h \
     list/Node.h \
-    list/List_impl.h \
-    list/Node_impl.h \
     game/board.h \
     game/tile.h \
     game/dock.h \
     game/game.h \
-    dict/wordsdict.h
+    dict/wordsdict.h \
+    json/stringtojson.h \
+    json/jsonserializable.h \
+    json/jsonserializer.h \
+    list/List_impl.h \
+    list/Node_impl.h
 
 SOURCES += \
         main.cpp \
@@ -23,4 +26,6 @@ SOURCES += \
     game/tile.cpp \
     game/dock.cpp \
     game/game.cpp \
-    dict/wordsdict.cpp
+    dict/wordsdict.cpp \
+    json/stringtojson.cpp \
+    json/jsonserializer.cpp

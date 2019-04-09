@@ -14,7 +14,8 @@ HEADERS += \
     game/tst_docktest.h \
     game/tst_gametest.h \
     game/tst_tiletest.h \
-    dict/tst_wordsdicttest.h
+    dict/tst_wordsdicttest.h \
+    json/tst_stringtojsontest.h
 
 SOURCES +=  \
     main.cpp \
@@ -22,7 +23,8 @@ SOURCES +=  \
     game/tst_tiletest.cpp \
     game/tst_docktest.cpp \
     game/tst_gametest.cpp \
-    dict/tst_wordsdicttest.cpp
+    dict/tst_wordsdicttest.cpp \
+    json/tst_stringtojsontest.cpp
 
 
 LIBS += -L../src -lmyapp
