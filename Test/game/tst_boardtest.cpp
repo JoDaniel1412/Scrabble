@@ -31,6 +31,11 @@ void BoardTest::test_putLetter()
 
     board->putLetter(0, 14, 'F');
     QCOMPARE(board->getLetter(0, 14), 'F');
+
+    board->putLetter(13, 14, 'R');
+    QCOMPARE(board->getLetter(13, 14), 'R');
+
+    board->clean();
 }
 
 void BoardTest::test_getTile()
@@ -42,4 +47,20 @@ void BoardTest::test_getTile()
     Tile *emptyTile = board->getTile(3, 6);
     QVERIFY(emptyTile->isFree());
     QCOMPARE(emptyTile->getLetter(), '0');
+
+    Tile *tile = board->getTile(4, 5);
+    board->putLetter(4, 5, 'T');
+    QVERIFY(!tile->isFree());
+    QCOMPARE(tile->getLetter(), 'T');
+}
+
+void BoardTest::test_cleanBoard()
+{
+    Board *board = Board::getInstance();
+
+    board->putLetter(2, 4, 'A');
+    QCOMPARE(board->getLetter(2, 4), 'A');
+
+    board->clean();
+    QCOMPARE(board->getLetter(2, 4), '0');
 }

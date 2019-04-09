@@ -39,11 +39,12 @@ void StringToJsonTest::test_boardJson()
     //qDebug() << json;
 
     // Parse serialization output to rebuild list
-    Board parsedBord = board;
-    parsedBord.putLetter(13, 12, 'B');
+	Board parsedBord = board;
+	parsedBord.putLetter(13, 13, 'B');
     JsonSerializer::parse(json, parsedBord);
 
     QCOMPARE(parsedBord.getLetter(0, 0), 'A');
     QCOMPARE(parsedBord.getLetter(2, 3), '0');
-    QCOMPARE(parsedBord.getLetter(13, 14), 'B');
+	QVERIFY(!parsedBord.getTile(13, 13)->isFree());
+	QCOMPARE(parsedBord.getLetter(13, 13), 'B');
 }

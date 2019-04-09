@@ -19,6 +19,7 @@ private slots:
     void test_load();
     void test_putLetter();
     void test_getTile();
+    void test_cleanBoard();
 
 };
 

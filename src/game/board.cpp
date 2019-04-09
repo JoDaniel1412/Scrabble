@@ -82,7 +82,8 @@ void Board::setTile(Tile &tile, int i, int j)
 
 void Board::clean()
 {
-    matrix->clean();
+    delete instance;
+    instance = new Board();
 }
 
 int Board::getRows() const
