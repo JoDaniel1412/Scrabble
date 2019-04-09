@@ -18,7 +18,7 @@ void ClientInterface::updateGame(string json)
 
 void ClientInterface::sendLetterAt(char letter, int i, int j)
 {
-    QByteArray data = StringToJson::tileObject(letter, i, j);
+    QByteArray data = StringToJson::letterInGridObject(letter, i, j);
     send(data);
 }
 

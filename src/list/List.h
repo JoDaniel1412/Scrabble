@@ -8,8 +8,8 @@
 #include "list/Node.h"
 
 template<class T>
-class List {
-
+class List
+{
 public:
     List();
 
@@ -36,7 +36,6 @@ public:
     Node<T> *getTail();
 
     Node<T> *getNode(int index);
-
 
 private:
     int size;

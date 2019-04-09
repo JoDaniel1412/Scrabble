@@ -67,14 +67,66 @@ void Board::setMatrix(List<List<Tile *> *> *value)
     matrix = value;
 }
 
-Tile *Board::getTile(int i, int j)  // Searchs the Tile inthe matrix
+Tile *Board::getTile(int i, int j) const // Searchs the Tile inthe matrix
 {
     List<Tile*> *row = matrix->value(i);
     Tile *tile = row->value(j);
     return tile;
 }
 
+void Board::setTile(Tile &tile, int i, int j)
+{
+    List<Tile*> *row = matrix->value(i);
+    row->getNode(j)->setValue(&tile);
+}
+
 void Board::clean()
 {
     matrix->clean();
+}
+
+int Board::getRows() const
+{
+    return rows;
+}
+
+int Board::getColumns() const
+{
+    return columns;
+}
+
+void Board::write(QJsonObject &jsonObj) const
+{
+    QJsonArray rowsArray;
+    for(int i = 0; i < rows; i++)
+    {
+        QJsonObject columnsObject;
+        QJsonArray columnsArray;
+        for (int j = 0; j < columns; j++)
+        {
+            QJsonValue json = JsonSerializer::serialize(*getTile(i, j));
+            columnsArray.append(json);
+        }
+        columnsObject["columns"] = columnsArray;
+        rowsArray.append(columnsObject);
+    }
+
+    jsonObj["rows"] = rowsArray;
+}
+
+void Board::read(const QJsonObject &jsonObj)
+{
+    // json encapsulates the QJsonArray
+    QJsonArray rowsArray = jsonObj["rows"].toArray();
+
+    for (int i = 0; i < rows; i++) {
+        QJsonValue jsonColumn = rowsArray[i];
+        QJsonArray columnsArray = jsonColumn["columns"].toArray();
+        for (int j = 0; j < columns; j++) {
+            Tile *tile = new Tile();
+            QString json = columnsArray[j].toString();
+            JsonSerializer::parse(json, *tile);
+            setTile(*tile, i, j);
+        }
+    }
 }

@@ -5,6 +5,10 @@
 #include <QJsonDocument>
 #include <QByteArray>
 
+#include <game/tile.h>
+#include <game/board.h>
+#include "jsonserializer.h"
+
 class StringToJson
 {
 public:
@@ -14,10 +18,9 @@ public:
 
     static QByteArray smsObject(QString string);
 
-    static QByteArray tileObject(char letters, int i, int j);
+    static QByteArray letterInGridObject(char letters, int i, int j);
 
-private:
-    StringToJson();
+    static QByteArray boardObject(Board board);
 };
 
 #endif // STRINGTOJSON_H

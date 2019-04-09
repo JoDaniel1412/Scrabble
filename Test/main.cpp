@@ -3,7 +3,7 @@
 #include "game/tst_docktest.h"
 #include "game/tst_gametest.h"
 #include "dict/tst_wordsdicttest.h"
-
+#include "json/tst_stringtojsontest.h"
 
 int main(int argc, char** argv)
 {
@@ -26,6 +26,10 @@ int main(int argc, char** argv)
     }
     {
         WordsDictTest tc;
+        status |= QTest::qExec(&tc, argc, argv);
+    }
+    {
+        StringToJsonTest tc;
         status |= QTest::qExec(&tc, argc, argv);
     }
     return status;
