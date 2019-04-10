@@ -4,6 +4,8 @@
 #include <QTcpServer>
 #include "socket.h"
 
+#include <QNetworkInterface>
+
 
 class Server : public QTcpServer
 {

@@ -56,6 +56,8 @@ private slots:
 
     void askUpdate();
 
+    void on_smsButton_clicked();
+
 public slots:
     void updateGame();
 
