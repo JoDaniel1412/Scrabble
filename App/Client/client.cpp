@@ -33,7 +33,7 @@ QByteArray Client::readData()
 {
     socket->waitForReadyRead();
     QByteArray response = socket->readAll();
-    qDebug() << "Client reads: " << response;
+    qDebug() << "Client reads responce";
     return response;
 }
 

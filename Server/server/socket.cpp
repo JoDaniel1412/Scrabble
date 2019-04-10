@@ -26,13 +26,13 @@ void Socket::run()
 void Socket::readyRead()
 {
     QByteArray data = socket->readAll();
-    qDebug() << "Reading : " << data;
+    qDebug() << "Reading data";
 
     dataProcessor::receiver(data);
 
     QString response = dataSender::getInfoToSend();
     socket->write(response.toUtf8());
-    qDebug() << "Sending : " << response;
+    qDebug() << "Sending data";
 }
 
 void Socket::disconnected()
