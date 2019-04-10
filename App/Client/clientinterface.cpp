@@ -3,6 +3,7 @@
 Game *ClientInterface::game = Game::getInstance();
 Board *ClientInterface::board = Board::getInstance();
 Dock *ClientInterface::dock = Dock::getInstance();
+GameWindow *ClientInterface::gameWindow = nullptr;
 
 void ClientInterface::updateGame(QString json)
 {
@@ -15,6 +16,8 @@ void ClientInterface::updateGame(QString json)
     JsonSerializer::parse(jsonGame, *game);
     JsonSerializer::parse(jsonDock, *dock);
     JsonSerializer::parse(jsonBoard, *board);
+
+    gameWindow->updateGame();
 }
 
 void ClientInterface::sendLetterAt(char letter, int i, int j)
@@ -30,6 +33,11 @@ void ClientInterface::sendSMS(string word)
     QString qword = QString::fromStdString(word);
     QByteArray data = StringToJson::smsObject(qword);
     send(data);
+}
+
+void ClientInterface::setGameWindow(GameWindow *value)
+{
+    gameWindow = value;
 }
 
 QByteArray ClientInterface::send(QByteArray data)

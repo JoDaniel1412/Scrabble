@@ -18,8 +18,12 @@ void dataSender::setInfoToSend(QString data)
 
 QString dataSender::dataToSend()
 {
-    if(dataSender::getInfoToSend() =="canJoin")
+    QString response = "";
+    if(dataSender::getInfoToSend() == "canJoin")
     {
-        return "canJoin";
+        response = "canJoin";
     }
+
+    qDebug() << "Server sending: " << response;
+    return response;
 }

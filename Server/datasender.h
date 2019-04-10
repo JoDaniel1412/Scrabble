@@ -1,6 +1,7 @@
 #ifndef DATASENDER_H
 #define DATASENDER_H
 #include <QString>
+#include <QDebug>
 
 
 class dataSender

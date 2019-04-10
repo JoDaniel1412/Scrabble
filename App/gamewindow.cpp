@@ -29,8 +29,7 @@ GameWindow::GameWindow(QWidget *parent) :
 
     loadPlayers(this->ui->tableWidget);
 
-    ClientInterface client;
-    QObject::connect(&client, SIGNAL(updateGame()), this, SLOT(updateGame()));
+	ClientInterface::setGameWindow(this);
 }
 
 GameWindow::~GameWindow()
