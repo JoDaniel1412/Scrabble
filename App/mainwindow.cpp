@@ -6,10 +6,6 @@
 #include <QSettings>
 
 
-QString MainWindow::getIP(){
-    return "127.0.0.1";
-}
-
 // Saves changes that have been made to Settings
 void saveSettings(const QString &key,
                   const QVariant &valor,
@@ -47,10 +43,8 @@ MainWindow::MainWindow(QWidget *parent) :
     size1 = loadSettings("Size", size(), "Window").value<QSize>();
     resize(size1);
 
-    getIP();
-    loadSettings("IP", ip, "Server");
-    loadSettings("PORT", 1234, "Server");
-
+    loadFromPropertiesWindow();
+    qInfo() << "IP2: " << ip << " Port2: " << port;
 
 }
 
@@ -72,6 +66,8 @@ void MainWindow::on_hostBtn_clicked()
 // Changes from mainWindow to joinWindow.
 void MainWindow::on_joinBtn_clicked()
 {
+    loadFromPropertiesWindow();
+    qInfo() << "IP3: " << ip << " Port3: " << port;
     this -> hide( );
     joinWindow = new JoinWindow(this);
     joinWindow -> show();
@@ -87,7 +83,7 @@ void MainWindow::on_propertiesBtn_clicked()
 // Saves settings changes when MainWindow is closed.
 void MainWindow::closeEvent(QCloseEvent *e){
     saveSettings("IP", ip, "Server");
-    saveSettings("PORT", 1234, "Server");
+    saveSettings("PORT", port, "Server");
     saveSettings("Size", size(), "Window");
 
     QWidget::closeEvent(e);
@@ -106,4 +102,14 @@ void MainWindow::on_testBtn_clicked()
     this->hide();
     gameWindow = new GameWindow();
     gameWindow->show();
+}
+
+void MainWindow::loadFromPropertiesWindow()
+{
+    ip = PropertiesWindow::getInstance()->getIP();
+    port = PropertiesWindow::getInstance()->getPort();
+
+    loadSettings("IP", ip, "Server");
+    loadSettings("PORT", port, "Server");
+
 }

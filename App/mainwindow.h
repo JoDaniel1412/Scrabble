@@ -23,14 +23,15 @@ class MainWindow : public QMainWindow
                 PropertiesWindow * propertiesWindow;
 
 public:
-    QString getIP();
-
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
     void closeEvent(QCloseEvent *e);
 
+    void loadFromPropertiesWindow();
+
     QString ip;
+    int port;
 
 
 private slots:
