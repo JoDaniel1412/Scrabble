@@ -48,15 +48,24 @@ void HostWindow::on_hostGameBtn_clicked()
 
     } else{
 
-    Client *client = new Client();
-    client->connectToHost();
+        Client *client = new Client();
+        client->connectToHost();
 
-    QString name = ui->nameEntry->text();
-    QString players = QString::number(ui->horizontalSlider->value());
-    QString key = QString::number((10000 + rand()%(99999-10000)));
+        QString name = ui->nameEntry->text();
+        QString players = QString::number(ui->horizontalSlider->value());
+        QString key = QString::number((10000 + rand()%(99999-10000)));
 
-    QByteArray data = StringToJson::hostWindowObject(key, name, players);
+        QByteArray data = StringToJson::hostWindowObject(key, name, players);
 
-    client->writeData(data);
+        client->writeData(data);
+        QByteArray response = client->readData();
+
+        if(response=="canJoin")
+        {
+            Game::getInstance()->setMyID(name);
+            this->hide();
+            GameWindow *gameWindow = new GameWindow();
+            gameWindow->show();
+        }
     }
 }

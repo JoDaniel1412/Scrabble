@@ -277,3 +277,8 @@ void GameWindow::updateTable()
 {
     loadPlayers(ui->tableWidget);
 }
+
+void GameWindow::on_playBtn_clicked()
+{
+    ClientInterface::askUpdate(game->getMyID());
+}

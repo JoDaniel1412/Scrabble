@@ -7,6 +7,7 @@ Game::Game()
     playing = false;
     players = new unordered_map<string, int>;
     playerPlaying = "";
+    myID = "";
 }
 
 Game *Game::getInstance()
@@ -83,4 +84,14 @@ void Game::read(const QJsonObject &jsonObj)
         pair<string, int> pair(player, points);
         this->players->insert(pair);
     }
+}
+
+QString Game::getMyID() const
+{
+    return myID;
+}
+
+void Game::setMyID(const QString &value)
+{
+    myID = value;
 }

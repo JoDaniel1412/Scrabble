@@ -1,14 +1,16 @@
 #include "client.h"
 
-Client::Client(QObject *parent) : QObject(parent)
+Client::Client(QObject *parent) :
+    QObject(parent)
 {
-    socket = new QTcpSocket(this);
+    socket = new QTcpSocket();
+    ip = "127.0.0.1";
+    port = 12345;
 }
+
 
 bool Client::connectToHost()
 {
-    QString ip = "127.0.0.1";
-    quint16 port = 12345;
     socket->connectToHost(ip, port);
     qInfo() << "Client conecting to: " << ip << ":"<< port;
     return socket->waitForConnected();
@@ -25,6 +27,14 @@ bool Client::writeData(QByteArray data)
     }
     else
         return false;
+}
+
+QByteArray Client::readData()
+{
+    QThread::msleep(1000);
+    QByteArray response = this->getSocket()->readAll();
+    qDebug() << "Client reads: " << response;
+    return response;
 }
 
 

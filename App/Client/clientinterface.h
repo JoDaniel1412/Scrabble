@@ -15,6 +15,8 @@ class ClientInterface : public QObject
 public:
     static void updateGame(QString json);
 
+    static void askUpdate(QString playerID);
+
     static void sendLetterAt(char letter, int i, int j);
 
     static void sendSMS(string word);

@@ -23,7 +23,5 @@ QString dataSender::dataToSend()
     {
         response = "canJoin";
     }
-
-    qDebug() << "Server sending: " << response;
     return response;
 }

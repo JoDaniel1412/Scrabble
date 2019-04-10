@@ -3,7 +3,10 @@
 
 #include <QObject>
 #include <QtCore>
-#include <QtNetwork>
+#include <QTcpSocket>
+#include <QThreadPool>
+#include <QDebug>
+
 
 class Client : public QObject
 {
@@ -11,10 +14,11 @@ class Client : public QObject
 public:
     explicit Client(QObject *parent = 0);
 
-
 public slots:
+
     bool connectToHost();
     bool writeData(QByteArray data);
+    QByteArray readData();
     void setServerKey(int serverKey);
     int getServerKey();
     QTcpSocket* getSocket();
@@ -22,6 +26,8 @@ public slots:
 private:
    QTcpSocket *socket;
    int serverKey;
+   QString ip;
+   quint16 port;
 };
 
 #endif // CLIENT_H

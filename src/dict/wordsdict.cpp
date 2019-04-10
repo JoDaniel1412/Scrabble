@@ -66,12 +66,12 @@ char WordsDict::popRandomLetter()
     return letter;
 }
 
-List<char> WordsDict::popRandomLettersList(int size)
+List<char> *WordsDict::popRandomLettersList(int size)
 {
-    List<char> letters;
+    List<char> *letters = new List<char>();
     for (int i = 0; i < size; i++)
     {
-        letters.pushTail(popRandomLetter());
+        letters->pushTail(popRandomLetter());
     }
 
     return letters;

@@ -22,6 +22,8 @@ public:
 
     static QByteArray smsObject(QString string);
 
+    static QByteArray playerIDObject(QString playerID);
+
     static QByteArray letterInGridObject(char letters, int i, int j);
 
     static QByteArray boardObject(Board board);

@@ -26,11 +26,15 @@ public:
     void write(QJsonObject &jsonObj) const;
     void read(const QJsonObject &jsonObj);
 
+    QString getMyID() const;
+    void setMyID(const QString &value);
+
 private:
     static Game *instance;
     bool playing;
     unordered_map<string, int> *players;  // Players names and points
     QString playerPlaying;
+    QString myID;
 
     Game();
 };

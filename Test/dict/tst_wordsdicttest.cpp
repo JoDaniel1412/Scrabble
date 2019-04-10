@@ -41,9 +41,9 @@ void WordsDictTest::test_popRandomLetter()
 
 void WordsDictTest::test_popRandomLettersList()
 {
-    List<char> letters = WordsDict::popRandomLettersList(4);
+    List<char> *letters = WordsDict::popRandomLettersList(4);
 
-    QCOMPARE(letters.getSize(), 4);
+    QCOMPARE(letters->getSize(), 4);
 }
 
 void WordsDictTest::test_wordPoint()

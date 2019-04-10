@@ -15,11 +15,17 @@ void dataProcessor::receiver(QString data)
     {
         QString key = MatchKey.toString();
         dataProcessor::setMatchKey(key);
+        dataSender::setInfoToSend("canJoin");
     }
     if (obj.value("key").toString() == serverData::getInstance()->getKey())
     {
         dataSender::setInfoToSend("canJoin");
     }
+    QString playerID = obj.value("name").toString();
+    if (playerID != "")GameInterface::addPlayerID(playerID);
+
+    QString playerToUpdate = obj.value("update").toString();
+    if (playerToUpdate != "") GameInterface::updateGameToSend(playerToUpdate);
 
 }
 

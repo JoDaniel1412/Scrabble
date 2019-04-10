@@ -7,6 +7,7 @@ GameWindow *ClientInterface::gameWindow = nullptr;
 
 void ClientInterface::updateGame(QString json)
 {
+    if (json == "") return;
     QJsonObject jsonObj = StringToJson::stringToJsonObject(json);
 
     QString jsonGame = jsonObj["game"].toString();
@@ -18,6 +19,14 @@ void ClientInterface::updateGame(QString json)
     JsonSerializer::parse(jsonBoard, *board);
 
     gameWindow->updateGame();
+}
+
+void ClientInterface::askUpdate(QString playerID)
+{
+    QByteArray data = StringToJson::playerIDObject(playerID);
+    QByteArray response = send(data);
+    QString json(response);
+    updateGame(json);
 }
 
 void ClientInterface::sendLetterAt(char letter, int i, int j)
@@ -45,5 +54,5 @@ QByteArray ClientInterface::send(QByteArray data)
     Client client;
     client.connectToHost();
     client.writeData(data);
-    return client.getSocket()->readAll();
+    return client.readData();
 }

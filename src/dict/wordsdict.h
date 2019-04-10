@@ -45,7 +45,7 @@ public:
      * @param size lenght of the list
      * @return a list of char
      */
-    static List<char> popRandomLettersList(int size);
+    static List<char> *popRandomLettersList(int size);
 
     /**
      * @brief unaccent removes the accents in the given word

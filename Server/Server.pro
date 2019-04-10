@@ -24,7 +24,9 @@ SOURCES += main.cpp \
     serverdata.cpp \
     dataprocessor.cpp \
     game/gameinterface.cpp \
-    datasender.cpp
+    datasender.cpp \
+    server/socket.cpp \
+    server/server.cpp
 
 HEADERS += \
     sms/sms.h \
@@ -32,6 +34,8 @@ HEADERS += \
     serverdata.h \
     dataprocessor.h \
     game/gameinterface.h \
-    datasender.h
+    datasender.h \
+    server/socket.h \
+    server/server.h
 
 LIBS += -L../src -lmyapp

@@ -44,11 +44,12 @@ void JoinWindow::on_joinGameBtn_clicked()
 
         QByteArray data = StringToJson::joinWindowObject(code, name);
 
-    client->writeData(data);
-    QByteArray response = client->getSocket()->readAll();
+        client->writeData(data);
+        QByteArray response = client->readData();
 
-    if(response=="canJoin")
+        if(response=="canJoin")
         {
+            Game::getInstance()->setMyID(name);
             this->hide();
             gameWindow = new GameWindow();
             gameWindow->show();

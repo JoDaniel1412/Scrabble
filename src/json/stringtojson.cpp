@@ -30,6 +30,15 @@ QByteArray StringToJson::smsObject(QString string)
     return data;
 }
 
+QByteArray StringToJson::playerIDObject(QString playerID)
+{
+    QJsonObject jObject;
+    jObject.insert("update", playerID);
+    QJsonDocument doc(jObject);
+    QByteArray data = doc.toJson(QJsonDocument::Compact);
+    return data;
+}
+
 QByteArray StringToJson::letterInGridObject(char letter, int i, int j)
 {
     QJsonObject jObject;

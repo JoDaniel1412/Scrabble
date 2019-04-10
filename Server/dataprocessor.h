@@ -5,6 +5,7 @@
 #include <QJsonDocument>
 #include <serverdata.h>
 #include <datasender.h>
+#include "game/gameinterface.h"
 
 class dataProcessor
 {

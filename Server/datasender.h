@@ -2,6 +2,7 @@
 #define DATASENDER_H
 #include <QString>
 #include <QDebug>
+#include <QThread>
 
 
 class dataSender
