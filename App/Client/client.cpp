@@ -31,8 +31,8 @@ bool Client::writeData(QByteArray data)
 
 QByteArray Client::readData()
 {
-    QThread::msleep(1000);
-    QByteArray response = this->getSocket()->readAll();
+    socket->waitForReadyRead();
+    QByteArray response = socket->readAll();
     qDebug() << "Client reads: " << response;
     return response;
 }
