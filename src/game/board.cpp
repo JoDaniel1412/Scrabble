@@ -126,7 +126,20 @@ QString Board::getHorizontalWord(int i, int j)
 
 QString Board::getVerticalWord(int i, int j)
 {
-    qInfo() << "HELLO";
+    Tile * startTile;
+    QString verticalWord;
+
+    while (!this->getTile(i, j)->isFree() and i > 0 and i < 15){
+        startTile = this->getTile(i--, j);
+    }
+
+    while (!startTile->isFree()){
+        startTile = this->getTile(i++, j);
+        char letter= startTile->getLetter();
+        if(letter != '0') verticalWord += letter;
+    }
+    qInfo() << verticalWord;
+    return verticalWord;
 }
 
 void Board::write(QJsonObject &jsonObj) const
