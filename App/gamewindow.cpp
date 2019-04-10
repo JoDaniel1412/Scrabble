@@ -224,10 +224,14 @@ void GameWindow::setLabelOnBoard()
         LabelWrapper *labelwrapper = (LabelWrapper*) widgetChild;
         moving_label->setCoords(labelwrapper->get_i(), labelwrapper->get_j());
 
-        if(board->putLetter(moving_label->get_i(), moving_label->get_j(), moving_label->getLetter())){
-            labelwrapper->setImage(":/Img/background2.jpg", moving_label->getLetter());
+        int i = moving_label->get_i();
+        int j = moving_label->get_j();
+        char letter = moving_label->getLetter();
+        if(board->putLetter(i, j, letter)){
+            labelwrapper->setImage(":/Img/background2.jpg", letter);
             deleteFromDock(moving_label);
             moving_label = nullptr;
+            ClientInterface::sendLetterAt(letter, i, j);
 
         } else moving_label->move(moving_label->getInitialX(), moving_label->getInitialY());
 
