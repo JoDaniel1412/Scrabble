@@ -5,6 +5,7 @@
 #include <list/List.h>
 #include <QJsonArray>
 #include "json/jsonserializer.h"
+#include <QDebug>
 
 class Board : public JsonSerializable
 {
@@ -28,6 +29,11 @@ public:
     int getRows() const;
 
     int getColumns() const;
+
+    pair<QString, QString> *getWords(int i, int j);
+
+    QString getHorizontalWord(int i, int j);
+    QString getVerticalWord(int i, int j);
 
     void write(QJsonObject &jsonObj) const;
     void read(const QJsonObject &jsonObj);

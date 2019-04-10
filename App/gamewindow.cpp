@@ -271,3 +271,8 @@ void GameWindow::updateTable()
 {
     loadPlayers(ui->tableWidget);
 }
+
+void GameWindow::on_playBtn_clicked()
+{
+    board->getHorizontalWord(1,3);
+}

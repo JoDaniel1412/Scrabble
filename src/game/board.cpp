@@ -95,6 +95,40 @@ int Board::getColumns() const
     return columns;
 }
 
+pair<QString, QString> *Board::getWords(int i, int j)
+{
+   QString hword = getHorizontalWord(i, j);
+   QString vword = getVerticalWord(i, j);
+
+   pair<QString, QString> * wordPair = new pair<QString, QString>(hword, vword);
+
+   return wordPair;
+
+}
+
+QString Board::getHorizontalWord(int i, int j)
+{
+    Tile * startTile;
+    QString horizontalWord;
+
+    while (!this->getTile(i, j)->isFree() and j > 0 and j < 15){
+        startTile = this->getTile(i, j--);
+    }
+
+    while (!startTile->isFree()){
+        startTile = this->getTile(i, j++);
+        char letter= startTile->getLetter();
+        if(letter != '0') horizontalWord += letter;
+    }
+
+    return horizontalWord;
+}
+
+QString Board::getVerticalWord(int i, int j)
+{
+    qInfo() << "HELLO";
+}
+
 void Board::write(QJsonObject &jsonObj) const
 {
     QJsonArray rowsArray;
