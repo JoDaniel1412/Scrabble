@@ -232,7 +232,8 @@ void GameWindow::setLabelOnBoard()
             labelwrapper->setImage(":/Img/background2.jpg", letter);
             deleteFromDock(moving_label);
             moving_label = nullptr;
-            ClientInterface::sendLetterAt(letter, i, j, game->getMyID());
+            game->setPlaying(false);
+            ClientInterface::sendLetterAt(letter, i, j, game->getMyID());  // Client
 
         } else moving_label->move(moving_label->getInitialX(), moving_label->getInitialY());
 

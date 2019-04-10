@@ -72,8 +72,11 @@ void Game::write(QJsonObject &jsonObj) const
 void Game::read(const QJsonObject &jsonObj)
 {
     players->clear();
-    // json encapsulates the QJsonArray
+
     playerPlaying = jsonObj["playing"].toString();
+    if (playerPlaying == myID) playing = true;
+
+    // json encapsulates the QJsonArray
     QJsonArray jsonArray = jsonObj["players"].toArray();
     foreach(QJsonValue jsonPlayer, jsonArray)
     {
