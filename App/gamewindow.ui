@@ -114,22 +114,22 @@ border-left: 2px solid #fffff8;</string>
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QPushButton" name="playBtn">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>1340</x>
-     <y>520</y>
-     <width>111</width>
-     <height>51</height>
+     <x>1220</x>
+     <y>460</y>
+     <width>371</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-image: url(:/Img/background2.jpg);
-font:30pt &quot;ScrambleMixed&quot;;
-color: rgb(0, 0, 0);</string>
+color: rgb(0, 0, 0);
+font: 25pt &quot;ScrambleMixed&quot;;</string>
    </property>
    <property name="text">
-    <string>PLAY!</string>
+    <string>current turn:</string>
    </property>
   </widget>
  </widget>

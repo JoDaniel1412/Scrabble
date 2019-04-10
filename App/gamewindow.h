@@ -54,8 +54,6 @@ protected:
 private slots:
     void on_closeButton_clicked();
 
-    void on_playBtn_clicked();
-
 public slots:
     void updateGame();
 
