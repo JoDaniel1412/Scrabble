@@ -168,14 +168,17 @@ void GameWindow::mousePressEvent(QMouseEvent *event)
     int mouseX = event->x();
     int mouseY = event->y();
 
-    for(int i = 0; i < tileList->getSize(); i++){
-        TileWrapper * tile  = tileList->getNode(i)->getValue();
+    if(game->isPlaying()){
+        for(int i = 0; i < tileList->getSize(); i++){
+            TileWrapper * tile  = tileList->getNode(i)->getValue();
 
-        if (collision(tile, mouseX, mouseY)){
-            moving_label = tile;
-            break;
+            if (collision(tile, mouseX, mouseY)){
+                moving_label = tile;
+                break;
+            }
         }
     }
+
 
 }
 
@@ -258,6 +261,12 @@ void GameWindow::updateGame()
     updateDock();
     updateTable();
     updateBoard();
+
+    ui->label->setText("current turn: " + game->getPlayerPlaying());
+    QFont font = ui->label->font();
+    font.setPointSize(28);
+    ui->label->setFont(font);
+    ui->label->setAlignment(Qt::AlignLeft);
 }
 
 void GameWindow::updateDock()

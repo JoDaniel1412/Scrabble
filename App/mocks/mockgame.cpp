@@ -14,6 +14,8 @@ void MockGame::makePlayers()
     player->insert(pair<string, int>("Pene", 100));
     player->insert(pair<string, int>("Jo", 1));
 
+    game->setPlaying(true);
+
     game->setPlayers(player);
 }
 
