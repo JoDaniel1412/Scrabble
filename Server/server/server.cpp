@@ -3,6 +3,7 @@
 Server::Server(QObject *parent) :
     QTcpServer(parent)
 {
+    IP = QHostAddress::LocalHost;
     port = 12345;
 
     QList<QHostAddress> list = QNetworkInterface::allAddresses();
@@ -14,7 +15,6 @@ Server::Server(QObject *parent) :
               if (list[nIter].protocol() == QAbstractSocket::IPv4Protocol )
               {
                   QString adress = list[nIter].toString();
-                  IP = QHostAddress(adress);
               }
          }
     }
