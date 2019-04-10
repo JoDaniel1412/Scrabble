@@ -30,6 +30,8 @@ GameWindow::GameWindow(QWidget *parent) :
     loadPlayers(this->ui->tableWidget);
 
 	ClientInterface::setGameWindow(this);
+
+    QTimer::singleShot(1000, this, SLOT(askUpdate()));
 }
 
 GameWindow::~GameWindow()
@@ -278,7 +280,8 @@ void GameWindow::updateTable()
     loadPlayers(ui->tableWidget);
 }
 
-void GameWindow::on_playBtn_clicked()
+void GameWindow::askUpdate()
 {
-    ClientInterface::askUpdate(game->getMyID());
+    QTimer::singleShot(1000, this, SLOT(askUpdate()));
+    if (!game->isPlaying()) ClientInterface::askUpdate(game->getMyID());
 }
