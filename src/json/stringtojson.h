@@ -4,6 +4,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QByteArray>
+#include <QDebug>
 
 #include "game/tile.h"
 #include "game/board.h"
@@ -26,6 +27,8 @@ public:
     static QByteArray boardObject(Board board);
 
     static QByteArray gameObject(Game game, Dock dock, Board board);
+
+    static QJsonObject stringToJsonObject(const QString& data);
 };
 
 #endif // STRINGTOJSON_H

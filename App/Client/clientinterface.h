@@ -14,7 +14,7 @@ class ClientInterface : public QObject
 public:
     ClientInterface() = default;
 
-    static void updateGame(string json);
+    static void updateGame(QString json);
 
     static void sendLetterAt(char letter, int i, int j);
 

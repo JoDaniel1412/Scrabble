@@ -4,22 +4,25 @@ Game *ClientInterface::game = Game::getInstance();
 Board *ClientInterface::board = Board::getInstance();
 Dock *ClientInterface::dock = Dock::getInstance();
 
-void ClientInterface::updateGame(string json)
+void ClientInterface::updateGame(QString json)
 {
-    unordered_map<string, int> *players;
-    game->setPlayers(players);
+    QJsonObject jsonObj = StringToJson::stringToJsonObject(json);
 
-    List<char> *letters;
-    dock->setLetters(letters);
+    QString jsonGame = jsonObj["game"].toString();
+    QString jsonDock = jsonObj["dock"].toString();
+    QString jsonBoard = jsonObj["board"].toString();
 
-    List<List<Tile *>*> *matrix;
-    board->setMatrix(matrix);
+    JsonSerializer::parse(jsonGame, *game);
+    JsonSerializer::parse(jsonDock, *dock);
+    JsonSerializer::parse(jsonBoard, *board);
 }
 
 void ClientInterface::sendLetterAt(char letter, int i, int j)
 {
     QByteArray data = StringToJson::letterInGridObject(letter, i, j);
-    send(data);
+    QByteArray response = send(data);
+    QString json(response);
+    updateGame(json);
 }
 
 void ClientInterface::sendSMS(string word)
