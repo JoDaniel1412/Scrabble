@@ -39,12 +39,14 @@ QByteArray StringToJson::playerIDObject(QString playerID)
     return data;
 }
 
-QByteArray StringToJson::letterInGridObject(char letter, int i, int j)
+QByteArray StringToJson::letterInGridObject(char letter, int i, int j, QString playerID)
 {
     QJsonObject jObject;
-    jObject.insert("letter", letter);
+    QString l(letter);
+    jObject.insert("letter", l);
     jObject.insert("i", i);
     jObject.insert("j", j);
+    jObject.insert("playerID", playerID);
     QJsonDocument doc(jObject);
     QByteArray data = doc.toJson(QJsonDocument::Compact);
     return data;

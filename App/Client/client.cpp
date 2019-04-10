@@ -4,8 +4,8 @@ Client::Client(QObject *parent) :
     QObject(parent)
 {
     socket = new QTcpSocket();
-    ip = "127.0.0.1";
-    port = 12345;
+    ip = PropertiesWindow::getInstance()->getIP();
+    port = (quint16)PropertiesWindow::getInstance()->getPort();
 }
 
 
@@ -33,7 +33,7 @@ QByteArray Client::readData()
 {
     socket->waitForReadyRead();
     QByteArray response = socket->readAll();
-    qDebug() << "Client reads responce";
+    if (response != "") qDebug() << "Client reads responce";
     return response;
 }
 

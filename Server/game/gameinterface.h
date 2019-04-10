@@ -20,6 +20,8 @@ public:
 
     static char popRandomLetter();
 
+    static void placeLetter(int i, int j, char letter, QString playerID);
+
     static List<char> *popRandomLettersList(int size);
 
     static int wordPoints(QString word);

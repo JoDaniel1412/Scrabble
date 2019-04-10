@@ -24,7 +24,7 @@ public:
 
     static QByteArray playerIDObject(QString playerID);
 
-    static QByteArray letterInGridObject(char letters, int i, int j);
+    static QByteArray letterInGridObject(char letters, int i, int j, QString playerID);
 
     static QByteArray boardObject(Board board);
 

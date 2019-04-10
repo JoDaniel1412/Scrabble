@@ -24,13 +24,24 @@ QString GameInterface::whoIsTurn()
 void GameInterface::passTurn()
 {
     currentPlayer += 1;
-    if (currentPlayer > playersID.getSize()) currentPlayer = 0;
+    if (currentPlayer >= playersID.getSize()) currentPlayer = 0;
 }
 
 char GameInterface::popRandomLetter()
 {
     char letter = WordsDict::popRandomLetter();
     return letter;
+}
+
+void GameInterface::placeLetter(int i, int j, char letter, QString playerID)
+{
+    board->putLetter(i, j, letter);
+    List<char> *letters = playersLetters.value(playerID);
+    int index = letters->index(letter);
+    letters->deleteValue(index);
+    letters->pushTail(popRandomLetter());
+    passTurn();
+    updateGameToSend(playerID);
 }
 
 List<char> *GameInterface::popRandomLettersList(int size)
