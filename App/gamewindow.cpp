@@ -7,6 +7,7 @@
 #include <QMouseEvent>
 #include "list/List.h"
 #include <QPainter>
+#include <Client/clientinterface.h>
 
 
 GameWindow::GameWindow(QWidget *parent) :
@@ -28,6 +29,8 @@ GameWindow::GameWindow(QWidget *parent) :
 
     loadPlayers(this->ui->tableWidget);
 
+    ClientInterface client;
+    QObject::connect(&client, SIGNAL(updateGame()), this, SLOT(updateGame()));
 }
 
 GameWindow::~GameWindow()

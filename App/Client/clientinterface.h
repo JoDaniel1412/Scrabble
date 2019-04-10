@@ -8,9 +8,12 @@
 #include <json/stringtojson.h>
 
 
-class ClientInterface
+class ClientInterface : public QObject
 {
+    Q_OBJECT
 public:
+    ClientInterface() = default;
+
     static void updateGame(string json);
 
     static void sendLetterAt(char letter, int i, int j);
