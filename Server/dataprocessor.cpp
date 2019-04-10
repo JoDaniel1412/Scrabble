@@ -1,5 +1,6 @@
 #include "dataprocessor.h"
 #include <QDebug>
+#include <sms/sms.h>
 
 
 
@@ -34,6 +35,12 @@ void dataProcessor::receiver(QString data)
         int j = obj.value("j").toInt();
         QString playerID = obj.value("playerID").toString();
         GameInterface::placeLetter(i, j, l, playerID);
+    }
+    QString badWord = obj.value("word").toString();
+    if (badWord != "") {
+        QString message = "Sorry the word: " + badWord + "is not valid";
+        SMS sms;
+        sms.sendMessage(sms.getGameMaster(), sms.getTwilio(), message);
     }
 }
 
