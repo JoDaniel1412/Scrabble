@@ -32,6 +32,7 @@ public:
 
     QString ip;
     int port;
+    int number;
 
 
 private slots:

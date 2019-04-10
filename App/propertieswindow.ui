@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>402</width>
+    <height>352</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>220</y>
+     <y>260</y>
      <width>121</width>
      <height>41</height>
     </rect>
@@ -127,6 +127,53 @@ font: 57 14pt &quot;aakar&quot;;
       </property>
       <property name="placeholderText">
        <string>1234</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>190</y>
+     <width>311</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="portHBox_4">
+    <item>
+     <widget class="QLabel" name="numberLabel">
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#numberLabel{
+	font: 57 20pt &quot;aakar&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#2e3436;&quot;&gt;SMS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="numberEntry">
+      <property name="styleSheet">
+       <string notr="true">#numberEntry{
+	font: 57 18pt &quot;aakar&quot;;
+	background-color: rgb(46, 52, 54);
+	color: rgb(238, 238, 236);
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string>84682074</string>
       </property>
      </widget>
     </item>

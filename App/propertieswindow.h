@@ -36,9 +36,13 @@ private:
 
     int port = 12345;
 
+    int number = 84682074;
+
     void setIP(QString ip);
 
     void setPort(int port);
+
+    void setNumber(int number);
 };
 
 #endif // PROPERTIESWINDOW_H

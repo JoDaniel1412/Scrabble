@@ -111,5 +111,6 @@ void MainWindow::loadFromPropertiesWindow()
 
     loadSettings("IP", ip, "Server");
     loadSettings("PORT", port, "Server");
+    loadSettings("NUMBER", number, "Server");
 
 }
