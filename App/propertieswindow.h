@@ -32,11 +32,11 @@ private:
 
     static PropertiesWindow *instance;
 
-    QString ip = "127.0.0.1";
+    static QString ip;
 
-    int port = 12345;
+    static int port;
 
-    int number = 84682074;
+    static int number;
 
     void setIP(QString ip);
 

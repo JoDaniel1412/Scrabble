@@ -2,6 +2,9 @@
 #include "ui_propertieswindow.h"
 
 PropertiesWindow * PropertiesWindow::instance = nullptr;
+QString PropertiesWindow::ip = "127.0.0.1";
+int PropertiesWindow::port = 12345;
+int PropertiesWindow::number = 84682074;
 
 PropertiesWindow::PropertiesWindow(QWidget *parent) :
     QDialog(parent),
@@ -33,9 +36,13 @@ int PropertiesWindow::getPort()
 
 void PropertiesWindow::on_saveChangesBtn_clicked()
 {
-    this->setIP(ui->ipEntry->text());
-    this->setPort(ui->portEntry->text().toInt());
-    this->setNumber(ui->numberEntry->text().toInt());
+    QString ip = ui->ipEntry->text();
+    int port = ui->portEntry->text().toInt();
+    int number = ui->numberEntry->text().toInt();
+
+    if (ip != "") this->setIP(ip);
+    if (port != 0) this->setPort(port);
+    if (number != 0) this->setNumber(number);
 
     qInfo() << "IP1: " << ip << " Port1: " << port;
 }
