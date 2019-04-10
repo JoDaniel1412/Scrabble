@@ -3,7 +3,8 @@
 
 #include<QTest>
 
-#include<game/game.h>
+#include "game/game.h"
+#include "json/jsonserializer.h"
 
 class GameTest : public QObject
 {
@@ -15,7 +16,7 @@ public:
 
 private slots:
     void test_passTurn();
-
+    void test_jsonGame();
 
 };
 

@@ -5,9 +5,10 @@
 #include <QJsonDocument>
 #include <QByteArray>
 
-#include <game/tile.h>
-#include <game/board.h>
-#include <game/dock.h>
+#include "game/tile.h"
+#include "game/board.h"
+#include "game/dock.h"
+#include "game/game.h"
 #include "jsonserializer.h"
 #include <unordered_map>
 
@@ -24,7 +25,7 @@ public:
 
     static QByteArray boardObject(Board board);
 
-    static QByteArray gameObject(Board board, Dock dock, unordered_map<string, int> players);
+    static QByteArray gameObject(Game game, Dock dock, Board board);
 };
 
 #endif // STRINGTOJSON_H
