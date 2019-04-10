@@ -21,7 +21,7 @@ private slots:
     void test_getTile();
     void test_cleanBoard();
     void test_boardJson();
-
+    void test_words();
 };
 
 //#include "tst_boardtest.moc"

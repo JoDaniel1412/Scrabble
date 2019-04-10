@@ -109,15 +109,16 @@ pair<QString, QString> *Board::getWords(int i, int j)
 
 QString Board::getHorizontalWord(int i, int j)
 {
-    Tile * startTile;
+    Tile * startTile = new Tile();
     QString horizontalWord;
 
     while (!this->getTile(i, j)->isFree() and j > 0 and j < 15){
         startTile = this->getTile(i, j--);
     }
 
+    int k = j + 1;
     while (!startTile->isFree()){
-        startTile = this->getTile(i, j++);
+        startTile = this->getTile(i, k++);
         char letter= startTile->getLetter();
         if(letter != '0') horizontalWord += letter;
     }
@@ -127,7 +128,7 @@ QString Board::getHorizontalWord(int i, int j)
 
 QString Board::getVerticalWord(int i, int j)
 {
-    Tile * startTile;
+    Tile * startTile = new Tile();
     QString verticalWord;
 
     while (!this->getTile(i, j)->isFree() and i > 0 and i < 15){

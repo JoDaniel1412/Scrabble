@@ -83,4 +83,24 @@ void BoardTest::test_boardJson()
     QCOMPARE(parsedBord.getLetter(0, 0), 'A');
     QCOMPARE(parsedBord.getLetter(2, 3), '0');
     QCOMPARE(parsedBord.getLetter(13, 13), 'B');
+    board.clean();
+}
+
+void BoardTest::test_words()
+{
+    Board board = *Board::getInstance();
+    board.putLetter(2, 4, 'P');
+    board.putLetter(2, 5, 'E');
+    board.putLetter(2, 6, 'R');
+    board.putLetter(2, 7, 'R');
+    board.putLetter(2, 8, 'O');
+
+    board.putLetter(0, 7, 'C');
+    board.putLetter(1, 7, 'A');
+    board.putLetter(3, 7, 'R');
+    board.putLetter(4, 7, 'O');
+
+    pair<QString, QString> *words = board.getWords(2, 7);
+    QCOMPARE(words->first, "PERRO");
+    QCOMPARE(words->second, "CARRO");
 }
