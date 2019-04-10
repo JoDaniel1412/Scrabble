@@ -15,6 +15,7 @@ void WordsDictTest::test_isWord()
     QVERIFY(!WordsDict::isWord("dick"));
     QVERIFY(!WordsDict::isWord("DaRknEss"));
 	QVERIFY(WordsDict::isWord("arbol"));
+    QVERIFY(WordsDict::isWord("SASTRE"));
     QVERIFY(WordsDict::wordPoints("perro"));
     QVERIFY(WordsDict::wordPoints("casa"));
 }

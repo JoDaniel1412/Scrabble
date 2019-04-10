@@ -135,12 +135,12 @@ QString Board::getVerticalWord(int i, int j)
         startTile = this->getTile(i--, j);
     }
 
+    int k = i;
     while (!startTile->isFree()){
-        startTile = this->getTile(i++, j);
+        startTile = this->getTile(k++, j);
         char letter= startTile->getLetter();
         if(letter != '0') verticalWord += letter;
     }
-    qInfo() << verticalWord;
     return verticalWord;
 }
 

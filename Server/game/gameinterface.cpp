@@ -46,10 +46,10 @@ void GameInterface::placeLetter(int i, int j, char letter, QString playerID)
     int secondWordPoints = 0;
     if (isWord(wordPair->first)) firstWordPoints =  wordPoints(wordPair->first);
     if (isWord(wordPair->second)) secondWordPoints = wordPoints(wordPair->second);
-    qDebug << "HWord : " << wordPair->first << "VWord :" << wordPair->second;
+    int points = firstWordPoints + secondWordPoints;
+    qDebug() << "HWord : " << wordPair->first << "VWord :" << wordPair->second << "Points : " << points;
 
-    int value = playersPoints.value(playerID);
-    value = firstWordPoints + secondWordPoints;
+    playersPoints[playerID] += points;
 
     passTurn();
     updateGameToSend(playerID);

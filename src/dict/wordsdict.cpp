@@ -88,8 +88,6 @@ QHash<char, pair<int, int>> WordsDict::loadLettersValues()
     // [Letter, [points, amount]]
 
     QHash<char, pair<int, int>> values;
-    values.insert('0', make_pair(0, 2));
-
     values.insert('A', make_pair(1, 12));
     values.insert('E', make_pair(1, 12));
     values.insert('I', make_pair(1, 6));
@@ -102,22 +100,22 @@ QHash<char, pair<int, int>> WordsDict::loadLettersValues()
     values.insert('R', make_pair(1, 5));
 
     values.insert('D', make_pair(2, 5));
-    values.insert('G', make_pair(2, 2));
+    values.insert('G', make_pair(2, 3));
 
-    values.insert('B', make_pair(3, 2));
+    values.insert('B', make_pair(3, 3));
     values.insert('C', make_pair(3, 4));
-    values.insert('M', make_pair(3, 2));
-    values.insert('P', make_pair(3, 2));
+    values.insert('M', make_pair(3, 3));
+    values.insert('P', make_pair(3, 3));
 
-    values.insert('F', make_pair(4, 1));
-    values.insert('H', make_pair(4, 2));
-    values.insert('V', make_pair(4, 1));
-    values.insert('Y', make_pair(4, 1));
+    values.insert('F', make_pair(4, 2));
+    values.insert('H', make_pair(4, 3));
+    values.insert('V', make_pair(4, 2));
+    values.insert('Y', make_pair(4, 2));
 
-    values.insert('Q', make_pair(5, 1));
+    values.insert('Q', make_pair(5, 2));
 
-    values.insert('J', make_pair(8, 1));
-    values.insert('X', make_pair(8, 1));
+    values.insert('J', make_pair(8, 2));
+    values.insert('X', make_pair(8, 2));
 
     values.insert('Z', make_pair(10, 1));
 
