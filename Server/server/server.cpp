@@ -3,7 +3,7 @@
 Server::Server(QObject *parent) :
     QTcpServer(parent)
 {
-    IP = QHostAddress::LocalHost;
+    IP = QHostAddress("192.168.100.10");
     port = 12345;
 }
 

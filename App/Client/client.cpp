@@ -4,7 +4,7 @@ Client::Client(QObject *parent) :
     QObject(parent)
 {
     socket = new QTcpSocket();
-    ip = PropertiesWindow::getInstance()->getIP();
+    ip = "192.168.100.10";
     port = (quint16)PropertiesWindow::getInstance()->getPort();
 }
 
