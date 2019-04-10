@@ -26,6 +26,15 @@ void dataProcessor::receiver(QString data)
     QString playerToUpdate = obj.value("update").toString();
     if (playerToUpdate != "") GameInterface::updateGameToSend(playerToUpdate);
 
+    QString letter = obj.value("letter").toString();
+    if (letter != "")
+    {
+        char l = letter.toStdString().front();
+        int i = obj.value("i").toInt();
+        int j = obj.value("j").toInt();
+        QString playerID = obj.value("playerID").toString();
+        GameInterface::placeLetter(i, j, l, playerID);
+    }
 }
 
 QJsonObject dataProcessor::StringToJson(const QString& data)

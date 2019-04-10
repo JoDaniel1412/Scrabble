@@ -29,9 +29,9 @@ void ClientInterface::askUpdate(QString playerID)
     updateGame(json);
 }
 
-void ClientInterface::sendLetterAt(char letter, int i, int j)
+void ClientInterface::sendLetterAt(char letter, int i, int j, QString playerID)
 {
-    QByteArray data = StringToJson::letterInGridObject(letter, i, j);
+    QByteArray data = StringToJson::letterInGridObject(letter, i, j, playerID);
     QByteArray response = send(data);
     QString json(response);
     updateGame(json);

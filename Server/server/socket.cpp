@@ -18,7 +18,7 @@ void Socket::run()
     connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()), Qt::DirectConnection);
     connect(socket, SIGNAL(disconnected()), this, SLOT(disconnected()), Qt::DirectConnection);
 
-    qDebug() << "Client connected :" << socketDescriptor;
+    //qDebug() << "Client connected :" << socketDescriptor;
 
     exec();
 }
@@ -26,7 +26,7 @@ void Socket::run()
 void Socket::readyRead()
 {
     QByteArray data = socket->readAll();
-    qDebug() << "Reading data";
+    qDebug() << "Reading data" << data;
 
     dataProcessor::receiver(data);
 
@@ -37,7 +37,7 @@ void Socket::readyRead()
 
 void Socket::disconnected()
 {
-    qDebug() << "Disconnected : " << socketDescriptor;
+    //qDebug() << "Disconnected : " << socketDescriptor;
     socket->deleteLater();
     exit(0);
 }

@@ -17,7 +17,7 @@ public:
 
     static void askUpdate(QString playerID);
 
-    static void sendLetterAt(char letter, int i, int j);
+    static void sendLetterAt(char letter, int i, int j, QString playerID);
 
     static void sendSMS(string word);
 

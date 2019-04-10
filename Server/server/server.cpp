@@ -3,7 +3,7 @@
 Server::Server(QObject *parent) :
     QTcpServer(parent)
 {
-    IP = QHostAddress::Any;
+    IP = QHostAddress::LocalHost;
     port = 12345;
 }
 
@@ -15,13 +15,13 @@ void Server::start()
     }
     else {
         qDebug() << "Listening..";
-        qDebug() << IP << ":" << port;
+        qDebug() << this->serverAddress() << ":" << port;
     }
 }
 
 void Server::incomingConnection(qintptr socketDescriptor)
 {
-    qDebug() << "Connecting :" << socketDescriptor;
+    //qDebug() << "Connecting :" << socketDescriptor;
     Socket *socket = new Socket(socketDescriptor, this);
     connect(socket, SIGNAL(finished()), socket, SLOT(deleteLater()));
     socket->start();

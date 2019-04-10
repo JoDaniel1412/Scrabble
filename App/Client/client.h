@@ -6,6 +6,7 @@
 #include <QTcpSocket>
 #include <QThreadPool>
 #include <QDebug>
+#include <propertieswindow.h>
 
 
 class Client : public QObject
