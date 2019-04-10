@@ -40,8 +40,19 @@ void GameInterface::placeLetter(int i, int j, char letter, QString playerID)
     int index = letters->index(letter);
     letters->deleteValue(index);
     letters->pushTail(popRandomLetter());
+
+    pair<QString, QString> *wordPair = board->getWords(i, j);
+    int firstWordPoints = 0;
+    int secondWordPoints = 0;
+    if (isWord(wordPair->first)) firstWordPoints =  wordPoints(wordPair->first);
+    if (isWord(wordPair->second)) secondWordPoints = wordPoints(wordPair->second);
+
+    int value = playersPoints.value(playerID);
+    value = firstWordPoints + secondWordPoints;
+
     passTurn();
     updateGameToSend(playerID);
+
 }
 
 List<char> *GameInterface::popRandomLettersList(int size)
