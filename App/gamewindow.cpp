@@ -295,3 +295,8 @@ void GameWindow::askUpdate()
     QTimer::singleShot(1000, this, SLOT(askUpdate()));
     if (!game->isPlaying()) ClientInterface::askUpdate(game->getMyID());
 }
+
+void GameWindow::on_smsButton_clicked()
+{
+    ClientInterface::sendSMS("perro");
+}
