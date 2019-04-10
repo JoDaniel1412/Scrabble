@@ -35,6 +35,7 @@ void PropertiesWindow::on_saveChangesBtn_clicked()
 {
     this->setIP(ui->ipEntry->text());
     this->setPort(ui->portEntry->text().toInt());
+    this->setNumber(ui->numberEntry->text().toInt());
 
     qInfo() << "IP1: " << ip << " Port1: " << port;
 }
@@ -47,4 +48,8 @@ void PropertiesWindow::setIP(QString ip)
 void PropertiesWindow::setPort(int port)
 {
     this->port = port;
+}
+void PropertiesWindow::setNumber(int number)
+{
+    this->number = number;
 }
