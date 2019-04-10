@@ -4,6 +4,7 @@
 #include <QtTest>
 
 #include <game/dock.h>
+#include "json/jsonserializer.h"
 
 // add necessary includes here
 
@@ -17,6 +18,7 @@ public:
 
 private slots:
     void test_load();
+    void test_json();
 
 };
 

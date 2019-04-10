@@ -4,6 +4,7 @@
 #include <QtTest>
 
 #include <game/tile.h>
+#include "json/jsonserializer.h"
 
 // add necessary includes here
 
@@ -17,7 +18,7 @@ public:
 
 private slots:
     void test_get_set();
-
+    void test_tileJson();
 };
 
 //#include "tst_tiletest.moc"

@@ -15,8 +15,6 @@ public:
     ~StringToJsonTest();
 
 private slots:
-    void test_tileJson();
-    void test_boardJson();
 };
 
 #endif // STRINGTOJSONTEST_H

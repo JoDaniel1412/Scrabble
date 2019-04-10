@@ -49,3 +49,17 @@ QByteArray StringToJson::boardObject(Board board)
     QByteArray data = doc.toJson(QJsonDocument::Compact);
     return data;
 }
+
+QByteArray StringToJson::gameObject(Board board, Dock dock, unordered_map<string, int> players)
+{
+    QJsonObject jObject;
+    QString boardJason = JsonSerializer::serialize(board);
+
+    jObject.insert("board", boardJason);
+    //jObject.insert("dock", i);
+    //jObject.insert("players", j);
+
+    QJsonDocument doc(jObject);
+    QByteArray data = doc.toJson(QJsonDocument::Compact);
+    return data;
+}

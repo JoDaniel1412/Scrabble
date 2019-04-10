@@ -2,9 +2,11 @@
 #define DOCK_H
 
 #include <list/List.h>
+#include <json/jsonserializable.h>
+#include <QJsonArray>
 
 
-class Dock
+class Dock : public JsonSerializable
 {
 public:
     static Dock *getInstance();
@@ -15,6 +17,9 @@ public:
 
     List<char> *getLetters() const;
     void setLetters(List<char> *value);
+
+    void write(QJsonObject &jsonObj) const;
+    void read(const QJsonObject &jsonObj);
 
 private:
     Dock();

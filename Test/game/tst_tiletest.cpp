@@ -30,3 +30,21 @@ void TileTest::test_get_set()
     QVERIFY(!tile.isFree());
     QCOMPARE(tile.getBonus(), 4);
 }
+
+void TileTest::test_tileJson()
+{
+    Tile tile('A', false, 2);
+
+    // Serialize
+    QString json = JsonSerializer::serialize(tile);
+
+    //qDebug() << json;
+
+    // Parse serialization output to rebuild tile
+    Tile parsedTile;
+    JsonSerializer::parse(json, parsedTile);
+
+    QCOMPARE(parsedTile.getLetter(), tile.getLetter());
+    QCOMPARE(parsedTile.isFree(), tile.isFree());
+    QCOMPARE(parsedTile.getBonus(), tile.getBonus());
+}

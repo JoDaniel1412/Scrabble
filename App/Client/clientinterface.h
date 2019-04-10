@@ -25,7 +25,7 @@ private:
     static Board *board;
     static Dock *dock;
 
-    static void send(QByteArray data);
+    static QByteArray send(QByteArray data);
 };
 
 #endif // CLIENTINTERFACE_H

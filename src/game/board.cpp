@@ -117,6 +117,7 @@ void Board::write(QJsonObject &jsonObj) const
 
 void Board::read(const QJsonObject &jsonObj)
 {
+    instance = new Board();
     // json encapsulates the QJsonArray
     QJsonArray rowsArray = jsonObj["rows"].toArray();
 

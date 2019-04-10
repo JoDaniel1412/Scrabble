@@ -29,10 +29,10 @@ void ClientInterface::sendSMS(string word)
     send(data);
 }
 
-void ClientInterface::send(QByteArray data)
+QByteArray ClientInterface::send(QByteArray data)
 {
     Client client;
     client.connectToHost();
     client.writeData(data);
-    QByteArray response = client.getSocket()->readAll();
+    return client.getSocket()->readAll();
 }

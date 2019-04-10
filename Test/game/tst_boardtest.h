@@ -20,6 +20,7 @@ private slots:
     void test_putLetter();
     void test_getTile();
     void test_cleanBoard();
+    void test_boardJson();
 
 };
 
